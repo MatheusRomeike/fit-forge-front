@@ -4,80 +4,91 @@
   </div>
   <div class="flex-none gap-2">
     <div class="hidden md:flex space-x-4">
-      <a *ngFor="let item of menuItems" class="btn btn-ghost">
-        {{ item.label | translate }}
-      </a>
+      <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
     </div>
 
-    <div class="dropdown">
-      <div tabindex="0" role="button" class="btn m-1">
-        <a
-          ><span [ngClass]="getLanguage().icon"></span>
-          {{ getLanguage().label | translate }}</a
-        >
-      </div>
+    <ng-container *ngTemplateOutlet="languageSelector"></ng-container>
 
-      <ul
-        tabindex="0"
-        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-      >
-        <li *ngFor="let language of languages">
-          <a
-            (click)="toggleLanguage(language.language)"
-            [ngClass]="{ active: isActive(language.language) }"
-            ><span [ngClass]="language.icon"></span>
-            {{ language.label | translate }}</a
-          >
-        </li>
-      </ul>
-    </div>
+    <ng-container *ngTemplateOutlet="themeSelector"></ng-container>
 
-    <!-- Botão de alternância de tema -->
-    <div class="flex items-center">
-      <button class="btn btn-ghost" (click)="toggleTheme()">
-        <fa-icon class="text-xl" *ngIf="isDarkTheme" [icon]="faMoon"></fa-icon>
-        <fa-icon class="text-xl" *ngIf="!isDarkTheme" [icon]="faSun"></fa-icon>
-      </button>
-    </div>
-
-    <!-- Avatar dropdown -->
-    <div class="dropdown dropdown-end">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <img
-            alt="Avatar"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-          />
-        </div>
-      </div>
-      <ul
-        tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-      >
-        <li *ngFor="let item of avatarItems">
-          <a class="justify-between">
-            {{ item.label | translate }}
-            <span *ngIf="item.badge" class="badge">{{
-              item.badge | translate
-            }}</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Mobile menu -->
-    <div class="dropdown dropdown-end md:hidden">
-      <label tabindex="0" class="btn btn-ghost">
-        <fa-icon [icon]="faBars"></fa-icon>
-      </label>
-      <ul
-        tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-      >
-        <li *ngFor="let item of menuItems">
-          <a>{{ item.label | translate }}</a>
-        </li>
-      </ul>
-    </div>
+    <ng-container *ngTemplateOutlet="mobileMenu"></ng-container>
   </div>
 </div>
+
+<ng-template #menuButtons>
+  <a *ngFor="let item of menuItems" class="btn btn-ghost">
+    {{ item.label | translate }}
+  </a>
+</ng-template>
+
+<ng-template #languageSelector>
+  <div class="dropdown">
+    <div tabindex="0" role="button" class="btn m-1">
+      <a
+        ><span [ngClass]="getLanguage().icon"></span>
+        {{ getLanguage().label | translate }}</a
+      >
+    </div>
+    <ul
+      tabindex="0"
+      class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+    >
+      <li *ngFor="let language of languages">
+        <a
+          (click)="toggleLanguage(language.language)"
+          [ngClass]="{ active: isActive(language.language) }"
+          ><span [ngClass]="language.icon"></span>
+          {{ language.label | translate }}</a
+        >
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #themeSelector>
+  <div class="flex items-center">
+    <button class="btn btn-ghost" (click)="toggleTheme()">
+      <fa-icon class="text-xl" *ngIf="isDarkTheme" [icon]="faMoon"></fa-icon>
+      <fa-icon class="text-xl" *ngIf="!isDarkTheme" [icon]="faSun"></fa-icon>
+    </button>
+  </div>
+
+  <div class="dropdown dropdown-hover dropdown-end">
+    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+      <div class="w-10 rounded-full">
+        <img
+          alt="Avatar"
+          src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+        />
+      </div>
+    </div>
+
+    <ul
+      tabindex="0"
+      class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+    >
+      <li *ngFor="let item of avatarItems">
+        <a class="justify-between">
+          {{ item.label | translate }}
+          <span *ngIf="item.badge" class="badge">{{
+            item.badge | translate
+          }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #mobileMenu>
+  <div class="dropdown dropdown-end md:hidden">
+    <label tabindex="0" class="btn btn-ghost">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </label>
+    <ul
+      tabindex="0"
+      class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+    >
+      <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
+    </ul>
+  </div>
+</ng-template>
