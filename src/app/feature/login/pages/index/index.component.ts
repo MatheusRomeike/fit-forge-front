@@ -5,4 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './index.component.html',
   styleUrl: './index.component.scss',
 })
-export class IndexComponent {}
+export class IndexComponent {
+  step: string = 'login';
+
+  changeStep(step: string) {
+    this.step = step;
+    console.log(this.step);
+  }
+}

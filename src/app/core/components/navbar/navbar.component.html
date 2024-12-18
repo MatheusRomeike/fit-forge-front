@@ -1,0 +1,58 @@
+<div class="navbar shadow-xl h-12">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl">FitForge</a>
+  </div>
+  <div class="flex-none gap-2">
+    <div class="hidden md:flex space-x-4">
+      <a *ngFor="let item of menuItems" class="btn btn-ghost">
+        {{ item.label }}
+      </a>
+    </div>
+
+    <!-- Botão de alternância de tema -->
+    <div class="flex items-center">
+      <button class="btn btn-ghost" (click)="toggleTheme()">
+        <fa-icon class="text-xl" *ngIf="isDarkTheme" [icon]="faMoon"></fa-icon>
+        <fa-icon class="text-xl" *ngIf="!isDarkTheme" [icon]="faSun"></fa-icon>
+      </button>
+    </div>
+
+    <!-- Avatar dropdown -->
+    <div class="dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 rounded-full">
+          <img
+            alt="Avatar"
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+          />
+        </div>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+      >
+        <li *ngFor="let item of avatarItems">
+          <a class="justify-between">
+            {{ item.label }}
+            <span *ngIf="item.badge" class="badge">{{ item.badge }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="dropdown dropdown-end md:hidden">
+      <label tabindex="0" class="btn btn-ghost">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </label>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+      >
+        <li *ngFor="let item of menuItems">
+          <a>{{ item.label }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

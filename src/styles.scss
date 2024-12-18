@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Adicionando a transição suave */
+.theme-transition {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+/* Outros estilos podem ser definidos para os temas */
+[data-theme="pastel"] {
+  --primary-background: #f3f4f6;
+  --primary-color: #333;
+  --secondary-background: #ffffff;
+}
+
+[data-theme="night"] {
+  --primary-background: #1a1a1a;
+  --primary-color: #f0f0f0;
+  --secondary-background: #333333;
+}
