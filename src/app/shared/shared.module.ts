@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
 import { FullSizeDirective } from './directives/fullsize.directive';
 @NgModule({
   declarations: [FullSizeDirective],
@@ -12,7 +13,8 @@ import { FullSizeDirective } from './directives/fullsize.directive';
     ReactiveFormsModule,
     RouterModule,
     FontAwesomeModule,
+    TranslateModule,
   ],
-  exports: [FullSizeDirective, FontAwesomeModule],
+  exports: [FullSizeDirective, FontAwesomeModule, TranslateModule],
 })
 export class SharedModule {}

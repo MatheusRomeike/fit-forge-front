@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { MultiLanguageService } from '../../services/mult-language.service';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -9,16 +10,21 @@ import { ThemeService } from '../../services/theme.service';
 })
 export class NavbarComponent implements OnInit {
   menuItems = [
-    { label: 'Home' },
-    { label: 'Products' },
-    { label: 'About' },
-    { label: 'Contact' },
+    { label: 'navbar.home' },
+    { label: 'navbar.products' },
+    { label: 'navbar.about' },
+    { label: 'navbar.contact' },
   ];
 
   avatarItems = [
-    { label: 'Profile', badge: 'New' },
-    { label: 'Settings' },
-    { label: 'Logout' },
+    { label: 'navbar.profile', badge: 'navbar.new' },
+    { label: 'navbar.settings' },
+    { label: 'navbar.logout' },
+  ];
+
+  languages = [
+    { label: 'navbar.english', icon: 'fi fi-us', language: 'en' },
+    { label: 'navbar.portuguese', icon: 'fi fi-br', language: 'pt' },
   ];
 
   faBars = faBars;
@@ -26,7 +32,10 @@ export class NavbarComponent implements OnInit {
   faSun = faSun;
   isDarkTheme = false;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private multiLanguageService: MultiLanguageService
+  ) {}
 
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.getCurrentTheme() === 'night';
@@ -35,5 +44,20 @@ export class NavbarComponent implements OnInit {
   toggleTheme(): void {
     this.themeService.toggleTheme();
     this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleLanguage(language: string): void {
+    if (this.multiLanguageService.languageSignal() !== language) {
+      this.multiLanguageService.updateLanguage(language);
+    }
+  }
+
+  getLanguage() {
+    const language = this.multiLanguageService.languageSignal();
+    return this.languages.find((x) => x.language == language);
+  }
+
+  isActive(language: string): boolean {
+    return this.multiLanguageService.languageSignal() === language;
   }
 }

@@ -1,0 +1,14 @@
+{
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "english": "English",
+    "portuguese": "Portuguese",
+    "new": "New"
+  }
+}

@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class ThemeService {
   private themeKey = 'theme';
-  private lightTheme = 'pastel'; // Tema claro
-  private darkTheme = 'night'; // Tema escuro
+  private lightTheme = 'pastel';
+  private darkTheme = 'night';
 
   constructor() {
     this.loadTheme();

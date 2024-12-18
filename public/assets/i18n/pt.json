@@ -1,0 +1,14 @@
+{
+  "navbar": {
+    "home": "início",
+    "products": "Produtos",
+    "about": "Sobre",
+    "contact": "Contato",
+    "profile": "Perfil",
+    "settings": "Configurações",
+    "logout": "Logout",
+    "english": "Inglês",
+    "portuguese": "Português",
+    "new": "Novo"
+  }
+}
