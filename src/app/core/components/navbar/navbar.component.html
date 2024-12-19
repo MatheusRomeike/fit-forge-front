@@ -5,11 +5,11 @@
   <div class="flex-none gap-2">
     <div class="hidden md:flex space-x-4">
       <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
+
+      <ng-container *ngTemplateOutlet="languageSelector"></ng-container>
+
+      <ng-container *ngTemplateOutlet="themeSelector"></ng-container>
     </div>
-
-    <ng-container *ngTemplateOutlet="languageSelector"></ng-container>
-
-    <ng-container *ngTemplateOutlet="themeSelector"></ng-container>
 
     <div [ngSwitch]="isLogged()">
       <div *ngSwitchCase="true">
@@ -32,24 +32,14 @@
 
 <ng-template #languageSelector>
   <div class="dropdown">
-    <div tabindex="0" role="button" class="btn m-1">
+    <div tabindex="0" role="button" class="btn m-1 hidden md:flex">
       <a
         ><span [ngClass]="getLanguage().icon"></span>
         {{ getLanguage().label | translate }}</a
       >
     </div>
-    <ul
-      tabindex="0"
-      class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-    >
-      <li *ngFor="let language of languages">
-        <a
-          (click)="toggleLanguage(language.language)"
-          [ngClass]="{ active: isActive(language.language) }"
-          ><span [ngClass]="language.icon"></span>
-          {{ language.label | translate }}</a
-        >
-      </li>
+    <ul class="dropdown-content menu rounded-box z-[2] bg-base-100 p-2 shadow">
+      <ng-container *ngTemplateOutlet="languageOptions"></ng-container>
     </ul>
   </div>
 </ng-template>
@@ -74,7 +64,6 @@
     </div>
 
     <ul
-      tabindex="0"
       class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
     >
       <li *ngFor="let item of avatarItems">
@@ -99,6 +88,11 @@
       class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
     >
       <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
+
+      <div class="flex items-center">
+        <ng-container *ngTemplateOutlet="themeSelector"></ng-container>
+        <ng-container *ngTemplateOutlet="languageOptions"></ng-container>
+      </div>
     </ul>
   </div>
 </ng-template>
@@ -108,4 +102,15 @@
     <fa-icon [icon]="faArrowRightToBracket"></fa-icon>
     {{ "navbar.login" | translate }}
   </button>
+</ng-template>
+
+<ng-template #languageOptions>
+  <li *ngFor="let language of languages">
+    <a
+      (click)="toggleLanguage(language.language)"
+      [ngClass]="{ active: isActive(language.language) }"
+      ><span [ngClass]="language.icon"></span>
+      {{ language.label | translate }}</a
+    >
+  </li>
 </ng-template>

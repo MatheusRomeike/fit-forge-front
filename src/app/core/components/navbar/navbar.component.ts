@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   faArrowRightToBracket,
   faBars,
@@ -42,7 +43,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private themeService: ThemeService,
     private multiLanguageService: MultiLanguageService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -74,5 +76,7 @@ export class NavbarComponent implements OnInit {
     // return this.loginService.isLogged();
   }
 
-  onLoginClick() {}
+  onLoginClick() {
+    this.router.navigate(['login']);
+  }
 }
