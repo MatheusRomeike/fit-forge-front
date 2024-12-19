@@ -1,0 +1,13 @@
+<div class="flex items-center justify-center mt-4">
+  <button
+    class="btn btn-outline btn-accent flex items-center gap-2"
+    (click)="onGoogleAuthClick()"
+  >
+    <img
+      src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+      alt="Google Logo"
+      class="w-5 h-5"
+    />
+    <span>{{ "login.signWithGoogle" | translate }}</span>
+  </button>
+</div>

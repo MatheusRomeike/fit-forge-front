@@ -11,5 +11,22 @@
     "portuguese": "PT",
     "new": "New",
     "login": "Login"
+  },
+  "login": {
+    "signWithGoogle": "Sign in with Google",
+    "login": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot Password?",
+    "or": "OR",
+    "dontHaveAccount": "Don't have an account?",
+    "signUpNow": "Sign up now",
+    "register": "Register",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginHere": "Login here"
   }
 }

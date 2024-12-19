@@ -1,37 +1,48 @@
-<h2 class="card-title text-2xl font-bold mb-6">Register</h2>
+<h2 class="card-title text-2xl font-bold mb-6">
+  {{ "login.register" | translate }}
+</h2>
 <form>
   <div class="form-control">
     <label class="label">
-      <span class="label-text">Name</span>
-    </label>
-    <input type="text" placeholder="Your name" class="input input-bordered" />
-  </div>
-  <div class="form-control mt-4">
-    <label class="label">
-      <span class="label-text">Email</span>
+      <span class="label-text">{{ "login.name" | translate }}</span>
     </label>
     <input
-      type="email"
-      placeholder="email@example.com"
+      type="text"
+      [placeholder]="'login.namePlaceholder' | translate"
       class="input input-bordered"
     />
   </div>
   <div class="form-control mt-4">
     <label class="label">
-      <span class="label-text">Password</span>
+      <span class="label-text">{{ "login.email" | translate }}</span>
+    </label>
+    <input
+      type="email"
+      [placeholder]="'login.emailPlaceholder' | translate"
+      class="input input-bordered"
+    />
+  </div>
+  <div class="form-control mt-4">
+    <label class="label">
+      <span class="label-text">{{ "login.password" | translate }}</span>
     </label>
     <input
       type="password"
-      placeholder="Enter password"
+      [placeholder]="'login.passwordPlaceholder' | translate"
       class="input input-bordered"
     />
   </div>
   <div class="form-control mt-6">
-    <button class="btn btn-primary">Register</button>
+    <button class="btn btn-primary">
+      {{ "login.register" | translate | uppercase }}
+    </button>
   </div>
 </form>
-<div class="divider">OR</div>
+<div class="divider">{{ "login.or" | translate }}</div>
+<app-google-auth></app-google-auth>
 <div class="text-center">
-  <p>Already have an account?</p>
-  <button (click)="onLoginClick()" class="link link-primary">Login here</button>
+  <p>{{ "login.alreadyHaveAccount" | translate }}</p>
+  <button (click)="onLoginClick()" class="link link-primary">
+    {{ "login.loginHere" | translate }}
+  </button>
 </div>

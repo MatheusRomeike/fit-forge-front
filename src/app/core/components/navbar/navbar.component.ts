@@ -48,7 +48,7 @@ export class NavbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isDarkTheme = this.themeService.getCurrentTheme() === 'night';
+    this.isDarkTheme = this.themeService.getCurrentTheme() === 'dark';
   }
 
   toggleTheme(): void {

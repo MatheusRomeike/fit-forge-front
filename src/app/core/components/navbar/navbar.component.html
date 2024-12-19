@@ -1,4 +1,4 @@
-<div class="navbar shadow-xl">
+<div class="navbar shadow-xl h-full">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">FitForge</a>
   </div>
@@ -38,7 +38,10 @@
         {{ getLanguage().label | translate }}</a
       >
     </div>
-    <ul class="dropdown-content menu rounded-box z-[2] bg-base-100 p-2 shadow">
+    <ul
+      tabindex="0"
+      class="dropdown-content menu rounded-box z-[2] bg-base-100 p-2 shadow"
+    >
       <ng-container *ngTemplateOutlet="languageOptions"></ng-container>
     </ul>
   </div>
