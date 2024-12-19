@@ -4,7 +4,7 @@ import { LoggedUser } from '../models/logged-user';
 @Injectable({
   providedIn: 'root',
 })
-export class MultiLanguageService {
+export class LoginService {
   private userDataKey = 'userData';
 
   dataSignal = signal<LoggedUser>(
@@ -22,5 +22,9 @@ export class MultiLanguageService {
         JSON.stringify(this.dataSignal())
       );
     });
+  }
+
+  isLogged() {
+    return this.dataSignal();
   }
 }

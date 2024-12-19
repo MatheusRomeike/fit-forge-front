@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowRightToBracket,
+  faBars,
+  faMoon,
+  faSun,
+} from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from '../../services/login.service';
 import { MultiLanguageService } from '../../services/mult-language.service';
 import { ThemeService } from '../../services/theme.service';
 
@@ -30,11 +36,13 @@ export class NavbarComponent implements OnInit {
   faBars = faBars;
   faMoon = faMoon;
   faSun = faSun;
+  faArrowRightToBracket = faArrowRightToBracket;
   isDarkTheme = false;
 
   constructor(
     private themeService: ThemeService,
-    private multiLanguageService: MultiLanguageService
+    private multiLanguageService: MultiLanguageService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -60,4 +68,11 @@ export class NavbarComponent implements OnInit {
   isActive(language: string): boolean {
     return this.multiLanguageService.languageSignal() === language;
   }
+
+  isLogged() {
+    return false;
+    // return this.loginService.isLogged();
+  }
+
+  onLoginClick() {}
 }

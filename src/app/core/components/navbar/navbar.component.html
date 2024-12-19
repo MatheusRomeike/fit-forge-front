@@ -11,6 +11,15 @@
 
     <ng-container *ngTemplateOutlet="themeSelector"></ng-container>
 
+    <div [ngSwitch]="isLogged()">
+      <div *ngSwitchCase="true">
+        <ng-container *ngTemplateOutlet="loggedAvatar"></ng-container>
+      </div>
+      <div *ngSwitchCase="false">
+        <ng-container *ngTemplateOutlet="loginButton"></ng-container>
+      </div>
+    </div>
+
     <ng-container *ngTemplateOutlet="mobileMenu"></ng-container>
   </div>
 </div>
@@ -52,7 +61,8 @@
       <fa-icon class="text-xl" *ngIf="!isDarkTheme" [icon]="faSun"></fa-icon>
     </button>
   </div>
-
+</ng-template>
+<ng-template #loggedAvatar>
   <div class="dropdown dropdown-hover dropdown-end">
     <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
       <div class="w-10 rounded-full">
@@ -91,4 +101,11 @@
       <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
     </ul>
   </div>
+</ng-template>
+
+<ng-template #loginButton>
+  <button class="btn btn-outline" (click)="onLoginClick()">
+    <fa-icon [icon]="faArrowRightToBracket"></fa-icon>
+    {{ "navbar.login" | translate }}
+  </button>
 </ng-template>
