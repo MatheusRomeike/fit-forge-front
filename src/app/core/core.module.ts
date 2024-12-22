@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { BaseLayoutComponent } from './components/base-layout/base-layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [NavbarComponent, BaseLayoutComponent],
+  declarations: [NavbarComponent, BaseLayoutComponent, SidebarComponent],
   imports: [
     CommonModule,
     RouterModule,

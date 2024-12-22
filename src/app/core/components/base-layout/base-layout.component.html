@@ -1,6 +1,11 @@
-<div fullSize>
-  <app-navbar class="block h-[8%] md:h-[8%] sm:h-[6%]"></app-navbar>
-  <div class="h-[92%] md:h-[92%] sm:h-[94%]">
-    <router-outlet></router-outlet>
+<div class="flex h-screen">
+  <app-sidebar class="mr-6"></app-sidebar>
+
+  <div class="flex-1 flex flex-col mr-6">
+    <app-navbar class="block h-[8%] md:h-[8%] sm:h-[6%]"></app-navbar>
+
+    <div class="flex-1 overflow-auto p-4">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

@@ -12,6 +12,11 @@
     "new": "Novo",
     "login": "Login"
   },
+  "sidebar": {
+    "home": "Início",
+    "dashboard": "Dashboard",
+    "analytics": "Análises"
+  },
   "login": {
     "login": "Entrar",
     "email": "Email",

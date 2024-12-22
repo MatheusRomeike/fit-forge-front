@@ -12,6 +12,11 @@
     "new": "New",
     "login": "Login"
   },
+  "sidebar": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "analytics": "Analytics"
+  },
   "login": {
     "login": "Login",
     "email": "Email",
