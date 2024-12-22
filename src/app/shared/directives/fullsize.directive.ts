@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[fullSize]',
+    selector: '[fullSize]',
+    standalone: false
 })
 export class FullSizeDirective {
   constructor(private el: ElementRef, private renderer: Renderer2) {

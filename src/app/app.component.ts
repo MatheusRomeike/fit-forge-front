@@ -3,9 +3,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { MultiLanguageService } from './core/services/mult-language.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    standalone: false
 })
 export class AppComponent {
   constructor(
