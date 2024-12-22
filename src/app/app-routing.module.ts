@@ -4,15 +4,14 @@ import { BaseLayoutComponent } from './core/components/base-layout/base-layout.c
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: () =>
+      import('./feature/login/login.module').then((m) => m.LoginModule),
+  },
+  {
     path: '',
     component: BaseLayoutComponent,
-    children: [
-      {
-        path: 'login',
-        loadChildren: () =>
-          import('./feature/login/login.module').then((x) => x.LoginModule),
-      },
-    ],
+    children: [],
   },
 ];
 

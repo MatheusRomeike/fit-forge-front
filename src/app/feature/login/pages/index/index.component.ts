@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-index',
-    templateUrl: './index.component.html',
-    styleUrls: ['./index.component.scss'],
-    standalone: false
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.scss'],
+  standalone: false,
 })
 export class IndexComponent implements OnInit {
   step: string = 'login';
-  index = 1;
+  index = 0;
   currentOpacity = 1;
 
   ngOnInit(): void {

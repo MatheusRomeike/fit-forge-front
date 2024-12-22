@@ -13,7 +13,6 @@
     "login": "Login"
   },
   "login": {
-    "signWithGoogle": "Entrar com o Google",
     "login": "Entrar",
     "email": "Email",
     "emailPlaceholder": "Digite seu email",
