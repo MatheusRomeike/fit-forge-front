@@ -24,7 +24,7 @@
 
 <ng-template #menuItem let-item>
   <li>
-    <details open>
+    <details [open]="item.open" class="w-full">
       <summary>{{ item.title }}</summary>
       <ul>
         <li *ngFor="let subItem of item.subMenu">
@@ -36,8 +36,13 @@
             ></ng-container>
           </ng-container>
           <ng-template #simpleSubMenuItem>
-            <a>{{ subItem.title }}</a>
-          </ng-template>
+            <ng-container
+              *ngTemplateOutlet="
+                simpleMenuItem;
+                context: { $implicit: subItem }
+              "
+            ></ng-container
+          ></ng-template>
         </li>
       </ul>
     </details>
@@ -46,7 +51,7 @@
 
 <ng-template #simpleMenuItem let-item>
   <li>
-    <a class="menuItem">
+    <a [routerLink]="item.link" [routerLinkActive]="'active'" class="menu-item">
       <fa-icon
         [icon]="item.icon"
         [class]="item.iconColor"
@@ -58,11 +63,12 @@
 </ng-template>
 
 <ng-template #logo>
-  <div
+  <a
+    routerLink="/"
     class="logo flex items-center justify-center h-[8%] md:h-[8%] sm:h-[6%] p-4"
   >
     <img src="assets/images/logo/logo.png" alt="logo" class="w-40" />
-  </div>
+  </a>
 </ng-template>
 
 <ng-template #divider>

@@ -17,15 +17,18 @@ export class SidebarComponent {
       title: 'Docs',
       icon: faFile,
       iconColor: 'text-amber-500',
+      link: '',
     },
     {
       title: 'Pages',
+      open: true,
       subMenu: [
         {
           title: 'Dashboard',
           subMenu: [
             {
               title: 'Analytics',
+              link: '',
             },
             {
               title: 'Projects',
