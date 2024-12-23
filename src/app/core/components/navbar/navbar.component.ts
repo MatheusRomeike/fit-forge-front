@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import {
   faArrowRightToBracket,
   faBars,
+  faGear,
   faMoon,
+  faSearch,
   faSun,
 } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../../services/login.service';
@@ -34,6 +36,11 @@ export class NavbarComponent implements OnInit {
   faSun = faSun;
   faArrowRightToBracket = faArrowRightToBracket;
   isDarkTheme = false;
+  faSearch = faSearch;
+  faGear = faGear;
+
+  searchQuery = '';
+  logoPath = 'assets/images/logo/logo.png';
 
   constructor(
     private themeService: ThemeService,
@@ -41,11 +48,18 @@ export class NavbarComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private sidebarService: SidebarService
-  ) {}
+  ) {
+    this.themeService.isDarkMode$.subscribe((isDarkMode) => {
+      if (isDarkMode) this.logoPath = 'assets/images/logo/logo-dark.png';
+      else this.logoPath = 'assets/images/logo/logo.png';
+    });
+  }
 
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.getCurrentTheme() === 'dark';
   }
+
+  onSearchClick() {}
 
   toggleSidebar(): void {
     this.sidebarService.toggleSidebar();

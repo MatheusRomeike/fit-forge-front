@@ -68,7 +68,7 @@
     routerLink="/"
     class="logo flex items-center justify-between w=full h-[8%] md:h-[8%] sm:h-[6%] p-4"
   >
-    <img src="assets/images/logo/logo.png" alt="logo" class="w-40" />
+    <img [src]="logoPath" alt="logo" class="w-40" />
     <button class="btn btn-ghost p-2 md:hidden" (click)="closeSidebar()">
       <fa-icon class="text-lg" [icon]="faTimes"></fa-icon>
     </button>

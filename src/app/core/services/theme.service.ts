@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,8 @@ export class ThemeService {
   private themeKey = 'theme';
   private lightTheme = 'emerald';
   private darkTheme = 'dark';
+  private isDarkModeSubject = new BehaviorSubject<boolean>(false);
+  isDarkMode$ = this.isDarkModeSubject.asObservable();
 
   constructor() {
     this.loadTheme();
@@ -16,6 +19,7 @@ export class ThemeService {
     const savedTheme = localStorage.getItem(this.themeKey) || this.lightTheme;
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.documentElement.classList.add('theme-transition');
+    this.isDarkModeSubject.next(savedTheme === this.darkTheme);
   }
 
   toggleTheme(): void {
@@ -25,6 +29,7 @@ export class ThemeService {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem(this.themeKey, newTheme);
     document.documentElement.classList.add('theme-transition');
+    this.isDarkModeSubject.next(newTheme === this.darkTheme);
   }
 
   getCurrentTheme(): string {

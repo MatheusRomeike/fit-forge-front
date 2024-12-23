@@ -1,16 +1,14 @@
 <div class="flex h-screen">
-  <!-- Sidebar -->
   <app-sidebar
-    class="transition-all duration-300 mr-6"
+    class="transition-all duration-300"
     [ngClass]="{
-      'hidden md:block w-64': !(isSidebarVisible$ | async),
-      'absolute z-50 h-full w-full bg-base-100 lg:relative md:w-64':
+      'hidden md:block w-50': !(isSidebarVisible$ | async),
+      'absolute z-50 h-full w-full bg-base-100  md:w-50':
         isSidebarVisible$ | async
     }"
   ></app-sidebar>
 
-  <!-- Main Content -->
-  <div class="flex-1 flex flex-col">
+  <div class="flex-1 flex flex-col mx-6">
     <app-navbar></app-navbar>
     <div class="flex-1 overflow-auto p-4">
       <router-outlet></router-outlet>

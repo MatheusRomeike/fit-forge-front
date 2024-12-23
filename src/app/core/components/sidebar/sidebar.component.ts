@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Menu } from '../../models/menu.model';
 import { SidebarService } from '../../services/sidebar.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -60,7 +61,17 @@ export class SidebarComponent {
     },
   ];
 
-  constructor(private sidebarService: SidebarService) {}
+  logoPath = 'assets/images/logo/logo.png';
+
+  constructor(
+    private sidebarService: SidebarService,
+    public themeService: ThemeService
+  ) {
+    this.themeService.isDarkMode$.subscribe((isDarkMode) => {
+      if (isDarkMode) this.logoPath = 'assets/images/logo/logo-dark.png';
+      else this.logoPath = 'assets/images/logo/logo.png';
+    });
+  }
 
   closeSidebar(): void {
     this.sidebarService.closeSidebar();
