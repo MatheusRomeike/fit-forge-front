@@ -8,22 +8,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../../services/login.service';
 import { MultiLanguageService } from '../../services/mult-language.service';
+import { SidebarService } from '../../services/sidebar.service';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss'],
-    standalone: false
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
+  standalone: false,
 })
 export class NavbarComponent implements OnInit {
-  menuItems = [
-    { label: 'navbar.home' },
-    { label: 'navbar.products' },
-    { label: 'navbar.about' },
-    { label: 'navbar.contact' },
-  ];
-
   avatarItems = [
     { label: 'navbar.profile', badge: 'navbar.new' },
     { label: 'navbar.settings' },
@@ -45,11 +39,16 @@ export class NavbarComponent implements OnInit {
     private themeService: ThemeService,
     private multiLanguageService: MultiLanguageService,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private sidebarService: SidebarService
   ) {}
 
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.getCurrentTheme() === 'dark';
+  }
+
+  toggleSidebar(): void {
+    this.sidebarService.toggleSidebar();
   }
 
   toggleTheme(): void {

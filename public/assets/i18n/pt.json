@@ -10,7 +10,8 @@
     "english": "EU",
     "portuguese": "PT",
     "new": "Novo",
-    "login": "Login"
+    "login": "Login",
+    "welcome": "Bem-vindo"
   },
   "sidebar": {
     "home": "Início",

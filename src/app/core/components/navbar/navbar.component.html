@@ -1,34 +1,29 @@
 <div class="navbar shadow-xl h-full">
-  <div class="flex-1">
-    <a class="btn btn-ghost text-xl">FitForge</a>
+  <div class="flex-1 items-center">
+    <div class="md:hidden">
+      <button class="btn btn-ghost p-2 mr-2" (click)="toggleSidebar()">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </button>
+      <a
+        routerLink="/"
+        class="logo flex items-center justify-center h-[8%] md:h-[8%] sm:h-[6%] p-4"
+      >
+        <img src="assets/images/logo/logo.png" alt="logo" class="w-40" />
+      </a>
+    </div>
   </div>
   <div class="flex-none gap-2">
     <div class="hidden md:flex space-x-4">
-      <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
-
       <ng-container *ngTemplateOutlet="languageSelector"></ng-container>
 
       <ng-container *ngTemplateOutlet="themeSelector"></ng-container>
     </div>
 
-    <div [ngSwitch]="isLogged()">
-      <div *ngSwitchCase="true">
-        <ng-container *ngTemplateOutlet="loggedAvatar"></ng-container>
-      </div>
-      <div *ngSwitchCase="false">
-        <ng-container *ngTemplateOutlet="loginButton"></ng-container>
-      </div>
-    </div>
+    <ng-container *ngTemplateOutlet="loggedAvatar"></ng-container>
 
     <ng-container *ngTemplateOutlet="mobileMenu"></ng-container>
   </div>
 </div>
-
-<ng-template #menuButtons>
-  <a *ngFor="let item of menuItems" class="btn btn-ghost">
-    {{ item.label | translate }}
-  </a>
-</ng-template>
 
 <ng-template #languageSelector>
   <div class="dropdown">
@@ -90,8 +85,6 @@
       tabindex="0"
       class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
     >
-      <ng-container *ngTemplateOutlet="menuButtons"></ng-container>
-
       <div class="flex items-center">
         <ng-container *ngTemplateOutlet="themeSelector"></ng-container>
         <ng-container *ngTemplateOutlet="languageOptions"></ng-container>

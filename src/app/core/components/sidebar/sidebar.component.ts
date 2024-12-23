@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { faFile, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFile,
+  faMagnifyingGlass,
+  faTimes,
+} from '@fortawesome/free-solid-svg-icons';
 import { Menu } from '../../models/menu.model';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,6 +16,7 @@ import { Menu } from '../../models/menu.model';
 export class SidebarComponent {
   faMagnifyingGlass = faMagnifyingGlass;
   faFile = faFile;
+  faTimes = faTimes;
 
   menu: Menu[] = [
     {
@@ -53,4 +59,10 @@ export class SidebarComponent {
       title: 'Analytics',
     },
   ];
+
+  constructor(private sidebarService: SidebarService) {}
+
+  closeSidebar(): void {
+    this.sidebarService.closeSidebar();
+  }
 }
