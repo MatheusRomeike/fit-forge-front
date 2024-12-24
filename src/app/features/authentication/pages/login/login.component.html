@@ -1,0 +1,85 @@
+<app-authentication-layout>
+  <div content>
+    <h1 class="text-2xl font-bold mt-4 mb-2 w-md">
+      {{ "authentication.welcome-back" | translate }}
+    </h1>
+    <p class="text-gray-400 mb-4">
+      {{ "authentication.sign-in-social-account-or-details" | translate }}
+    </p>
+    <div class="flex gap-2 w-full mb-4">
+      <button type="button" class="btn btn-outline w-full">
+        <img
+          src="assets/images/icons/google.svg"
+          alt="google"
+          class="inline-block w-5 h-5 mr-2"
+        />
+        {{ "authentication.sign-in-google-login" | translate }}
+      </button>
+    </div>
+
+    <form class="w-full max-w-md">
+      <div class="form-control mb-4">
+        <label class="label font-medium">
+          <span class="label-text">{{
+            "authentication.email" | translate
+          }}</span>
+        </label>
+        <input
+          type="text"
+          placeholder="{{ 'authentication.email-placeholder' | translate }}"
+          class="input input-bordered w-full"
+        />
+      </div>
+
+      <div class="form-control mb-4">
+        <label class="label font-medium">
+          <span class="label-text">{{
+            "authentication.password" | translate
+          }}</span>
+        </label>
+        <div class="relative">
+          <input
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            [value]="password"
+            (input)="onPasswordInput($event)"
+            placeholder="{{
+              'authentication.password-placeholder' | translate
+            }}"
+            class="input input-bordered w-full"
+          />
+          <button
+            type="button"
+            (click)="togglePasswordVisibility()"
+            class="absolute top-1/2 right-3 transform -translate-y-1/2 btn btn-ghost btn-sm"
+          >
+            <fa-icon [icon]="isPasswordVisible ? faEye : faEyeSlash"></fa-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center mb-4">
+        <a
+          routerLink="/authentication/forgot-password"
+          class="link link-primary no-underline"
+          >{{ "authentication.forgot-password" | translate }}</a
+        >
+      </div>
+
+      <button type="button" class="btn btn-primary w-full mb-4">
+        <span class="flex items-center justify-center text-white">
+          <fa-icon [icon]="faRightToBracket" class="mr-2"></fa-icon>
+          {{ "authentication.sign-in" | translate }}
+        </span>
+      </button>
+
+      <p class="text-gray-400">
+        {{ "authentication.dont-have-account" | translate }}
+        <a
+          routerLink="/authentication/sign-up"
+          class="link link-primary no-underline"
+          >{{ "authentication.sign-up" | translate }}</a
+        >
+      </p>
+    </form>
+  </div>
+</app-authentication-layout>
