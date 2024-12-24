@@ -1,0 +1,37 @@
+<app-front-page-navbar></app-front-page-navbar>
+
+<div class="relative bg-base-100 z-0">
+  <!-- Shapes Imagens -->
+  <div class="absolute -z-[1] right-[0px] bottom-[50px] blur-[150px]">
+    <img src="assets/images/front-page/shape3.png" alt="shape3" />
+  </div>
+
+  <div class="absolute -z-[1] left-[25px] -top-[210px] blur-[125px]">
+    <img src="assets/images/front-page/shape2.png" alt="shape2" />
+  </div>
+
+  <div class="absolute -z-[1] right-[260px] -top-[125px] blur-[75px]">
+    <img src="assets/images/front-page/shape4.png" alt="shape4" />
+  </div>
+
+  <div class="absolute -z-[1] left-[300px] top-[250px] blur-[75px]">
+    <img src="assets/images/front-page/shape5.png" alt="shape5" />
+  </div>
+
+  <!-- Conteúdo da página -->
+  <div class="mx-auto max-w-6xl text-center pt-12 lg:pt-32 pb-40 px-4">
+    <ng-content select="[content]"></ng-content>
+    <div class="mt-40">
+      <app-start-now-banner></app-start-now-banner>
+    </div>
+  </div>
+
+  <!-- Componente flutuante app-theme-switch -->
+  <app-theme-switch
+    class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
+  ></app-theme-switch>
+
+  <app-language-switch
+    class="fixed left-4 top-[calc(50%+25px)] transform -translate-y-1/2 z-50"
+  ></app-language-switch>
+</div>

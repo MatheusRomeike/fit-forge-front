@@ -1,12 +1,16 @@
 <header
-  class="navbar bg-white shadow-xl py-4 flex lg:justify-around sm:justify-between sticky z-50"
+  class="navbar py-4 flex lg:justify-around justify-between sticky top-0 z-50"
+  [ngClass]="{ 'bg-secondary-content shadow-xl': isScrolled }"
 >
   <div>
     <a class="btn btn-ghost text-xl">
       <app-logo></app-logo>
     </a>
   </div>
-  <ng-container *ngTemplateOutlet="mobileMenu"></ng-container>
+
+  <div class="lg:hidden float-end">
+    <ng-container *ngTemplateOutlet="mobileMenu"></ng-container>
+  </div>
 
   <div class="hidden lg:flex">
     <ul class="menu menu-horizontal px-1 gap-12">
@@ -25,12 +29,12 @@
 
 <ng-template #mobileMenu>
   <div class="dropdown dropdown-bottom dropdown-end">
-    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+    <div tabindex="0" role="button" class="btn btn-ghost">
       <fa-icon [icon]="faBars"></fa-icon>
     </div>
     <ul
       tabindex="0"
-      class="menu dropdown-content bg-white rounded-box mt-3 w-52 p-2 shadow"
+      class="menu dropdown-content bg-secondary-content rounded-box mt-3 w-52 p-2 shadow"
     >
       <ng-container *ngTemplateOutlet="menu"></ng-container>
     </ul>

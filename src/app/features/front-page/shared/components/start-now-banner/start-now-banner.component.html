@@ -1,0 +1,18 @@
+<h1 class="text-5xl font-bold">
+  {{ "front-page.start-now.title" | translate }}
+</h1>
+
+<div class="flex justify-center">
+  <p class="text-lg mb-6 text-gray-600 my-8 max-w-2xl">
+    {{ "front-page.start-now.subtitle" | translate }}
+  </p>
+</div>
+<a
+  routerLink="/authentication"
+  class="btn-box bg-primary inline-block font-medium rounded-lg text-white px-6 py-3"
+>
+  <span class="relative inline-flex items-center gap-2">
+    <fa-icon [icon]="faUser"></fa-icon>
+    {{ "front-page.start-now.action" | translate }}
+  </span>
+</a>

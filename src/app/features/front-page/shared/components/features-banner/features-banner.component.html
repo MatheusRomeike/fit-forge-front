@@ -1,0 +1,67 @@
+<div
+  class="relative inline-block border border-primary text-primary font-medium -rotate-[6.536deg] px-4 py-2"
+>
+  {{ "front-page.features.main-features-title" | translate }}
+  <span
+    class="absolute top-0 left-0 w-1.5 h-1.5 bg-primary -translate-x-1/2 -translate-y-1/2"
+  ></span>
+  <span
+    class="absolute top-0 right-0 w-1.5 h-1.5 bg-primary translate-x-1/2 -translate-y-1/2"
+  ></span>
+  <span
+    class="absolute bottom-0 left-0 w-1.5 h-1.5 bg-primary -translate-x-1/2 translate-y-1/2"
+  ></span>
+  <span
+    class="absolute bottom-0 right-0 w-1.5 h-1.5 bg-primary translate-x-1/2 translate-y-1/2"
+  ></span>
+</div>
+
+<h1 class="text-3xl font-bold mt-8">
+  {{ "front-page.features.discover-what-makes-us-unique" | translate }}
+  <br />{{ "front-page.features.app-highlights" | translate }}
+</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-16">
+  <div class="w-50 text-left text-center lg:text-left">
+    <div
+      class="flex items-center justify-center bg-secondary/[0.3] rounded-lg w-20 aspect-square mx-auto lg:mx-0"
+    >
+      <fa-icon [icon]="faDumbbell" class="text-secondary text-5xl"></fa-icon>
+    </div>
+    <h3 class="text-xl font-semibold leading-3 my-3">
+      {{ "front-page.features.customized-workouts" | translate }}
+    </h3>
+    <p class="text-gray-400 text-center lg:text-justify">
+      {{ "front-page.features.create-workouts" | translate }}
+    </p>
+  </div>
+
+  <div class="w-50 text-left text-center lg:text-left">
+    <div
+      class="flex items-center justify-center bg-primary/[0.3] rounded-lg w-20 aspect-square mx-auto lg:mx-0"
+    >
+      <fa-icon [icon]="faTape" class="text-primary text-5xl"></fa-icon>
+    </div>
+
+    <h3 class="text-xl font-semibold leading-3 my-3">
+      {{ "front-page.features.professional-consulting" | translate }}
+    </h3>
+    <p class="text-gray-400 text-center lg:text-justify">
+      {{ "front-page.features.hire-certified-consulting" | translate }}
+    </p>
+  </div>
+
+  <div class="w-50 text-left text-center lg:text-left">
+    <div
+      class="flex items-center justify-center bg-accent/[0.3] rounded-lg w-20 aspect-square mx-auto lg:mx-0"
+    >
+      <fa-icon [icon]="faStopwatch20" class="text-accent text-5xl"></fa-icon>
+    </div>
+    <h3 class="text-xl font-semibold leading-3 my-3">
+      {{ "front-page.features.real-time-updates" | translate }}
+    </h3>
+    <p class="text-gray-400 text-center lg:text-justify">
+      {{ "front-page.features.receive-notifications" | translate }}
+    </p>
+  </div>
+</div>

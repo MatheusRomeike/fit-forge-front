@@ -6,8 +6,14 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MultiLanguageService {
   public languages = ['pt', 'en'];
-  public defaultLanguage = 'en';
   private languageKey = 'languageSignal';
+  get defaultLanguage() {
+    let browserLang = navigator.language.split('-')[0];
+    if (!this.languages.includes(browserLang)) {
+      browserLang = 'en';
+    }
+    return browserLang;
+  }
 
   languageSignal = signal<string>(
     window.localStorage.getItem(this.languageKey) ?? this.defaultLanguage
@@ -15,13 +21,14 @@ export class MultiLanguageService {
 
   updateLanguage(language: string): void {
     this.languageSignal.update(() => {
+      console.log(language);
       switch (language) {
         case 'en':
           return 'en';
         case 'pt':
           return 'pt';
         default:
-          return 'en';
+          return this.defaultLanguage;
       }
     });
   }

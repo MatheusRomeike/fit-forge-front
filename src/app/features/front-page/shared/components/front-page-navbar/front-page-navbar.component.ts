@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import {
   faBars,
   faRightToBracket,
@@ -15,4 +15,19 @@ export class FrontPageNavbarComponent {
   faBars = faBars;
   faUser = faUser;
   faRightToBracket = faRightToBracket;
+
+  isScrolled: boolean = false;
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const scrollPosition =
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+    if (scrollPosition >= 100) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+  }
 }

@@ -1,0 +1,18 @@
+<div class="dropdown">
+  <div tabindex="0" role="button" class="hidden md:flex">
+    <span [ngClass]="getLanguage().icon"></span>
+  </div>
+  <ul
+    tabindex="0"
+    class="dropdown-content menu rounded-box z-[2] bg-base-100 p-2 shadow"
+  >
+    <li *ngFor="let language of languages">
+      <a
+        (click)="toggleLanguage(language.language)"
+        [ngClass]="{ active: isActive(language.language) }"
+        ><span [ngClass]="language.icon"></span>
+        {{ language.label | translate }}</a
+      >
+    </li>
+  </ul>
+</div>

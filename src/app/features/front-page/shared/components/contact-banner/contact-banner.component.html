@@ -1,0 +1,81 @@
+<div class="contact-area py-16 text-start">
+  <div class="container mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-24 items-center">
+      <div class="contact-image rounded-lg overflow-hidden">
+        <img
+          src="assets/images/front-page/contact.jpg"
+          alt="contact-image"
+          class="w-full h-auto rounded-lg"
+        />
+      </div>
+
+      <div class="h-full flex flex-col h-full">
+        <div class="section-title mb-8">
+          <div class="sub-title relative inline-block mb-2">
+            <div
+              class="relative inline-block border border-primary text-primary font-medium -rotate-[6.536deg] px-4 py-2"
+            >
+              {{ "front-page.contact" | translate }}
+              <span
+                class="absolute top-0 left-0 w-1.5 h-1.5 bg-primary -translate-x-1/2 -translate-y-1/2"
+              ></span>
+              <span
+                class="absolute top-0 right-0 w-1.5 h-1.5 bg-primary translate-x-1/2 -translate-y-1/2"
+              ></span>
+              <span
+                class="absolute bottom-0 left-0 w-1.5 h-1.5 bg-primary -translate-x-1/2 translate-y-1/2"
+              ></span>
+              <span
+                class="absolute bottom-0 right-0 w-1.5 h-1.5 bg-primary translate-x-1/2 translate-y-1/2"
+              ></span>
+            </div>
+          </div>
+          <h2 class="text-2xl font-semibold">
+            {{ "front-page.banner-contact-form-title" | translate }}
+          </h2>
+        </div>
+
+        <form class="flex flex-col h-full space-y-4">
+          <div class="form-group">
+            <label class="block text-medium font-medium">{{
+              "front-page.full-name" | translate
+            }}</label>
+            <input
+              type="text"
+              class="input input-bordered w-full mt-2 bg-transparent"
+              placeholder="{{ 'front-page.full-name-placeholder' | translate }}"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="block text-medium font-medium">{{
+              "front-page.email" | translate
+            }}</label>
+            <input
+              type="text"
+              class="input input-bordered w-full mt-2 bg-transparent"
+              placeholder="{{ 'front-page.email-placeholder' | translate }}"
+            />
+          </div>
+
+          <div class="form-group flex flex-col h-full">
+            <label class="block text-medium font-medium">{{
+              "front-page.message" | translate
+            }}</label>
+            <textarea
+              class="textarea textarea-bordered w-full flex-grow mt-2 bg-transparent"
+              placeholder="{{ 'front-page.message-placeholder' | translate }}"
+            ></textarea>
+          </div>
+
+          <button type="button" class="btn btn-primary w-full text-white">
+            <span class="flex items-center justify-center">
+              {{ "front-page.send" | translate }}
+              <fa-icon class="ml-1" [icon]="faPaperPlane"></fa-icon>
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

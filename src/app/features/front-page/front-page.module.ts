@@ -9,8 +9,12 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { FeaturesComponent } from './pages/features/features.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BannerComponent } from './shared/components/banner/banner.component';
+import { ContactBannerComponent } from './shared/components/contact-banner/contact-banner.component';
+import { FaqBannerComponent } from './shared/components/faq-banner/faq-banner.component';
+import { FeaturesBannerComponent } from './shared/components/features-banner/features-banner.component';
 import { FrontPageNavbarComponent } from './shared/components/front-page-navbar/front-page-navbar.component';
-import { FrontPageLayoutComponent } from './shared/components/layouts/front-page-layout/front-page-layout.component';
+import { StartNowBannerComponent } from './shared/components/start-now-banner/start-now-banner.component';
+import { FrontPageLayoutComponent } from './shared/layouts/front-page-layout/front-page-layout.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { FrontPageLayoutComponent } from './shared/components/layouts/front-page
     FrontPageNavbarComponent,
     FrontPageLayoutComponent,
     BannerComponent,
+    FeaturesBannerComponent,
+    StartNowBannerComponent,
+    FaqBannerComponent,
+    ContactBannerComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,81 @@
+<div
+  class="relative inline-block border border-primary text-primary font-medium -rotate-[6.536deg] px-4 py-2"
+>
+  {{ "front-page.banner-faq-title" | translate }}
+  <span
+    class="absolute top-0 left-0 w-1.5 h-1.5 bg-primary -translate-x-1/2 -translate-y-1/2"
+  ></span>
+  <span
+    class="absolute top-0 right-0 w-1.5 h-1.5 bg-primary translate-x-1/2 -translate-y-1/2"
+  ></span>
+  <span
+    class="absolute bottom-0 left-0 w-1.5 h-1.5 bg-primary -translate-x-1/2 translate-y-1/2"
+  ></span>
+  <span
+    class="absolute bottom-0 right-0 w-1.5 h-1.5 bg-primary translate-x-1/2 translate-y-1/2"
+  ></span>
+</div>
+
+<h1 class="text-3xl font-bold mt-8">
+  {{ "front-page.banner-faq-subtitle" | translate }}
+</h1>
+
+<div class="flex flex-col items-center gap-2 text-left mt-12">
+  <div class="max-w-2xl">
+    <div class="collapse collapse-arrow">
+      <input type="radio" name="my-accordion-1" checked="checked" />
+      <div class="collapse-title text-lg font-medium">
+        {{ "front-page.what-is-fitforge" | translate }}
+      </div>
+      <div class="collapse-content">
+        <p class="text-gray-600">
+          {{ "front-page.fitforge-description" | translate }}
+        </p>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow">
+      <input type="radio" name="my-accordion-1" />
+      <div class="collapse-title text-lg font-medium">
+        {{ "front-page.what-features-does-fitforge-offer" | translate }}
+      </div>
+      <div class="collapse-content">
+        <p class="text-gray-600">
+          {{ "front-page.fitforge-features" | translate }}
+        </p>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow">
+      <input type="radio" name="my-accordion-1" />
+      <div class="collapse-title text-lg font-medium">
+        {{ "front-page.is-fitforge-suitable-for-beginners" | translate }}
+      </div>
+      <div class="collapse-content">
+        <p class="text-gray-600">
+          {{ "front-page.fitforge-suitable-for-beginners" | translate }}
+        </p>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow">
+      <input type="radio" name="my-accordion-1" />
+      <div class="collapse-title text-lg font-medium">
+        {{ "front-page.can-i-hire-consulting-directly-in-the-app" | translate }}
+      </div>
+      <div class="collapse-content">
+        <p class="text-gray-600">
+          {{ "front-page.fitforge-consulting" | translate }}
+        </p>
+      </div>
+    </div>
+    <div class="collapse collapse-arrow">
+      <input type="radio" name="my-accordion-1" />
+      <div class="collapse-title text-lg font-medium">
+        {{ "front-page.is-fitforge-free" | translate }}
+      </div>
+      <div class="collapse-content">
+        <p class="text-gray-600">
+          {{ "front-page.fitforge-plans" | translate }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<label class="swap swap-rotate">
+  <!-- this hidden checkbox controls the state -->
+  <input
+    type="checkbox"
+    class="theme-controller"
+    value="synthwave"
+    (click)="switchTheme()"
+  />
+
+  <fa-icon class="swap-off text-xl text-accent" [icon]="faSun"></fa-icon>
+  <fa-icon class="swap-on text-xl text-accent" [icon]="faMoon"></fa-icon>
+</label>
