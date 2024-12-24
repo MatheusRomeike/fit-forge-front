@@ -1,37 +1,10 @@
 {
-  "navbar": {
-    "home": "início",
-    "products": "Produtos",
-    "about": "Sobre",
-    "contact": "Contato",
-    "profile": "Perfil",
-    "settings": "Configurações",
-    "logout": "Logout",
-    "english": "EU",
-    "portuguese": "PT",
-    "new": "Novo",
-    "login": "Login",
-    "welcome": "Bem-vindo"
-  },
-  "sidebar": {
-    "home": "Início",
-    "dashboard": "Dashboard",
-    "analytics": "Análises"
-  },
-  "login": {
+  "front-page": {
     "login": "Entrar",
-    "email": "Email",
-    "emailPlaceholder": "Digite seu email",
-    "password": "Senha",
-    "passwordPlaceholder": "Digite sua senha",
-    "forgotPassword": "Esqueceu a senha?",
-    "or": "OU",
-    "dontHaveAccount": "Não tem uma conta?",
-    "signUpNow": "Cadastre-se agora",
     "register": "Cadastrar",
-    "name": "Nome",
-    "namePlaceholder": "Digite seu nome",
-    "alreadyHaveAccount": "Já tem uma conta?",
-    "loginHere": "Entrar aqui"
+    "home": "Ínicio",
+    "features": "Funcionalidades",
+    "faq": "FAQ's",
+    "contact": "Contato"
   }
 }

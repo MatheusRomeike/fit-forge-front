@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BaseLayoutComponent } from './core/components/base-layout/base-layout.component';
 
 const routes: Routes = [
-  {
-    path: 'login',
-    loadChildren: () =>
-      import('./feature/login/login.module').then((m) => m.LoginModule),
-  },
+  // {
+  //   path: 'authentication',
+  //   loadChildren: () =>
+  //     import('./feature/login/login.module').then((m) => m.LoginModule),
+  // },
   {
     path: '',
-    component: BaseLayoutComponent,
-    children: [],
+    loadChildren: () =>
+      import('./features/front-page/front-page.module').then(
+        (m) => m.FrontPageModule
+      ),
   },
 ];
 

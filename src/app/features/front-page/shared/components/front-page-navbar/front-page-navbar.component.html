@@ -1,0 +1,82 @@
+<header
+  class="navbar bg-white shadow-xl py-4 flex lg:justify-around sm:justify-between sticky z-50"
+>
+  <div>
+    <a class="btn btn-ghost text-xl">
+      <app-logo></app-logo>
+    </a>
+  </div>
+  <ng-container *ngTemplateOutlet="mobileMenu"></ng-container>
+
+  <div class="hidden lg:flex">
+    <ul class="menu menu-horizontal px-1 gap-12">
+      <ng-container
+        *ngTemplateOutlet="menu; context: { $implicit: false }"
+      ></ng-container>
+    </ul>
+  </div>
+
+  <div class="hidden lg:flex">
+    <ng-container
+      *ngTemplateOutlet="buttons; context: { $implicit: true }"
+    ></ng-container>
+  </div>
+</header>
+
+<ng-template #mobileMenu>
+  <div class="dropdown dropdown-bottom dropdown-end">
+    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </div>
+    <ul
+      tabindex="0"
+      class="menu dropdown-content bg-white rounded-box mt-3 w-52 p-2 shadow"
+    >
+      <ng-container *ngTemplateOutlet="menu"></ng-container>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #buttons>
+  <a
+    class="btn btn-outline btn-primary px-6 font-bold mr-4 text-base"
+    [routerLink]="['/authentication']"
+  >
+    <fa-icon [icon]="faRightToBracket"></fa-icon>
+    {{ "front-page.login" | translate }}</a
+  >
+  <a
+    class="btn btn-primary px-6 font-bold text-white text-base"
+    [routerLink]="['/authentication/register']"
+    ><fa-icon [icon]="faUser"></fa-icon>{{ "front-page.register" | translate }}
+  </a>
+</ng-template>
+
+<ng-template #menu let-buttons>
+  <li class="text-base font-semibold text-slate-500">
+    <a
+      [routerLinkActive]="'text-primary'"
+      routerLink=""
+      [routerLinkActiveOptions]="{ exact: true }"
+      >{{ "front-page.home" | translate }}</a
+    >
+  </li>
+  <li class="text-base font-semibold text-slate-500">
+    <a [routerLinkActive]="'text-primary'" [routerLink]="['/features']">{{
+      "front-page.features" | translate
+    }}</a>
+  </li>
+  <li class="text-base font-semibold text-slate-500">
+    <a [routerLinkActive]="'text-primary'" [routerLink]="['/faq']">{{
+      "front-page.faq" | translate
+    }}</a>
+  </li>
+  <li class="text-base font-semibold text-slate-500">
+    <a [routerLinkActive]="'text-primary'" [routerLink]="['/contact']">{{
+      "front-page.contact" | translate
+    }}</a>
+  </li>
+  <li *ngIf="buttons">
+    <ng-container *ngTemplateOutlet="buttons"></ng-container>
+  </li>
+</ng-template>
