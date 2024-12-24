@@ -26,12 +26,11 @@
     </div>
   </div>
 
-  <!-- Componente flutuante app-theme-switch -->
-  <app-theme-switch
-    class="fixed left-4 top-1/2 transform -translate-y-1/2 z-50"
-  ></app-theme-switch>
+  <div
+    class="fixed left-4 top-1/2 flex flex-col bg-gray-200 p-2 rounded-xl shadow-md"
+  >
+    <app-theme-switch></app-theme-switch>
 
-  <app-language-switch
-    class="fixed left-4 top-[calc(50%+25px)] transform -translate-y-1/2 z-50"
-  ></app-language-switch>
+    <app-language-switch></app-language-switch>
+  </div>
 </div>
