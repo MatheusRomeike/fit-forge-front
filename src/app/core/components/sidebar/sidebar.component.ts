@@ -1,13 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import {
-  faArrowsRotate,
-  faChartLine,
-  faCog,
-  faTimes,
-  faUserCircle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { SidebarService } from '../../services/sidebar.service';
-import { MenuItem } from '../menu/menu.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -17,47 +10,11 @@ import { MenuItem } from '../menu/menu.component';
 })
 export class SidebarComponent implements OnInit {
   faTimes = faTimes;
-  faCog = faCog;
-  faChartLine = faChartLine;
-  faUserCircle = faUserCircle;
-  faArrowsRotate = faArrowsRotate;
-
-  menuStructure: MenuItem[] = [
-    {
-      sectionName: 'sidebar.main',
-    },
-    {
-      name: 'sidebar.dashboard',
-      icon: faChartLine,
-      routerLink: '/dashboard',
-    },
-    {
-      sectionName: 'sidebar.others',
-    },
-    { name: 'sidebar.profile', icon: faUserCircle },
-    {
-      name: 'sidebar.settings',
-      icon: faCog,
-      children: [
-        {
-          name: 'sidebar.change-password',
-          icon: faArrowsRotate,
-          routerLink: '/authentication/reset-password',
-        },
-        {
-          name: 'sidebar.dashboard',
-          icon: faChartLine,
-          routerLink: '/dashboard/2',
-        },
-      ],
-      showItemCount: true,
-    },
-  ];
 
   isSidebarToggled = true;
   isSidebarAutoHide = false;
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(public sidebarService: SidebarService) {
     this.sidebarService.isSidebarVisible$.subscribe((isSidebarToggled) => {
       this.isSidebarToggled = isSidebarToggled;
     });

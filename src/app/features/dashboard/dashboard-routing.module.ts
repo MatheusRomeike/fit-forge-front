@@ -7,10 +7,6 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
   },
-  {
-    path: '2',
-    component: DashboardComponent,
-  },
 ];
 
 @NgModule({

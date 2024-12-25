@@ -31,7 +31,12 @@
     <!-- Submenu -->
     <li *ngIf="item.children">
       <details>
-        <summary [ngClass]="{ 'no-arrow': collapsed }">
+        <summary
+          [ngClass]="{
+            'no-arrow': collapsed,
+            'bg-base-200': isActive(item.children)
+          }"
+        >
           <ng-container
             *ngTemplateOutlet="icon; context: { $implicit: item }"
           ></ng-container>
