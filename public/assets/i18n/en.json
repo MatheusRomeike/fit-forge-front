@@ -1,4 +1,19 @@
 {
+  "header": {
+    "search-placeholder": "Search here",
+    "profile": "My Profile",
+    "lock-screen": "Lock Screen",
+    "logout": "Logout"
+  },
+  "sidebar": {
+    "main": "Main",
+    "dashboard": "Dashboard",
+    "help": "Help",
+    "others": "Others",
+    "settings": "Settings",
+    "profile": "My Profile",
+    "change-password": "Change Password"
+  },
   "front-page": {
     "login": "Login",
     "register": "Register",
@@ -75,8 +90,6 @@
     "back-to": "Back to",
     "reset-password": "Reset Password?",
     "reset-password-instructions": "Enter your new password and confirm it another time in the field below.",
-    "old-password": "Old Password",
-    "old-password-placeholder": "Type old password",
     "new-password": "New Password",
     "new-password-placeholder": "Type new password",
     "confirm-password": "Confirm Password",

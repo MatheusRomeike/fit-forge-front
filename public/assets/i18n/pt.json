@@ -1,4 +1,19 @@
 {
+  "header": {
+    "search-placeholder": "Pesquisar aqui",
+    "profile": "Meu Perfil",
+    "lock-screen": "Tela de Bloqueio",
+    "logout": "Sair"
+  },
+  "sidebar": {
+    "main": "Principal",
+    "dashboard": "Dashboard",
+    "help": "Ajuda",
+    "others": "Outros",
+    "settings": "Configurações",
+    "profile": "Meu Perfil",
+    "change-password": "Mudar Senha"
+  },
   "front-page": {
     "login": "Entrar",
     "register": "Cadastrar",
@@ -75,11 +90,15 @@
     "back-to": "Voltar para",
     "reset-password": "Redefinir Senha?",
     "reset-password-instructions": "Digite sua nova senha e confirme-a novamente no campo abaixo.",
-    "old-password": "Senha Antiga",
-    "old-password-placeholder": "Digite a senha antiga",
     "new-password": "Nova Senha",
     "new-password-placeholder": "Digite a nova senha",
     "confirm-password": "Confirmar Senha",
-    "confirm-password-placeholder": "Digite a senha de confirmação"
+    "confirm-password-placeholder": "Digite a senha de confirmação",
+    "confirmed-email": "Seu e-mail foi verificado! Sua conta agora está segura contra atividades indesejadas.",
+    "verified-email": "Seu e-mail foi verificado.",
+    "home": "Início",
+    "successfully": "com sucesso!",
+    "type-your-password-to-back": "Digite sua senha para voltar ao aplicativo.",
+    "you-are-logged-out": "Você foi desconectado."
   }
 }

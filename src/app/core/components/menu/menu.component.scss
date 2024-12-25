@@ -1,0 +1,11 @@
+li > span:active {
+  background: none;
+  color: inherit;
+}
+
+.no-arrow {
+  justify-content: center;
+  &:after {
+    display: none;
+  }
+}

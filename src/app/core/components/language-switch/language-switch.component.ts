@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MultiLanguageService } from '../../services/mult-language.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { MultiLanguageService } from '../../services/mult-language.service';
   standalone: false,
 })
 export class LanguageSwitchComponent {
+  @Input() position = 'dropdown-top';
+
   languages = [
     { label: 'language.english', icon: 'fi fi-us', language: 'en' },
     { label: 'language.portuguese', icon: 'fi fi-br', language: 'pt' },

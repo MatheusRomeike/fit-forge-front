@@ -1,0 +1,127 @@
+.sidebar-area {
+  overflow: hidden;
+  position: fixed;
+  height: 100vh;
+  width: 260px;
+  z-index: 6;
+  left: 0;
+  top: 0;
+
+  .logo {
+    padding: 13px 25px;
+    height: 74px;
+  }
+}
+
+::ng-deep {
+  .sidebar-area {
+    .ng-scrollbar {
+      height: 100vh;
+
+      .ng-scroll-content {
+        padding-right: 0 !important;
+      }
+      scrollbar-x {
+        display: none !important;
+      }
+    }
+  }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .sidebar-area {
+    width: 250px;
+    left: -100%;
+
+    &.active {
+      left: 0;
+
+      .logo {
+        justify-content: space-between;
+      }
+      .close-button {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .sidebar-area {
+    left: -100%;
+
+    &.active {
+      left: 0;
+
+      .logo {
+        justify-content: space-between;
+      }
+      .close-button {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .sidebar-area {
+    left: -100%;
+
+    &.active {
+      left: 0;
+      .logo {
+        justify-content: space-between;
+      }
+      .close-button {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+/* Min width 1200px */
+@media (min-width: 1200px) {
+  .sidebar-area {
+    &:not(.active) {
+      .logo {
+        justify-content: space-between;
+      }
+      .close-button {
+        display: inline-block;
+      }
+    }
+
+    &.active,
+    &.hide-sidebar {
+      width: 100px;
+    }
+  }
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .sidebar-area {
+    width: 240px;
+
+    &:not(.active) {
+      .logo {
+        justify-content: space-between;
+      }
+      .close-button {
+        display: inline-block;
+      }
+    }
+
+    &.active,
+    &.hide-sidebar {
+      width: 100px;
+
+      &:hover {
+        width: 240px;
+      }
+    }
+  }
+}

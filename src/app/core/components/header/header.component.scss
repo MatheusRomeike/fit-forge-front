@@ -1,0 +1,72 @@
+.header-area {
+  padding: 13px 25px;
+  position: fixed;
+  left: 285px;
+  right: 25px;
+  z-index: 5;
+  top: 0;
+
+  &.active,
+  &.hide-sidebar {
+    left: 125px;
+  }
+}
+
+.avatar-dropdown-item {
+  margin: 0 !important;
+
+  a {
+    background: none;
+  }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .header-area {
+    left: 15px;
+    right: 15px;
+    padding: 13px 15px;
+
+    &.active,
+    &.hide-sidebar {
+      left: 15px;
+    }
+  }
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .header-area {
+    left: 25px;
+    right: 25px;
+
+    &.active,
+    &.hide-sidebar {
+      left: 25px;
+    }
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .header-area {
+    left: 25px;
+
+    &.active,
+    &.hide-sidebar {
+      left: 25px;
+    }
+  }
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .header-area {
+    left: 265px;
+
+    &.active,
+    &.hide-sidebar {
+      left: 125px;
+    }
+  }
+}

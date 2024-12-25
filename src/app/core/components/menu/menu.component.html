@@ -1,0 +1,64 @@
+<ul class="menu" [ngClass]="{ 'p-0': collapsed }">
+  <ng-container *ngFor="let item of menuItems">
+    <!-- Seção -->
+    <li
+      *ngIf="item.sectionName"
+      class="menu-title text-gray-400"
+      [ngClass]="{ 'text-center': collapsed }"
+    >
+      <span>{{ item.sectionName | translate | uppercase }}</span>
+    </li>
+
+    <!-- Item do menu -->
+    <li *ngIf="!item.children && !item.sectionName">
+      <a
+        [ngClass]="{ 'justify-center': collapsed }"
+        [routerLink]="item.routerLink"
+        [routerLinkActive]="
+          'text-primary bg-primary/[0.1] hover:bg-primary/[0.1] active:bg-primary/[0.1] focus:bg-primary/[0.1] focus:text-primary'
+        "
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <ng-container
+          *ngTemplateOutlet="icon; context: { $implicit: item }"
+        ></ng-container>
+        <ng-container
+          *ngTemplateOutlet="text; context: { $implicit: item }"
+        ></ng-container>
+      </a>
+    </li>
+
+    <!-- Submenu -->
+    <li *ngIf="item.children">
+      <details>
+        <summary [ngClass]="{ 'no-arrow': collapsed }">
+          <ng-container
+            *ngTemplateOutlet="icon; context: { $implicit: item }"
+          ></ng-container>
+          <ng-container
+            *ngTemplateOutlet="text; context: { $implicit: item }"
+          ></ng-container>
+        </summary>
+        <app-menu
+          [menuItems]="item.children"
+          [ngClass]="{ hidden: collapsed }"
+        ></app-menu>
+      </details>
+    </li>
+  </ng-container>
+</ul>
+
+<ng-template #icon let-item>
+  <fa-icon *ngIf="item.icon" [icon]="item.icon" class="text-xl"></fa-icon>
+</ng-template>
+
+<ng-template #text let-item>
+  <span class="font-medium" *ngIf="!collapsed">
+    {{ item.name | translate }}
+    <span
+      *ngIf="item.badge && !collapsed"
+      class="badge badge-primary ml-auto"
+      >{{ item.badge | translate }}</span
+    >
+  </span>
+</ng-template>

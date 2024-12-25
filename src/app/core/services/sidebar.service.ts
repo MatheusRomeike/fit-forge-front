@@ -12,12 +12,4 @@ export class SidebarService {
     const currentState = this.isSidebarVisibleSubject.value;
     this.isSidebarVisibleSubject.next(!currentState);
   }
-
-  closeSidebar(): void {
-    this.isSidebarVisibleSubject.next(false);
-  }
-
-  openSidebar(): void {
-    this.isSidebarVisibleSubject.next(true);
-  }
 }

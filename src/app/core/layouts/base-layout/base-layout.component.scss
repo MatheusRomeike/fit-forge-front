@@ -1,0 +1,69 @@
+.main-content {
+  overflow: hidden;
+  min-height: 100vh;
+  padding: {
+    top: 95px;
+    left: 285px;
+    right: 25px;
+  }
+  &.active,
+  &.hide-sidebar {
+    padding-left: 125px;
+  }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .main-content {
+    padding: {
+      top: 143px;
+      left: 15px;
+      right: 15px;
+    }
+    &.active,
+    &.hide-sidebar {
+      padding-left: 15px;
+    }
+  }
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  // Main Content
+  .main-content {
+    padding: {
+      left: 25px;
+      right: 25px;
+    }
+    &.active,
+    &.hide-sidebar {
+      padding-left: 25px;
+    }
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .main-content {
+    padding: {
+      left: 25px;
+      right: 25px;
+    }
+    &.active,
+    &.hide-sidebar {
+      padding-left: 25px;
+    }
+  }
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .main-content {
+    padding-left: 265px;
+
+    &.active,
+    &.hide-sidebar {
+      padding-left: 125px;
+    }
+  }
+}

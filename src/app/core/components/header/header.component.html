@@ -1,0 +1,86 @@
+<div
+  class="header-area rounded-xl transition-all shadow-xl bg-secondary-content"
+  [ngClass]="{ active: isSidebarToggled, sticky: isSticky }"
+>
+  <div class="flex flex-col md:flex-row items-center justify-between">
+    <div class="header-left-side flex items-center mb-2 md:mb-0">
+      <div
+        class="burger-menu transition relative leading-none cursor-pointer"
+        [ngClass]="{ active: isSidebarToggled }"
+        (click)="toggle()"
+      >
+        <fa-icon [icon]="faBars"></fa-icon>
+      </div>
+
+      <form class="search-box relative ml-4">
+        <label class="input input-bordered flex items-center gap-2">
+          <input
+            type="text"
+            class="grow"
+            placeholder="{{ 'header.search-placeholder' | translate }}"
+          />
+          <button type="submit" class="text-primary">
+            <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+          </button>
+        </label>
+      </form>
+    </div>
+
+    <ul class="header-right-side flex items-center m-0 p-0 list-none space-x-5">
+      <li class="text-xl">
+        <app-language-switch position="dropdown-end"></app-language-switch>
+      </li>
+      <li class="text-xl">
+        <button
+          (click)="toggleFullscreen()"
+          class="fullscreen-btn bg-transparent transition p-0 border-0 d-inline-block position-relative lh-1"
+        >
+          <fa-icon [icon]="isFullscreen ? faCompress : faExpand"></fa-icon>
+        </button>
+      </li>
+      <li class="text-xl">
+        <app-theme-switch></app-theme-switch>
+      </li>
+      <li class="position-relative profile-menu">
+        <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
+          <div tabindex="0" role="button" class="flex items-center">
+            <app-avatar class="mr-2" [firstName]="true"></app-avatar>
+            <fa-icon [icon]="faAngleDown"></fa-icon>
+          </div>
+          <ul
+            tabindex="0"
+            class="dropdown-content menu bg-secondary-content rounded-box z-[1] w-52 py-2 px-0 shadow border"
+          >
+            <li class="w-full avatar-dropdown-item">
+              <app-avatar></app-avatar>
+            </li>
+            <div class="divider m-0"></div>
+            <li class="w-full avatar-dropdown-item">
+              <a
+                class="hover:text-primary hover:border-primary hover:border-l-4 rounded-none"
+              >
+                <fa-icon [icon]="faCircleUser"></fa-icon>
+                {{ "header.profile" | translate }}</a
+              >
+            </li>
+            <div class="divider m-0"></div>
+            <li class="w-full avatar-dropdown-item">
+              <a
+                class="hover:text-primary hover:border-primary hover:border-l-4 rounded-none"
+                ><fa-icon [icon]="faLock"></fa-icon
+                >{{ "header.lock-screen" | translate }}</a
+              >
+            </li>
+            <li class="w-full avatar-dropdown-item">
+              <a
+                class="hover:text-primary hover:border-primary hover:border-l-4 rounded-none"
+                ><fa-icon [icon]="faRightToBracket"></fa-icon
+                >{{ "header.logout" | translate }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

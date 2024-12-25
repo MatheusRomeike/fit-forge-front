@@ -1,0 +1,27 @@
+<div
+  class="sidebar-area bg-secondary-content transition min-h-screen flex flex-col shadow-xl"
+  [ngClass]="{ active: isSidebarToggled }"
+>
+  <div class="logo flex items-center justify-center">
+    <a class="navbar-brand" (click)="toggle()">
+      <app-logo></app-logo>
+    </a>
+    <fa-icon
+      [icon]="faTimes"
+      (click)="toggle()"
+      class="close-button hidden"
+    ></fa-icon>
+  </div>
+  <div class="divider m-0 h-0"></div>
+
+  <ng-scrollbar visibility="hover" (click)="isSidebarToggled ? toggle() : null">
+    <div class="sidebar-inner h-full">
+      <div class="sidebar-menu">
+        <app-menu
+          [menuItems]="menuStructure"
+          [collapsed]="checkCollapseMenu()"
+        ></app-menu>
+      </div>
+    </div>
+  </ng-scrollbar>
+</div>
