@@ -80,6 +80,12 @@
     "new-password": "New Password",
     "new-password-placeholder": "Type new password",
     "confirm-password": "Confirm Password",
-    "confirm-password-placeholder": "Type confirm password"
+    "confirm-password-placeholder": "Type confirm password",
+    "confirmed-email": "Your mail is verified! Your account is now safe from unwanted activities.",
+    "verified-email": "Your email verified",
+    "home": "Home",
+    "successfully": "successfully!",
+    "type-your-password-to-back": "Enter your password to return to the app",
+    "you-are-logged-out": "You are logged out"
   }
 }

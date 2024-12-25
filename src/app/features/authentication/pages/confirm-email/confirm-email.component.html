@@ -1,1 +1,30 @@
-<p>confirm-email works!</p>,
+<app-authentication-layout>
+  <div content>
+    <h1 class="text-2xl font-bold mt-4 mb-4">
+      {{ "authentication.welcome-back" | translate }}
+    </h1>
+    <p class="text-gray-400 mb-4 max-w-md">
+      {{ "authentication.confirmed-email" | translate }}
+    </p>
+
+    <div
+      class="bg-white shadow-md rounded-lg p-6 mb-6 text-center max-w-sm mx-auto"
+    >
+      <fa-icon class="text-4xl text-primary mb-4" [icon]="faEnvelope"></fa-icon>
+      <p class="text-gray-500">
+        {{ "authentication.verified-email" | translate }}
+      </p>
+      <div class="badge badge-success badge-lg text-white">
+        {{ "authentication.successfully" | translate }}
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary w-full mb-4">
+      <span class="flex items-center justify-center text-white">
+        <fa-icon [icon]="faRightToBracket" class="mr-2"></fa-icon>
+        {{ "authentication.back-to" | translate }}
+        {{ "authentication.home" | translate }}
+      </span>
+    </button>
+  </div>
+</app-authentication-layout>

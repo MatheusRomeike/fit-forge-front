@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import {
+  faEnvelope,
+  faPaperPlane,
+  faRightToBracket,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-confirm-email',
@@ -6,4 +11,8 @@ import { Component } from '@angular/core';
   styleUrl: './confirm-email.component.scss',
   standalone: false,
 })
-export class ConfirmEmailComponent {}
+export class ConfirmEmailComponent {
+  faPaperPlane = faPaperPlane;
+  faEnvelope = faEnvelope;
+  faRightToBracket = faRightToBracket;
+}

@@ -1,1 +1,53 @@
-<p>lock-screen works!</p>,
+<app-authentication-layout>
+  <div content>
+    <h1 class="text-2xl font-bold mt-4 mb-2">
+      {{ "authentication.welcome-back" | translate }}
+    </h1>
+    <p class="text-gray-400 mb-4 max-w-md">
+      {{ "authentication.type-your-password-to-back" | translate }}
+    </p>
+
+    <div class="flex items-center">
+      <img
+        src="assets/remove/admin.png"
+        class="rounded-full w-10 h-10 mr-3 border-primary border"
+        alt="admin-image"
+      />
+      <span class="font-semibold"> Olivia John </span>
+    </div>
+    <form>
+      <div class="form-control mb-4">
+        <label class="label font-medium">
+          <span class="label-text">{{
+            "authentication.password" | translate
+          }}</span>
+        </label>
+        <div class="relative">
+          <input
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            [value]="password"
+            (input)="onPasswordInput($event)"
+            placeholder="{{
+              'authentication.password-placeholder' | translate
+            }}"
+            class="input input-bordered w-full"
+          />
+          <button
+            type="button"
+            (click)="togglePasswordVisibility()"
+            class="absolute top-1/2 right-3 transform -translate-y-1/2 btn btn-ghost btn-sm"
+          >
+            <fa-icon [icon]="isPasswordVisible ? faEye : faEyeSlash"></fa-icon>
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary w-full mb-4">
+        <span class="flex items-center justify-center text-white">
+          <fa-icon [icon]="faRightToBracket" class="mr-2"></fa-icon>
+          {{ "authentication.sign-in" | translate }}
+        </span>
+      </button>
+    </form>
+  </div>
+</app-authentication-layout>

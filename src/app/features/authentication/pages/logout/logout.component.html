@@ -1,1 +1,26 @@
-<p>logout works!</p>,
+<app-authentication-layout>
+  <div content>
+    <h1 class="text-2xl font-bold mt-4 mb-2">
+      {{ "authentication.welcome-back" | translate }}
+    </h1>
+    <p class="text-gray-400 mb-4 max-w-md">
+      {{ "authentication.you-are-logged-out" | translate }}
+    </p>
+
+    <div class="flex items-center mb-4">
+      <img
+        src="assets/remove/admin.png"
+        class="rounded-full w-10 h-10 border-primary border mr-3"
+        alt="admin-image"
+      />
+      <span class="font-semibold"> Olivia John </span>
+    </div>
+
+    <button type="button" class="btn btn-primary w-full mb-4">
+      <span class="flex items-center justify-center text-white">
+        <fa-icon [icon]="faRightToBracket" class="mr-2"></fa-icon>
+        {{ "authentication.sign-in" | translate }}
+      </span>
+    </button>
+  </div>
+</app-authentication-layout>
