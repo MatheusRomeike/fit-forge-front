@@ -14,16 +14,12 @@
 
   <div class="hidden lg:flex">
     <ul class="menu menu-horizontal px-1 gap-12">
-      <ng-container
-        *ngTemplateOutlet="menu; context: { $implicit: false }"
-      ></ng-container>
+      <ng-container *ngTemplateOutlet="menu"></ng-container>
     </ul>
   </div>
 
   <div class="hidden lg:flex">
-    <ng-container
-      *ngTemplateOutlet="buttons; context: { $implicit: true }"
-    ></ng-container>
+    <ng-container *ngTemplateOutlet="buttons"></ng-container>
   </div>
 </header>
 
@@ -43,7 +39,7 @@
 
 <ng-template #buttons>
   <a
-    class="btn btn-outline btn-primary px-6 font-bold mr-4 text-base"
+    class="btn btn-outline btn-primary px-6 font-bold mr-0 lg:mr-4 text-base"
     [routerLink]="['/authentication']"
   >
     <fa-icon [icon]="faRightToBracket"></fa-icon>
@@ -56,7 +52,7 @@
   </a>
 </ng-template>
 
-<ng-template #menu let-buttons>
+<ng-template #menu>
   <li class="text-base font-semibold text-slate-500">
     <a
       [routerLinkActive]="'text-primary'"
@@ -80,7 +76,7 @@
       "front-page.contact" | translate
     }}</a>
   </li>
-  <li *ngIf="buttons">
+  <li class="flex flex-col flex-grow lg:hidden">
     <ng-container *ngTemplateOutlet="buttons"></ng-container>
   </li>
 </ng-template>
