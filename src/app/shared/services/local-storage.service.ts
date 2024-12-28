@@ -64,6 +64,6 @@ export class LocalStorageService {
   public logout() {
     localStorage.removeItem(environment.userData.token);
     localStorage.removeItem(environment.userData.data);
-    window.location.href = '../login';
+    window.location.href = '../authentication';
   }
 }

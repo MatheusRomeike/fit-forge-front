@@ -1,4 +1,16 @@
 {
+  "api-exception": {
+    "validator": {
+      "name-required": "Name is required",
+      "email-required": "Email is required",
+      "password-required": "Password is required",
+      "credential-required": "Credential is required"
+    },
+    "repository": {
+      "invalid-email-password": "User not found, invalid email or password",
+      "google-account-error": "Unexpected error in Google Account Login"
+    }
+  },
   "header": {
     "search-placeholder": "Search here",
     "profile": "My Profile",
