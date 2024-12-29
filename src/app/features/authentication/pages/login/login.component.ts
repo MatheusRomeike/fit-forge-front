@@ -1,9 +1,13 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   faEye,
   faEyeSlash,
   faRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
+import { LocalStorageService } from '../../../../shared/services/local-storage.service';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 import { GoogleAuthenticationService } from '../../shared/services/google-authentication.service';
 
 @Component({
@@ -19,12 +23,31 @@ export class LoginComponent implements AfterViewInit {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
-  password: string = '';
+  loginForm: FormGroup;
   isPasswordVisible: boolean = false;
 
   constructor(
-    private googleAuthenticationService: GoogleAuthenticationService
-  ) {}
+    private formBuilder: FormBuilder,
+    private googleAuthenticationService: GoogleAuthenticationService,
+    private authenticationService: AuthenticationService,
+    private localStorageService: LocalStorageService,
+    private router: Router
+  ) {
+    this.loginForm = this.formBuilder.group({
+      email: [
+        '',
+        [Validators.required, Validators.email, Validators.maxLength(255)],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(32),
+        ],
+      ],
+    });
+  }
 
   ngAfterViewInit(): void {
     this.googleAuthenticationService.initializeGoogleSignIn();
@@ -37,8 +60,13 @@ export class LoginComponent implements AfterViewInit {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
-  onPasswordInput(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    this.password = inputElement.value;
+  onSubmit(): void {
+    if (this.loginForm.valid) {
+      this.authenticationService.login(this.loginForm.value).subscribe((p) => {
+        this.localStorageService.registerUser(p);
+        this.router.navigate(['dashboard']);
+      });
+      // Aqui você pode chamar seu serviço de autenticação
+    }
   }
 }

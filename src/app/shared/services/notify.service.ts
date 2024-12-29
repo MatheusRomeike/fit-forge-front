@@ -11,7 +11,7 @@ export class NotifyService {
 
   constructor() {
     this.toasty = new Toasty({
-      transition: 'fade',
+      transition: 'pinItUp',
       insertBefore: true,
       duration: 4000,
       enableSounds: false,

@@ -6,3 +6,11 @@
 body {
   font-family: Inter, system-ui, sans-serif;
 }
+
+.toast-container {
+  z-index: 999999 !important;
+}
+
+.required {
+  color: red;
+}

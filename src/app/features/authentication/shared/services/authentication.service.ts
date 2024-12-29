@@ -16,4 +16,12 @@ export class AuthenticationService extends BaseService {
       map((p) => p.result)
     );
   }
+
+  register(data: any): Observable<UserSession> {
+    return this.post(
+      'Register',
+      JSON.stringify(data),
+      this.defaultHeader()
+    ).pipe(map((p) => p.result));
+  }
 }
