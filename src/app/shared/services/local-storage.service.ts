@@ -1,32 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { Autenticacao } from '../models/autenticacao.model';
+import { UserSession } from '../models/user-session.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  public autenticacao$: Subject<Autenticacao>;
+  public authentication$: Subject<UserSession>;
 
   constructor() {
-    this.autenticacao$ = new Subject<Autenticacao>();
+    this.authentication$ = new Subject<UserSession>();
   }
 
-  public registerUser(autenticacao: Autenticacao) {
-    autenticacao.avatar = autenticacao.avatar;
-    localStorage.setItem(environment.userData.token, autenticacao.accessToken);
+  public registerUser(authentication: UserSession) {
+    authentication.avatar = authentication.avatar;
+    localStorage.setItem(
+      environment.userData.token,
+      authentication.accessToken
+    );
     localStorage.setItem(
       environment.userData.data,
-      JSON.stringify(autenticacao)
+      JSON.stringify(authentication)
     );
-    this.autenticacao$.next(autenticacao);
+    this.authentication$.next(authentication);
   }
 
-  public getUser(): Autenticacao {
+  public getUser(): UserSession {
     return JSON.parse(
       localStorage.getItem(environment.userData.data)
-    ) as Autenticacao;
+    ) as UserSession;
   }
 
   public getToken(): string {
@@ -37,7 +40,7 @@ export class LocalStorageService {
     var user = this.getUser();
     user.avatar = path;
     localStorage.setItem(environment.userData.data, JSON.stringify(user));
-    this.autenticacao$.next(user);
+    this.authentication$.next(user);
   }
 
   public getAvatar() {
@@ -45,19 +48,19 @@ export class LocalStorageService {
     return user.avatar;
   }
 
-  public setNome(value: string) {
+  public setName(value: string) {
     var user = this.getUser();
-    user.nome = value;
+    user.name = value;
     localStorage.setItem(environment.userData.data, JSON.stringify(user));
-    this.autenticacao$.next(user);
+    this.authentication$.next(user);
   }
 
-  public getNome() {
+  public getName() {
     var user = this.getUser();
-    return user.nome || '';
+    return user.name || '';
   }
 
-  public isLoged(): boolean {
+  public isLogged(): boolean {
     return localStorage.getItem(environment.userData.data) ? true : false;
   }
 

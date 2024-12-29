@@ -10,8 +10,7 @@ import { NotifyService } from '../../shared/services/notify.service';
 import { BaseReturn } from '../models/base.return';
 
 export class BaseService {
-  private localStorageService: LocalStorageService =
-    inject(LocalStorageService);
+  public localStorageService: LocalStorageService = inject(LocalStorageService);
   private notifyService: NotifyService = inject(NotifyService);
   private http: HttpClient = inject(HttpClient);
   private translateService: TranslateService = inject(TranslateService);

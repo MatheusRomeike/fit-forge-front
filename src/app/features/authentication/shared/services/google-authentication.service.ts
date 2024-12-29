@@ -4,6 +4,7 @@ import { AuthConfig, OAuthService } from 'angular-oauth2-oidc';
 import { CredentialResponse } from 'google-one-tap';
 import { environment } from '../../../../../environments/environment';
 import { BaseService } from '../../../../core/services/base.service';
+import { UserSession } from '../../../../shared/models/user-session.model';
 declare const google: any;
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ declare const google: any;
 export class GoogleAuthenticationService extends BaseService {
   private clientId = environment.clientId;
 
-  constructor(private oAuthService: OAuthService, router: Router) {
+  constructor(private oAuthService: OAuthService, private router: Router) {
     super('api/authentication/');
     this.initConfiguration();
   }
@@ -72,6 +73,13 @@ export class GoogleAuthenticationService extends BaseService {
       'LoginWithGoogle',
       JSON.stringify(credentials.credential),
       this.defaultHeader()
-    ).subscribe((x) => console.log(x));
+    ).subscribe((p) => {
+      this.logged(p.result);
+    });
+  }
+
+  logged(result: UserSession) {
+    this.localStorageService.registerUser(result);
+    this.router.navigate(['dashboard']);
   }
 }

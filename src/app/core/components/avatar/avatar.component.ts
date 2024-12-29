@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LocalStorageService } from '../../../shared/services/local-storage.service';
 
 @Component({
   selector: 'app-avatar',
@@ -6,13 +7,21 @@ import { Component, Input } from '@angular/core';
   styleUrl: './avatar.component.scss',
   standalone: false,
 })
-export class AvatarComponent {
+export class AvatarComponent implements OnInit {
   @Input() firstName = false;
 
-  name = 'Matheus Romeike';
+  constructor(public localStorageService: LocalStorageService) {}
+
+  name = '';
+  avatar = '';
+
+  ngOnInit(): void {
+    this.name = this.getName();
+    this.avatar = this.localStorageService.getAvatar();
+  }
 
   getName() {
-    let name = this.name;
+    let name = this.localStorageService.getName();
     if (this.firstName) name = name.split(' ')[0];
     return name;
   }
