@@ -13,7 +13,7 @@ export class SettingsComponent {
     {
       name: 'Dashboard',
       icon: faChartLine,
-      routerLink: 'dashboard',
+      routerLink: '/dashboard',
     },
     {
       name: 'Settings',

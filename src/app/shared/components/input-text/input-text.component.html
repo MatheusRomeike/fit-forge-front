@@ -1,33 +1,58 @@
-<label class="input input-bordered flex items-center gap-2 relative py-1">
-  <div *ngIf="iconPosition == 'left'">
-    <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
-  </div>
+<ng-container *ngIf="!isTextArea; else textArea">
+  <label class="input input-bordered flex items-center gap-2 relative py-1">
+    <div *ngIf="iconPosition == 'left'">
+      <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
+    </div>
 
-  <input
-    #input
-    [type]="type"
-    [formControl]="$any(formControl)"
-    [placeholder]="label"
-    class="grow input placeholder-transparent peer border-0 pl-1"
-    placeholder="Search"
-  />
-  <label
-    class="label absolute left-2 pointer-events-none transition-all text-gray-400 -top-2.5 peer-placeholder-shown:top-1.5 text-xs peer-placeholder-shown:text-sm"
-    [ngClass]="{
-      ' peer-placeholder-shown:left-9': icon,
-      ' peer-placeholder-shown:left-3': !icon
-    }"
-  >
-    {{ label }}
-    <span *ngIf="required" class="text-red-500 ml-1"> *</span>
+    <input
+      #input
+      [type]="type"
+      [formControl]="$any(formControl)"
+      [placeholder]="label"
+      class="grow input placeholder-transparent peer border-0 pl-1"
+    />
+
+    <label
+      class="label absolute left-2 pointer-events-none transition-all text-gray-400 -top-2.5 peer-placeholder-shown:top-1.5 text-xs peer-placeholder-shown:text-sm"
+      [ngClass]="{
+        ' peer-placeholder-shown:left-9': icon,
+        ' peer-placeholder-shown:left-3': !icon
+      }"
+    >
+      {{ label }}
+      <span *ngIf="required" class="text-red-500 ml-1"> *</span>
+    </label>
+
+    <div *ngIf="iconPosition == 'right'">
+      <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
+    </div>
   </label>
-  <div *ngIf="iconPosition == 'right'">
-    <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
-  </div>
-</label>
-<small *ngIf="error" class="text-red-500 text-xs mt-1">
-  {{ error }}
-</small>
+  <small *ngIf="error" class="text-red-500 text-xs mt-1">
+    {{ error }}
+  </small>
+</ng-container>
+
+<ng-template #textArea>
+  <label class="textarea textarea-bordered flex items-start relative p-0">
+    <textarea
+      #input
+      [formControl]="$any(formControl)"
+      [placeholder]="label"
+      class="textarea textarea-bordered placeholder-transparent peer border-0 grow"
+      rows="4"
+    ></textarea>
+
+    <label
+      class="label absolute left-3.5 pointer-events-none transition-all text-gray-400 -top-0.5 peer-placeholder-shown:top-1.5 text-xs peer-placeholder-shown:text-sm p-0"
+    >
+      {{ label }}
+      <span *ngIf="required" class="text-red-500 ml-1"> *</span>
+    </label>
+  </label>
+  <small *ngIf="error" class="text-red-500 text-xs mt-1">
+    {{ error }}
+  </small>
+</ng-template>
 
 <ng-template #iconTemplate>
   <fa-icon

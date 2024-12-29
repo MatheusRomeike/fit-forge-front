@@ -6,45 +6,45 @@
   {{ "settings.profile-subtitle" | translate }}
 </p>
 
-<form [formGroup]="form" class="grid grid-cols-6 md:grid-cols-12 gap-4 py-6">
+<form [formGroup]="form" class="grid gap-4 py-6">
   <app-input-text
     formControlName="name"
     label="{{ 'settings.full-name' | translate }}"
     [icon]="faUser"
-    class="col-span-6"
+    class="col-span-12 md:col-span-6"
   ></app-input-text>
   <app-input-text
     formControlName="email"
     label="{{ 'settings.email' | translate }}"
     [icon]="faEnvelope"
-    class="col-span-6"
+    class="col-span-12 md:col-span-6"
   ></app-input-text>
   <app-input-text
     formControlName="weight"
     label="{{ 'settings.weight' | translate }}"
     [icon]="faWeightScale"
-    class="col-span-6"
+    class="col-span-12 md:col-span-6"
     type="number"
   ></app-input-text>
   <app-input-text
     formControlName="height"
     label="{{ 'settings.height' | translate }}"
     [icon]="faRulerVertial"
-    class="col-span-6"
+    class="col-span-12 md:col-span-6"
     type="number"
   ></app-input-text>
   <app-input-text
     formControlName="gymStartedAt"
     label="{{ 'settings.gym-started-at' | translate }}"
     [icon]="faCalendarDays"
-    class="col-span-6"
+    class="col-span-12 md:col-span-6"
     type="date"
   ></app-input-text>
   <app-input-text
     formControlName="gymDuration"
     label="{{ 'settings.gym-duration' | translate }}"
     [icon]="faClock"
-    class="col-span-6"
+    class="col-span-12 md:col-span-6"
     type="time"
   ></app-input-text>
   <app-input-text
@@ -53,6 +53,7 @@
     [icon]="faBullseye"
     class="col-span-12"
     type="text"
+    [isTextArea]="true"
   ></app-input-text>
 </form>
 

@@ -38,6 +38,7 @@ export class InputTextComponent extends BaseInput implements OnInit {
   @Input() icon: IconDefinition;
   @Input() iconPosition: 'left' | 'right' = 'left';
   @Input() type: string = 'text';
+  @Input() isTextArea: boolean = false;
 
   formControl: AbstractControl;
 
@@ -97,6 +98,7 @@ export class InputTextComponent extends BaseInput implements OnInit {
 
       let message = this.validationMessages[errorKey];
       this.translateService.get(message).subscribe((x) => (message = x));
+      console.log(message);
 
       if (errorParams && typeof errorParams === 'object') {
         Object.keys(errorParams).forEach((key: string) => {
