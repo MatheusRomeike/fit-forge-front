@@ -3,10 +3,14 @@ import {
   faArrowsRotate,
   faChartLine,
   faCog,
+  faFileContract,
+  faIdCard,
+  faRightFromBracket,
+  faShieldHalved,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { BehaviorSubject } from 'rxjs';
-import { MenuItem } from '../components/menu/menu.component';
+import { Menu } from '../models/menu.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +24,7 @@ export class SidebarService {
     this.isSidebarVisibleSubject.next(!currentState);
   }
 
-  menuStructure: MenuItem[] = [
+  menuStructure: Menu[] = [
     {
       sectionName: 'sidebar.main',
     },
@@ -38,12 +42,32 @@ export class SidebarService {
       icon: faCog,
       children: [
         {
+          name: 'sidebar.account-settings',
+          icon: faIdCard,
+          routerLink: '/user/account-settings',
+        },
+        {
           name: 'sidebar.change-password',
           icon: faArrowsRotate,
-          routerLink: '/authentication/reset-password',
+          routerLink: '/user/change-password',
+        },
+        {
+          name: 'sidebar.privacy-policy',
+          icon: faShieldHalved,
+          routerLink: '/user/privacy-policy',
+        },
+        {
+          name: 'sidebar.terms-conditions',
+          icon: faFileContract,
+          routerLink: '/user/terms-conditions',
         },
       ],
       showItemCount: true,
+    },
+    {
+      name: 'sidebar.logout',
+      icon: faRightFromBracket,
+      routerLink: '/authentication/logout',
     },
   ];
 }

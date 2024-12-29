@@ -24,7 +24,11 @@
     "others": "Others",
     "settings": "Settings",
     "profile": "My Profile",
-    "change-password": "Change Password"
+    "account-settings": "Account Settings",
+    "change-password": "Change Password",
+    "privacy-policy": "Privacy Policy",
+    "terms-conditions": "Terms & Conditions",
+    "logout": "Logout"
   },
   "front-page": {
     "login": "Login",

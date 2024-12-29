@@ -45,7 +45,7 @@ export class LocalStorageService {
 
   public getAvatar() {
     var user = this.getUser();
-    return user.avatar;
+    return user?.avatar;
   }
 
   public setName(value: string) {
@@ -57,16 +57,16 @@ export class LocalStorageService {
 
   public getName() {
     var user = this.getUser();
-    return user.name || '';
+    return user?.name || '';
   }
 
   public isLogged(): boolean {
     return localStorage.getItem(environment.userData.data) ? true : false;
   }
 
-  public logout() {
+  public logout(redirect: boolean = true) {
     localStorage.removeItem(environment.userData.token);
     localStorage.removeItem(environment.userData.data);
-    window.location.href = '../authentication';
+    if (redirect) window.location.href = '../authentication';
   }
 }

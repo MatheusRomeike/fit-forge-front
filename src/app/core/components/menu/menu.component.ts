@@ -1,16 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-
-export interface MenuItem {
-  name?: string;
-  icon?: IconDefinition;
-  badge?: string;
-  children?: MenuItem[];
-  sectionName?: string;
-  showItemCount?: boolean;
-  routerLink?: string;
-}
+import { Menu } from '../../models/menu.model';
 
 @Component({
   selector: 'app-menu',
@@ -19,7 +9,7 @@ export interface MenuItem {
   standalone: false,
 })
 export class MenuComponent {
-  @Input() menuItems: MenuItem[] = [];
+  @Input() menuItems: Menu[] = [];
   @Input() collapsed: boolean;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}

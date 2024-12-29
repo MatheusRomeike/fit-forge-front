@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { AvatarComponent } from './components/avatar/avatar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LanguageSwitchComponent } from './components/language-switch/language-switch.component';
 import { LogoComponent } from './components/logo/logo.component';
@@ -19,7 +18,6 @@ import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component
     ThemeSwitchComponent,
     HeaderComponent,
     SidebarComponent,
-    AvatarComponent,
     MenuComponent,
     BaseLayoutComponent,
   ],
@@ -30,7 +28,6 @@ import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component
     ThemeSwitchComponent,
     HeaderComponent,
     SidebarComponent,
-    AvatarComponent,
     BaseLayoutComponent,
   ],
 })

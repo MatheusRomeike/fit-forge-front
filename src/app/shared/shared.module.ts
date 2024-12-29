@@ -5,8 +5,9 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { AvatarComponent } from './components/avatar/avatar.component';
 @NgModule({
-  declarations: [],
+  declarations: [AvatarComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -16,6 +17,11 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     TranslateModule,
     NgScrollbarModule,
   ],
-  exports: [FontAwesomeModule, TranslateModule, NgScrollbarModule],
+  exports: [
+    FontAwesomeModule,
+    TranslateModule,
+    NgScrollbarModule,
+    AvatarComponent,
+  ],
 })
 export class SharedModule {}

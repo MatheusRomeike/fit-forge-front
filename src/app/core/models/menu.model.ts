@@ -1,10 +1,11 @@
 import { IconDefinition } from '@fortawesome/angular-fontawesome';
 
 export class Menu {
-  title: string;
+  name?: string;
   icon?: IconDefinition;
-  iconColor?: string;
-  link?: string;
-  open?: boolean;
-  subMenu?: Menu[];
+  badge?: string;
+  children?: Menu[];
+  sectionName?: string;
+  showItemCount?: boolean;
+  routerLink?: string;
 }

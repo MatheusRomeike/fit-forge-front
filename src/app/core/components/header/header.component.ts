@@ -161,4 +161,8 @@ export class HeaderComponent {
       );
     }
   }
+
+  logout() {
+    this.router.navigate(['authentication/logout']);
+  }
 }
