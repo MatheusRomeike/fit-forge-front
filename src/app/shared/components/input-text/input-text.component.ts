@@ -1,11 +1,13 @@
 import {
   Component,
+  ElementRef,
   forwardRef,
   Host,
   Input,
   OnInit,
   Optional,
   SkipSelf,
+  ViewChild,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -30,10 +32,12 @@ import { BaseInput } from '../../../core/components/base/base-input.component';
   standalone: false,
 })
 export class InputTextComponent extends BaseInput implements OnInit {
+  @ViewChild('input') input: ElementRef;
   @Input() label: string;
   @Input() formControlName: string;
   @Input() icon: IconDefinition;
   @Input() iconPosition: 'left' | 'right' = 'left';
+  @Input() type: string = 'text';
 
   formControl: AbstractControl;
 
@@ -105,5 +109,10 @@ export class InputTextComponent extends BaseInput implements OnInit {
     }
 
     return null;
+  }
+
+  click() {
+    if (this.type == 'date' || this.type == 'time')
+      this.input.nativeElement.showPicker();
   }
 }

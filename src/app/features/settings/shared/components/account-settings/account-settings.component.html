@@ -19,5 +19,39 @@
     [icon]="faEnvelope"
     class="col-span-6"
   ></app-input-text>
+  <app-input-text
+    formControlName="weight"
+    label="{{ 'settings.weight' | translate }}"
+    [icon]="faWeightScale"
+    class="col-span-6"
+    type="number"
+  ></app-input-text>
+  <app-input-text
+    formControlName="height"
+    label="{{ 'settings.height' | translate }}"
+    [icon]="faRulerVertial"
+    class="col-span-6"
+    type="number"
+  ></app-input-text>
+  <app-input-text
+    formControlName="gymStartedAt"
+    label="{{ 'settings.gym-started-at' | translate }}"
+    [icon]="faCalendarDays"
+    class="col-span-6"
+    type="date"
+  ></app-input-text>
+  <app-input-text
+    formControlName="gymDuration"
+    label="{{ 'settings.gym-duration' | translate }}"
+    [icon]="faClock"
+    class="col-span-6"
+    type="time"
+  ></app-input-text>
+  <app-input-text
+    formControlName="goal"
+    label="{{ 'settings.goal' | translate }}"
+    [icon]="faBullseye"
+    class="col-span-12"
+    type="text"
+  ></app-input-text>
 </form>
-<input class="flatpickr-input" type="text" placeholder="Select Date" />

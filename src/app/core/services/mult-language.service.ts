@@ -1,3 +1,6 @@
+import { registerLocaleData } from '@angular/common';
+import localeEn from '@angular/common/locales/en';
+import localePt from '@angular/common/locales/pt';
 import { effect, Injectable, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -37,6 +40,16 @@ export class MultiLanguageService {
     effect(() => {
       window.localStorage.setItem(this.languageKey, this.languageSignal());
       this.translateService.use(this.languageSignal());
+      this.changeLocale(this.languageSignal());
     });
+  }
+
+  private changeLocale(language: string): void {
+    console.log(language);
+    if (language === 'pt') {
+      registerLocaleData(localePt);
+    } else if (language === 'en') {
+      registerLocaleData(localeEn);
+    }
   }
 }

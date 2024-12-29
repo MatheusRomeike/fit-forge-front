@@ -134,6 +134,11 @@
     "profile": "Profile",
     "profile-subtitle": "Update your photo and personal details here.",
     "full-name": "Full Name",
-    "email": "Email"
+    "email": "Email",
+    "gym-started-at": "Started at the gym",
+    "weight": "Weight",
+    "height": "Height",
+    "gym-duration": "Gym Duration (in minutes)",
+    "goal": "Goals"
   }
 }
