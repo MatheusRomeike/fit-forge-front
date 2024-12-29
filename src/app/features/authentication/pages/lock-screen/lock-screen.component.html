@@ -8,34 +8,19 @@
     </p>
 
     <app-avatar></app-avatar>
-    <form>
-      <div class="form-control mb-4">
-        <label class="label font-medium">
-          <span class="label-text">{{
-            "authentication.password" | translate
-          }}</span>
-        </label>
-        <div class="relative">
-          <input
-            [type]="isPasswordVisible ? 'text' : 'password'"
-            [value]="password"
-            (input)="onPasswordInput($event)"
-            placeholder="{{
-              'authentication.password-placeholder' | translate
-            }}"
-            class="input input-bordered w-full"
-          />
-          <button
-            type="button"
-            (click)="togglePasswordVisibility()"
-            class="absolute top-1/2 right-3 transform -translate-y-1/2 btn btn-ghost btn-sm"
-          >
-            <fa-icon [icon]="isPasswordVisible ? faEye : faEyeSlash"></fa-icon>
-          </button>
-        </div>
-      </div>
+    <form class="grid gap-4 mt-4">
+      <app-input-text
+        formControlName="password"
+        label="{{ 'authentication.password' | translate }}"
+        [icon]="faKey"
+      ></app-input-text>
 
-      <button type="button" class="btn btn-primary w-full mb-4">
+      <button
+        type="button"
+        class="btn btn-primary w-full"
+        [disabled]="password.length == 0"
+        (click)="signIn()"
+      >
         <span class="flex items-center justify-center text-white">
           <fa-icon [icon]="faRightToBracket" class="mr-2"></fa-icon>
           {{ "authentication.sign-in" | translate }}

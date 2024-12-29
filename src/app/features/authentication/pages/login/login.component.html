@@ -12,53 +12,20 @@
       #googleLoginButton
     ></div>
 
-    <form
-      [formGroup]="loginForm"
-      (ngSubmit)="onSubmit()"
-      class="w-full max-w-md"
-    >
-      <div class="form-control mb-4">
-        <label class="label font-medium">
-          <span class="label-text"
-            >{{ "authentication.email" | translate }}
-            <span class="required">*</span></span
-          >
-        </label>
-        <input
-          type="text"
-          formControlName="email"
-          placeholder="{{ 'authentication.email-placeholder' | translate }}"
-          class="input input-bordered w-full"
-        />
-      </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="grid gap-4">
+      <app-input-text
+        formControlName="email"
+        label="{{ 'authentication.email' | translate }}"
+        [icon]="faEnvelope"
+      ></app-input-text>
 
-      <div class="form-control mb-4">
-        <label class="label font-medium">
-          <span class="label-text"
-            >{{ "authentication.password" | translate }}
-            <span class="required">*</span></span
-          >
-        </label>
-        <div class="relative">
-          <input
-            [type]="isPasswordVisible ? 'text' : 'password'"
-            formControlName="password"
-            placeholder="{{
-              'authentication.password-placeholder' | translate
-            }}"
-            class="input input-bordered w-full"
-          />
-          <button
-            type="button"
-            (click)="togglePasswordVisibility()"
-            class="absolute top-1/2 right-3 transform -translate-y-1/2 btn btn-ghost btn-sm"
-          >
-            <fa-icon [icon]="isPasswordVisible ? faEye : faEyeSlash"></fa-icon>
-          </button>
-        </div>
-      </div>
+      <app-input-text
+        formControlName="password"
+        label="{{ 'authentication.password' | translate }}"
+        [icon]="faKey"
+      ></app-input-text>
 
-      <div class="flex justify-between items-center mb-4">
+      <div class="flex justify-between items-center">
         <a
           routerLink="/authentication/forgot-password"
           class="link link-primary no-underline"
@@ -70,7 +37,7 @@
       <button
         type="submit"
         [disabled]="loginForm.invalid"
-        class="btn btn-primary w-full mb-4"
+        class="btn btn-primary w-full"
       >
         <span class="flex items-center justify-center text-white">
           <fa-icon [icon]="faRightToBracket" class="mr-2"></fa-icon>

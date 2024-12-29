@@ -1,5 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import {
   faAngleDown,
@@ -32,13 +33,19 @@ export class HeaderComponent {
   faCompress = faCompress;
 
   isSidebarToggled = false;
+  form: FormGroup;
 
   constructor(
     private sidebarService: SidebarService,
     public themeService: ThemeService,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {
+    this.form = this.formBuilder.group({
+      search: [''],
+    });
+
     this.sidebarService.isSidebarVisible$.subscribe((isSidebarToggled) => {
       this.isSidebarToggled = isSidebarToggled;
     });
@@ -164,5 +171,9 @@ export class HeaderComponent {
 
   logout() {
     this.router.navigate(['authentication/logout']);
+  }
+
+  lockScreen() {
+    this.router.navigate(['authentication/lock-screen']);
   }
 }

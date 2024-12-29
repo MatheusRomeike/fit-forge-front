@@ -1,0 +1,34 @@
+<label class="input input-bordered flex items-center gap-2 relative py-1">
+  <div *ngIf="iconPosition == 'left'">
+    <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
+  </div>
+
+  <input
+    type="text"
+    [formControl]="$any(formControl)"
+    [placeholder]="label"
+    class="grow input placeholder-transparent peer border-0 pl-1"
+    placeholder="Search"
+    mwlFlatpickr
+  />
+  <label
+    class="label absolute left-2 pointer-events-none transition-all text-gray-400 -top-2.5 peer-placeholder-shown:top-1.5 text-xs peer-placeholder-shown:text-sm"
+    [ngClass]="{
+      ' peer-placeholder-shown:left-9': icon,
+      ' peer-placeholder-shown:left-3': !icon
+    }"
+  >
+    {{ label }}
+    <span *ngIf="required" class="text-red-500 ml-1"> *</span>
+  </label>
+  <div *ngIf="iconPosition == 'right'">
+    <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
+  </div>
+</label>
+<small *ngIf="error" class="text-red-500 text-xs mt-1">
+  {{ error }}
+</small>
+
+<ng-template #iconTemplate>
+  <fa-icon class="text-sm text-gray-400" [icon]="icon" *ngIf="icon"></fa-icon>
+</ng-template>

@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { faEye, faEyeSlash, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import { LocalStorageService } from '../../../../shared/services/local-storage.service';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { GoogleAuthenticationService } from '../../shared/services/google-authentication.service';
@@ -22,8 +22,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   @ViewChild('googleLoginButton') googleLoginButton: ElementRef;
 
   faUser = faUser;
-  faEye = faEye;
-  faEyeSlash = faEyeSlash;
+  faEnvelope = faEnvelope;
+  faKey = faKey;
 
   password: string = '';
   isPasswordVisible: boolean = false;
@@ -65,15 +65,6 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     this.googleAuthenticationService.triggerGoogleSignIn(
       this.googleLoginButton
     );
-  }
-
-  togglePasswordVisibility(): void {
-    this.isPasswordVisible = !this.isPasswordVisible;
-  }
-
-  onPasswordInput(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    this.password = inputElement.value;
   }
 
   onSubmit(): void {

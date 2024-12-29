@@ -44,22 +44,22 @@ export class SidebarService {
         {
           name: 'sidebar.account-settings',
           icon: faIdCard,
-          routerLink: '/user/account-settings',
+          routerLink: '/settings/1',
         },
         {
           name: 'sidebar.change-password',
           icon: faArrowsRotate,
-          routerLink: '/user/change-password',
+          routerLink: '/settings/2',
         },
         {
           name: 'sidebar.privacy-policy',
           icon: faShieldHalved,
-          routerLink: '/user/privacy-policy',
+          routerLink: '/settings/3',
         },
         {
           name: 'sidebar.terms-conditions',
           icon: faFileContract,
-          routerLink: '/user/terms-conditions',
+          routerLink: '/settings/4',
         },
       ],
       showItemCount: true,

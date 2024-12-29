@@ -12,17 +12,12 @@
         <fa-icon [icon]="faBars"></fa-icon>
       </div>
 
-      <form class="search-box relative ml-4">
-        <label class="input input-bordered flex items-center gap-2">
-          <input
-            type="text"
-            class="grow"
-            placeholder="{{ 'header.search-placeholder' | translate }}"
-          />
-          <button type="submit" class="text-primary">
-            <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
-          </button>
-        </label>
+      <form [formGroup]="form" class="search-box relative ml-4">
+        <app-input-text
+          formControlName="search"
+          label="{{ 'header.search' | translate }}"
+          [icon]="faMagnifyingGlass"
+        ></app-input-text>
       </form>
     </div>
 
@@ -64,7 +59,7 @@
               >
             </li>
             <div class="divider m-0"></div>
-            <li class="w-full avatar-dropdown-item">
+            <li class="w-full avatar-dropdown-item" (click)="lockScreen()">
               <a
                 class="hover:text-primary hover:border-primary hover:border-l-4 rounded-none"
                 ><fa-icon [icon]="faLock"></fa-icon

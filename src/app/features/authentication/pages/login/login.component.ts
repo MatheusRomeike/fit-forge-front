@@ -2,8 +2,8 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
-  faEye,
-  faEyeSlash,
+  faEnvelope,
+  faKey,
   faRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import { LocalStorageService } from '../../../../shared/services/local-storage.service';
@@ -20,8 +20,8 @@ export class LoginComponent implements AfterViewInit {
   @ViewChild('googleLoginButton') googleLoginButton: ElementRef;
 
   faRightToBracket = faRightToBracket;
-  faEye = faEye;
-  faEyeSlash = faEyeSlash;
+  faEnvelope = faEnvelope;
+  faKey = faKey;
 
   loginForm: FormGroup;
   isPasswordVisible: boolean = false;

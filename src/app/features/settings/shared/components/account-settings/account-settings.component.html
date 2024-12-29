@@ -1,0 +1,23 @@
+<p class="text-xl font-bold">
+  {{ "settings.profile" | translate }}
+</p>
+
+<p class="text-gray-400">
+  {{ "settings.profile-subtitle" | translate }}
+</p>
+
+<form [formGroup]="form" class="grid grid-cols-6 md:grid-cols-12 gap-4 py-6">
+  <app-input-text
+    formControlName="name"
+    label="{{ 'settings.full-name' | translate }}"
+    [icon]="faUser"
+    class="col-span-6"
+  ></app-input-text>
+  <app-input-text
+    formControlName="email"
+    label="{{ 'settings.email' | translate }}"
+    [icon]="faEnvelope"
+    class="col-span-6"
+  ></app-input-text>
+</form>
+<input class="flatpickr-input" type="text" placeholder="Select Date" />

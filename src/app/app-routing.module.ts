@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseLayoutComponent } from './core/layouts/base-layout/base-layout.component';
+import { authGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,9 +21,19 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: BaseLayoutComponent,
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./features/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
+      ),
+  },
+  {
+    path: 'settings',
+    component: BaseLayoutComponent,
+    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./features/settings/settings.module').then(
+        (m) => m.SettingsModule
       ),
   },
 ];

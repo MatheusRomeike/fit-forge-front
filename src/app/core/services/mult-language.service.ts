@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class MultiLanguageService {
   public languages = ['pt', 'en'];
   private languageKey = 'languageSignal';
+
   get defaultLanguage() {
     let browserLang = navigator.language.split('-')[0];
     if (!this.languages.includes(browserLang)) {
@@ -21,7 +22,6 @@ export class MultiLanguageService {
 
   updateLanguage(language: string): void {
     this.languageSignal.update(() => {
-      console.log(language);
       switch (language) {
         case 'en':
           return 'en';

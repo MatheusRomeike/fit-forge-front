@@ -1,0 +1,14 @@
+<div class="block md:flex justify-between">
+  <h1 class="text-lg font-bold">{{ pageTitle }}</h1>
+
+  <div class="breadcrumbs text-sm flex-wrap">
+    <ul class="flex flex-wrap">
+      <li class="breadcrumb-item" *ngFor="let item of breadcrumb">
+        <a [routerLink]="item.routerLink" class="hover:text-primary">
+          <fa-icon [icon]="item.icon" class="mr-2" *ngIf="item.icon"></fa-icon>
+          {{ item.name }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

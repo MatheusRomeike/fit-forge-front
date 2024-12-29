@@ -60,6 +60,11 @@ export class LocalStorageService {
     return user?.name || '';
   }
 
+  public getEmail() {
+    var user = this.getUser();
+    return user?.email || '';
+  }
+
   public isLogged(): boolean {
     return localStorage.getItem(environment.userData.data) ? true : false;
   }

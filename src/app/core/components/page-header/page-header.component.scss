@@ -1,0 +1,8 @@
+::ng-deep .breadcrumb-item > a {
+  text-decoration: none !important;
+}
+
+.breadcrumb-item:last-child > a {
+  color: gray;
+  cursor: text;
+}

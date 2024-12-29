@@ -11,8 +11,17 @@
       "google-account-error": "Unexpected error in Google Account Login"
     }
   },
+  "input": {
+    "required": "This field is required",
+    "email": "This field must be a valid email",
+    "minlength": "Enter at least {requiredLength} characters",
+    "maxlength": "Enter no more than {requiredLength} characters",
+    "min": "Enter a value greater than or equal to {min}",
+    "max": "Enter a value less than or equal to {max}",
+    "pattern": "This field is not in the correct format"
+  },
   "header": {
-    "search-placeholder": "Search here",
+    "search": "Search",
     "profile": "My Profile",
     "lock-screen": "Lock Screen",
     "logout": "Logout"
@@ -116,5 +125,15 @@
     "successfully": "successfully!",
     "type-your-password-to-back": "Enter your password to return to the app",
     "you-are-logged-out": "You are logged out"
+  },
+  "settings": {
+    "account-settings": "Account Settings",
+    "change-password": "Change Password",
+    "privacy-policy": "Privacy Policy",
+    "terms-conditions": "Terms & Conditions",
+    "profile": "Profile",
+    "profile-subtitle": "Update your photo and personal details here.",
+    "full-name": "Full Name",
+    "email": "Email"
   }
 }

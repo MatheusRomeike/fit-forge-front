@@ -1,0 +1,58 @@
+<app-page-layout>
+  <app-page-header
+    page-header
+    pageTitle="Account Settings"
+    [breadcrumb]="breadcrumb"
+  ></app-page-header>
+
+  <div class="bg-secondary-content drop-shadow-2xl rounded p-4" content>
+    <div class="flex flex-wrap gap-2">
+      <button
+        class="btn btn-primary"
+        [ngClass]="{
+          'btn-outline': currentTab != 1,
+          'btn-active text-white': currentTab == 1
+        }"
+        (click)="changeTab(1)"
+      >
+        {{ "settings.account-settings" | translate }}
+      </button>
+      <button
+        class="btn btn-primary"
+        [ngClass]="{
+          'btn-outline': currentTab != 2,
+          'btn-active text-white': currentTab == 2
+        }"
+        (click)="changeTab(2)"
+      >
+        {{ "settings.change-password" | translate }}
+      </button>
+      <button
+        class="btn btn-primary"
+        [ngClass]="{
+          'btn-outline': currentTab != 3,
+          'btn-active text-white': currentTab == 3
+        }"
+        (click)="changeTab(3)"
+      >
+        {{ "settings.privacy-policy" | translate }}
+      </button>
+      <button
+        class="btn btn-primary"
+        [ngClass]="{
+          'btn-outline': currentTab != 4,
+          'btn-active text-white': currentTab == 4
+        }"
+        (click)="changeTab(4)"
+      >
+        {{ "settings.terms-conditions" | translate }}
+      </button>
+    </div>
+
+    <div [ngSwitch]="currentTab" class="h-full py-6">
+      <div *ngSwitchCase="1">
+        <app-account-settings></app-account-settings>
+      </div>
+    </div>
+  </div>
+</app-page-layout>
