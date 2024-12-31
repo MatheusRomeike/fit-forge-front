@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import "../node_modules/egalink-toasty.js/dist/toasty.min.css";
 
+::placeholder {
+  @apply text-gray-400;
+}
+
 body {
   font-family: Inter, system-ui, sans-serif;
 }
@@ -20,4 +24,24 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.tab {
+  border-bottom: none !important;
+
+  &.tab-active {
+    margin-bottom: -1px !important;
+  }
+
+  &::before {
+    width: 0 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

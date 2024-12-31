@@ -139,6 +139,10 @@
     "weight": "Weight",
     "height": "Height",
     "gym-duration": "Exercise Duration",
-    "goal": "Goals"
+    "goal": "Goals",
+    "your-photo": "Your Photo",
+    "this-will-be-displayed-on-your-profile": "This will be displayed on your profile.",
+    "cancel": "Cancel",
+    "upload-profile": "Upload Profile"
   }
 }

@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowsRotate,
+  faChartLine,
+  faFileContract,
+  faIdCard,
+  faShieldHalved,
+} from '@fortawesome/free-solid-svg-icons';
 import { Breadcrumb } from '../../../../core/models/breadcrumb.model';
 
 @Component({
@@ -22,6 +28,11 @@ export class SettingsComponent {
       name: 'Account Settings',
     },
   ];
+
+  faIdCard = faIdCard;
+  faArrowsRotate = faArrowsRotate;
+  faShieldHalved = faShieldHalved;
+  faFileContract = faFileContract;
 
   currentTab = 1;
 

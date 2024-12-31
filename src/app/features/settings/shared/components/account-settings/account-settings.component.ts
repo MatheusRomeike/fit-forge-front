@@ -42,6 +42,7 @@ export class AccountSettingsComponent implements OnInit {
       gymStartedAt: [''],
       gymDuration: ['', [Validators.min(0)]],
       goal: ['', Validators.maxLength(255)],
+      avatar: [''],
     });
   }
 

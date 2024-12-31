@@ -1,5 +1,4 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +9,7 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import localeEn from '@angular/common/locales/en';
 import localePt from '@angular/common/locales/pt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -19,7 +19,7 @@ registerLocaleData(localePt);
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
     TranslateModule.forRoot({

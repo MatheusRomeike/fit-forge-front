@@ -5,50 +5,44 @@
     [breadcrumb]="breadcrumb"
   ></app-page-header>
 
-  <div class="bg-secondary-content drop-shadow-2xl rounded p-4" content>
-    <div class="flex flex-wrap gap-2">
-      <button
-        class="btn btn-primary"
-        [ngClass]="{
-          'btn-outline': currentTab != 1,
-          'btn-active text-white': currentTab == 1
-        }"
+  <div content>
+    <div role="tablist" class="tabs tabs-lifted flex border-b">
+      <a
+        [ngClass]="{ 'tab-active': currentTab === 1 }"
         (click)="changeTab(1)"
+        class="tab"
       >
+        <fa-icon [icon]="faIdCard" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.account-settings" | translate }}
-      </button>
-      <button
-        class="btn btn-primary"
-        [ngClass]="{
-          'btn-outline': currentTab != 2,
-          'btn-active text-white': currentTab == 2
-        }"
-        (click)="changeTab(2)"
-      >
-        {{ "settings.change-password" | translate }}
-      </button>
-      <button
-        class="btn btn-primary"
-        [ngClass]="{
-          'btn-outline': currentTab != 3,
-          'btn-active text-white': currentTab == 3
-        }"
-        (click)="changeTab(3)"
-      >
-        {{ "settings.privacy-policy" | translate }}
-      </button>
-      <button
-        class="btn btn-primary"
-        [ngClass]="{
-          'btn-outline': currentTab != 4,
-          'btn-active text-white': currentTab == 4
-        }"
-        (click)="changeTab(4)"
-      >
-        {{ "settings.terms-conditions" | translate }}
-      </button>
-    </div>
+      </a>
 
+      <a
+        [ngClass]="{ 'tab-active': currentTab === 2 }"
+        (click)="changeTab(2)"
+        class="tab"
+      >
+        <fa-icon [icon]="faArrowsRotate" class="text-gray-500 mr-2"></fa-icon>
+        {{ "settings.change-password" | translate }}
+      </a>
+
+      <a
+        [ngClass]="{ 'tab-active': currentTab === 3 }"
+        (click)="changeTab(3)"
+        class="tab"
+      >
+        <fa-icon [icon]="faShieldHalved" class="text-gray-500 mr-2"></fa-icon>
+        {{ "settings.privacy-policy" | translate }}
+      </a>
+
+      <a
+        [ngClass]="{ 'tab-active': currentTab === 4 }"
+        (click)="changeTab(4)"
+        class="tab"
+      >
+        <fa-icon [icon]="faFileContract" class="text-gray-500 mr-2"></fa-icon>
+        {{ "settings.terms-conditions" | translate }}
+      </a>
+    </div>
     <div [ngSwitch]="currentTab" class="h-full py-6">
       <div *ngSwitchCase="1">
         <app-account-settings></app-account-settings>

@@ -1,6 +1,4 @@
-<div class="block md:flex justify-between">
-  <h1 class="text-lg font-bold">{{ pageTitle }}</h1>
-
+<div class="block md:flex justify-between flex-row-reverse">
   <div class="breadcrumbs text-sm flex-wrap">
     <ul class="flex flex-wrap">
       <li class="breadcrumb-item" *ngFor="let item of breadcrumb">
@@ -11,4 +9,6 @@
       </li>
     </ul>
   </div>
+
+  <h1 class="text-lg font-bold">{{ pageTitle }}</h1>
 </div>

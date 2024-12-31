@@ -55,7 +55,24 @@
     type="text"
     [isTextArea]="true"
   ></app-input-text>
+  <div class="col-span-12">
+    <h4>{{ "settings.your-photo" | translate }}</h4>
+    <p class="text-gray-400">
+      {{ "settings.this-will-be-displayed-on-your-profile" | translate }}
+    </p>
+    <div class="form-group">
+      <file-upload
+        class="!bg-base-100"
+        formControlName="avatar"
+        [multiple]="false"
+      ></file-upload>
+    </div>
+  </div>
 </form>
 
-<button class="btn btn-error mr-3 text-white">Cancel</button>
-<button class="btn btn-primary text-white">Upload Profile</button>
+<button class="btn btn-error mr-3 text-white">
+  {{ "settings.cancel" | translate }}
+</button>
+<button class="btn btn-primary text-white">
+  {{ "settings.upload-profile" | translate }}
+</button>
