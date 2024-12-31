@@ -1,9 +1,16 @@
 <div class="block md:flex justify-between flex-row-reverse">
   <div class="breadcrumbs text-sm flex-wrap">
     <ul class="flex flex-wrap">
-      <li class="breadcrumb-item" *ngFor="let item of breadcrumb">
-        <a [routerLink]="item.routerLink" class="hover:text-primary">
-          <fa-icon [icon]="item.icon" class="mr-2" *ngIf="item.icon"></fa-icon>
+      <li class="breadcrumb-item" *ngFor="let item of internBreadcrumb">
+        <a
+          [routerLink]="item.routerLink"
+          class="hover:text-primary font-medium"
+        >
+          <fa-icon
+            [icon]="item.icon"
+            class="text-primary mr-2"
+            *ngIf="item.icon"
+          ></fa-icon>
           {{ item.name }}
         </a>
       </li>

@@ -1,8 +1,21 @@
 ::ng-deep .breadcrumb-item > a {
   text-decoration: none !important;
+  @apply text-gray-500;
+}
+
+.breadcrumb-item:first-child > a {
+  @apply text-inherit;
+
+  &:hover {
+    @apply text-primary;
+  }
 }
 
 .breadcrumb-item:last-child > a {
-  color: gray;
   cursor: text;
+  @apply text-gray-500;
+
+  &:hover {
+    @apply text-gray-500;
+  }
 }

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {
   faArrowsRotate,
-  faChartLine,
   faFileContract,
   faIdCard,
   faShieldHalved,
@@ -16,11 +15,6 @@ import { Breadcrumb } from '../../../../core/models/breadcrumb.model';
 })
 export class SettingsComponent {
   breadcrumb: Breadcrumb[] = [
-    {
-      name: 'Dashboard',
-      icon: faChartLine,
-      routerLink: '/dashboard',
-    },
     {
       name: 'Settings',
     },
