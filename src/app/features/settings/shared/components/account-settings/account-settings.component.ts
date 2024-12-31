@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
   faBullseye,
   faCalendarDays,
+  faCheck,
   faClock,
   faEnvelope,
   faRulerVertical,
@@ -18,6 +19,7 @@ import {
 })
 export class AccountSettingsComponent implements OnInit {
   form: FormGroup;
+  faCheck = faCheck;
   faUser = faUser;
   faEnvelope = faEnvelope;
   faWeightScale = faWeightScale;
@@ -42,7 +44,7 @@ export class AccountSettingsComponent implements OnInit {
       gymStartedAt: [''],
       gymDuration: ['', [Validators.min(0)]],
       goal: ['', Validators.maxLength(255)],
-      avatar: [''],
+      avatar: [],
     });
   }
 

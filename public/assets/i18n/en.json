@@ -143,6 +143,11 @@
     "your-photo": "Your Photo",
     "this-will-be-displayed-on-your-profile": "This will be displayed on your profile.",
     "cancel": "Cancel",
-    "upload-profile": "Upload Profile"
+    "upload-profile": "Upload Profile",
+    "current-password": "Current Password",
+    "new-password": "New Password",
+    "confirm-password": "Confirm Password",
+    "forgot-password": "Forgot Password?",
+    "close-delete-account": "Close & Delete This Account"
   }
 }

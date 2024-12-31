@@ -6,11 +6,11 @@
   ></app-page-header>
 
   <div content>
-    <div role="tablist" class="tabs tabs-lifted flex border-b">
+    <div role="tablist" class="tabs tabs-lifted flex border-b border-primary">
       <a
         [ngClass]="{ 'tab-active': currentTab === 1 }"
         (click)="changeTab(1)"
-        class="tab"
+        class="tab font-medium !border-primary"
       >
         <fa-icon [icon]="faIdCard" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.account-settings" | translate }}
@@ -19,7 +19,7 @@
       <a
         [ngClass]="{ 'tab-active': currentTab === 2 }"
         (click)="changeTab(2)"
-        class="tab"
+        class="tab font-medium !border-primary"
       >
         <fa-icon [icon]="faArrowsRotate" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.change-password" | translate }}
@@ -28,7 +28,7 @@
       <a
         [ngClass]="{ 'tab-active': currentTab === 3 }"
         (click)="changeTab(3)"
-        class="tab"
+        class="tab font-medium !border-primary"
       >
         <fa-icon [icon]="faShieldHalved" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.privacy-policy" | translate }}
@@ -37,7 +37,7 @@
       <a
         [ngClass]="{ 'tab-active': currentTab === 4 }"
         (click)="changeTab(4)"
-        class="tab"
+        class="tab font-medium !border-primary"
       >
         <fa-icon [icon]="faFileContract" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.terms-conditions" | translate }}
@@ -46,6 +46,15 @@
     <div [ngSwitch]="currentTab" class="h-full py-6">
       <div *ngSwitchCase="1">
         <app-account-settings></app-account-settings>
+      </div>
+      <div *ngSwitchCase="2">
+        <app-change-password></app-change-password>
+      </div>
+      <div *ngSwitchCase="3">
+        <app-privacy-policy></app-privacy-policy>
+      </div>
+      <div *ngSwitchCase="4">
+        <app-terms-conditions></app-terms-conditions>
       </div>
     </div>
   </div>
