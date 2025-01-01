@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
@@ -11,10 +10,9 @@ import { BaseReturn } from '../models/base.return';
 
 export class BaseService {
   public localStorageService: LocalStorageService = inject(LocalStorageService);
-  private notifyService: NotifyService = inject(NotifyService);
+  public notifyService: NotifyService = inject(NotifyService);
   private http: HttpClient = inject(HttpClient);
-  private translateService: TranslateService = inject(TranslateService);
-  private loadingService: LoadingService = inject(LoadingService);
+  public loadingService: LoadingService = inject(LoadingService);
 
   public serverUrl: string = environment.serverPath;
 
@@ -23,7 +21,6 @@ export class BaseService {
   }
 
   public get(url: string, header: HttpHeaders): Observable<BaseReturn<any>> {
-    this.loadingService.show();
     return this.http
       .get<BaseReturn<any>>(`${this.serverUrl}${this.baseUrl}${url}`, {
         headers: header,
@@ -39,7 +36,6 @@ export class BaseService {
     body: any,
     header: HttpHeaders
   ): Observable<BaseReturn<any>> {
-    this.loadingService.show();
     return this.http
       .post<BaseReturn<any>>(`${this.serverUrl}${this.baseUrl}${url}`, body, {
         headers: header,
@@ -55,7 +51,6 @@ export class BaseService {
     body: any,
     header: HttpHeaders
   ): Observable<BaseReturn<any>> {
-    this.loadingService.show();
     return this.http
       .put<BaseReturn<any>>(`${this.serverUrl}${this.baseUrl}${url}`, body, {
         headers: header,
@@ -67,7 +62,6 @@ export class BaseService {
   }
 
   public delete(url: string, header: HttpHeaders): Observable<BaseReturn<any>> {
-    this.loadingService.show();
     return this.http
       .delete<BaseReturn<any>>(`${this.serverUrl}${this.baseUrl}${url}`, {
         headers: header,
@@ -87,9 +81,7 @@ export class BaseService {
     if (error.error) {
       let message = error.error.result;
 
-      this.translateService.get(message).subscribe((translatedMessage) => {
-        this.notifyService.error(translatedMessage);
-      });
+      this.notifyService.error(message);
     }
 
     return throwError(() => error.error || { data: [] });

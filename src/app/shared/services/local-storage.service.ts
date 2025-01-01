@@ -65,6 +65,11 @@ export class LocalStorageService {
     return user?.email || '';
   }
 
+  public isSocialAccountLogin() {
+    var user = this.getUser();
+    return user?.socialAccountLogin || false;
+  }
+
   public isLogged(): boolean {
     return localStorage.getItem(environment.userData.data) ? true : false;
   }

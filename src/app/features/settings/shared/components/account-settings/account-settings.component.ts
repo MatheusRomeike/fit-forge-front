@@ -10,6 +10,8 @@ import {
   faUser,
   faWeightScale,
 } from '@fortawesome/free-solid-svg-icons';
+import { LocalStorageService } from '../../../../../shared/services/local-storage.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -28,7 +30,11 @@ export class AccountSettingsComponent implements OnInit {
   faClock = faClock;
   faBullseye = faBullseye;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private localStorageService: LocalStorageService
+  ) {
     this.form = this.formBuilder.group({
       name: [
         '',
@@ -39,14 +45,37 @@ export class AccountSettingsComponent implements OnInit {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
-      weight: ['', [Validators.min(0)]],
-      height: ['', [Validators.min(0)]],
-      gymStartedAt: [''],
-      gymDuration: ['', [Validators.min(0)]],
-      goal: ['', Validators.maxLength(255)],
+      weight: ['', [Validators.min(0), Validators.max(600)]],
+      height: ['', [Validators.min(0), Validators.max(3)]],
+      startedAtGym: [''],
+      exerciseDuration: ['', [Validators.min(0)]],
+      goals: ['', Validators.maxLength(255)],
       avatar: [],
+    });
+
+    this.form.get('email').disable();
+  }
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
+    this.userService.getUserData().subscribe((x) => {
+      this.form.patchValue(x);
     });
   }
 
-  ngOnInit(): void {}
+  onSubmit() {
+    if (this.form.valid) {
+      this.userService.saveUserData(this.form.getRawValue()).subscribe((x) => {
+        this.userService.notifyService.success(
+          'settings.user-data-saved-successfully'
+        );
+      });
+    } else {
+      this.userService.notifyService.error('settings.invalid-form');
+      this.form.markAllAsTouched();
+    }
+  }
 }

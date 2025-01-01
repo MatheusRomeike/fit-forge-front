@@ -11,6 +11,10 @@ body {
   font-family: Inter, system-ui, sans-serif;
 }
 
+.toast-container {
+  z-index: 999 !important;
+}
+
 #credential_picker_container {
   z-index: 9 !important;
 }

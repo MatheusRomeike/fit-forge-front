@@ -17,7 +17,8 @@ export class AvatarComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = this.getName();
-    this.avatar = this.localStorageService.getAvatar();
+    this.avatar =
+      this.localStorageService.getAvatar() || 'assets/images/core/user.png';
   }
 
   getName() {

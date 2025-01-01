@@ -69,6 +69,7 @@ export class GoogleAuthenticationService extends BaseService {
   }
 
   loginWithGoogle(credentials: CredentialResponse) {
+    this.loadingService.show();
     this.post(
       'LoginWithGoogle',
       JSON.stringify(credentials.credential),

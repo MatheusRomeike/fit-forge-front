@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 declare var Toasty: any;
 declare var Swal: any;
@@ -7,11 +8,13 @@ declare var Swal: any;
   providedIn: 'root',
 })
 export class NotifyService {
+  private translateService: TranslateService = inject(TranslateService);
+
   private toasty: any;
 
   constructor() {
     this.toasty = new Toasty({
-      transition: 'pinItUp',
+      transition: 'slideLeftFade',
       insertBefore: true,
       duration: 4000,
       enableSounds: false,
@@ -22,22 +25,36 @@ export class NotifyService {
   }
 
   public info(message: string) {
-    this.toasty.info(message);
+    this.translateService.get(message).subscribe((translatedMessage) => {
+      this.toasty.info(translatedMessage);
+    });
   }
 
   public success(message: string) {
-    this.toasty.success(message);
+    this.translateService.get(message).subscribe((translatedMessage) => {
+      this.toasty.success(translatedMessage);
+    });
   }
 
   public warning(message: string) {
-    this.toasty.warning(message);
+    this.translateService.get(message).subscribe((translatedMessage) => {
+      this.toasty.warning(translatedMessage);
+    });
   }
 
   public error(message: string) {
-    this.toasty.error(message);
+    this.translateService.get(message).subscribe((translatedMessage) => {
+      this.toasty.error(translatedMessage);
+    });
   }
 
   public confirmation(title: string, text: string): Promise<any> {
+    this.translateService.get(title).subscribe((translatedMessage) => {
+      title = translatedMessage;
+    });
+    this.translateService.get(text).subscribe((translatedMessage) => {
+      text = translatedMessage;
+    });
     return Swal.fire({
       title: title,
       text: text,
@@ -52,6 +69,12 @@ export class NotifyService {
   }
 
   public confirmationSuccess(title: string, text: string): Promise<any> {
+    this.translateService.get(title).subscribe((translatedMessage) => {
+      title = translatedMessage;
+    });
+    this.translateService.get(text).subscribe((translatedMessage) => {
+      text = translatedMessage;
+    });
     return Swal.fire({
       title: title,
       text: text,

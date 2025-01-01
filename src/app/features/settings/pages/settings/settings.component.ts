@@ -7,6 +7,7 @@ import {
   faShieldHalved,
 } from '@fortawesome/free-solid-svg-icons';
 import { Breadcrumb } from '../../../../core/models/breadcrumb.model';
+import { LocalStorageService } from '../../../../shared/services/local-storage.service';
 
 @Component({
   selector: 'app-settings',
@@ -31,7 +32,10 @@ export class SettingsComponent implements OnInit {
 
   currentTab = 1;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    public localStorageService: LocalStorageService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {

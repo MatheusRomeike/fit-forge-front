@@ -17,6 +17,7 @@
       </a>
 
       <a
+        *ngIf="!localStorageService.isSocialAccountLogin()"
         [ngClass]="{ 'tab-active': currentTab === 2 }"
         (click)="changeTab(2)"
         class="tab font-medium !border-primary"

@@ -4,10 +4,19 @@
       "name-required": "Nome é obrigatório",
       "email-required": "Email é obrigatório",
       "password-required": "Senha é obrigatória",
-      "credential-required": "Credencial é obrigatória"
+      "credential-required": "Credencial é obrigatória",
+      "invalid-email-password": "Usuário não encontrado, email ou senha incorretos",
+      "invalid-weight": "Peso deve ser maior que 0 e menor que 600kg",
+      "invalid-height": "Altura deve ser maior que 0 e menor que 3 metros",
+      "started-at-gym": "Data de início não pode ser no futuro",
+      "exercise-duration": "Duração do exercício deve ser maior que 0 e menor ou igual a 24 horas",
+      "email-already-registered": "Email já registrado",
+      "wrong-password": "Senha atual incorreta",
+      "new-password-required": "Nova senha é obrigatória",
+      "confirm-password-required": "Confirmação de senha é obrigatória",
+      "passwords-do-not-match": "Senhas não conferem"
     },
     "repository": {
-      "invalid-email-password": "Usuário não encontrado, email ou senha incorretos",
       "google-account-error": "Erro inesperado no login com a conta do Google"
     }
   },
@@ -148,6 +157,10 @@
     "new-password": "Nova Senha",
     "confirm-password": "Confirmar Senha",
     "forgot-password": "Esqueceu a Senha?",
-    "close-delete-account": "Encerrar e Excluir Esta Conta"
+    "close-delete-account": "Encerrar e Excluir Esta Conta",
+    "user-data-saved-successfully": "Dados do usuário salvos com sucesso",
+    "password-changed-successfully": "Senha trocada com sucesso",
+    "passwords-must-match": "Senhas devem ser iguais",
+    "invalid-form": "O formulário é inválido. Verifique os campos e tente novamente."
   }
 }

@@ -5,13 +5,18 @@
       "email-required": "Email is required",
       "password-required": "Password is required",
       "credential-required": "Credential is required",
-      "validator.invalid-weight": "Weight must be greater than 0 and less than 600kg",
-      "validator.invalid-height": "Height must be greater than 0 and less than 3 meters",
-      "validator.started-at-gym": "Start date cannot be in the future",
-      "validator.exercise-duration": "Exercise duration must be greater than 0 and less than or equal to 24 hours"
+      "invalid-weight": "Weight must be greater than 0 and less than 600kg",
+      "invalid-height": "Height must be greater than 0 and less than 3 meters",
+      "started-at-gym": "Start date cannot be in the future",
+      "exercise-duration": "Exercise duration must be greater than 0 and less than or equal to 24 hours",
+      "email-already-registered": "Email already registered",
+      "wrong-password": "Current password is incorrect",
+      "new-password-required": "New password is required",
+      "confirm-password-required": "Confirm password is required",
+      "invalid-email-password": "User not found, invalid email or password",
+      "passwords-do-not-match": "Passwords do not match"
     },
     "repository": {
-      "invalid-email-password": "User not found, invalid email or password",
       "google-account-error": "Unexpected error in Google Account Login"
     }
   },
@@ -152,6 +157,10 @@
     "new-password": "New Password",
     "confirm-password": "Confirm Password",
     "forgot-password": "Forgot Password?",
-    "close-delete-account": "Close & Delete This Account"
+    "close-delete-account": "Close & Delete This Account",
+    "user-data-saved-successfully": "User data saved successfully",
+    "password-changed-successfully": "Password changed successfully",
+    "passwords-must-match": "Passwords must match",
+    "invalid-form": "The form is invalid. Check the fields and try again"
   }
 }

@@ -34,21 +34,21 @@
     type="number"
   ></app-input-text>
   <app-input-text
-    formControlName="gymStartedAt"
+    formControlName="startedAtGym"
     label="{{ 'settings.gym-started-at' | translate }}"
     [icon]="faCalendarDays"
     class="col-span-12 md:col-span-6"
     type="date"
   ></app-input-text>
   <app-input-text
-    formControlName="gymDuration"
+    formControlName="exerciseDuration"
     label="{{ 'settings.gym-duration' | translate }}"
     [icon]="faClock"
     class="col-span-12 md:col-span-6"
     type="time"
   ></app-input-text>
   <app-input-text
-    formControlName="goal"
+    formControlName="goals"
     label="{{ 'settings.goal' | translate }}"
     [icon]="faBullseye"
     class="col-span-12"
@@ -70,10 +70,10 @@
   </div>
 </form>
 
-<button class="btn btn-error mr-3 text-white">
+<button class="btn btn-error mr-3 text-white" (click)="loadData()">
   {{ "settings.cancel" | translate }}
 </button>
-<button class="btn btn-primary text-white">
+<button class="btn btn-primary text-white" (click)="onSubmit()">
   <fa-icon [icon]="faCheck"></fa-icon>
   {{ "settings.upload-profile" | translate }}
 </button>
