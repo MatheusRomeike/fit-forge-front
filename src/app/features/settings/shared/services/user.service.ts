@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { BaseService } from '../../../../core/services/base.service';
+import { UserData } from '../models/user-data.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class UserService extends BaseService {
     return this.get('', this.authHeader()).pipe(map((p) => p.result));
   }
 
-  saveUserData(data: any): Observable<any> {
+  saveUserData(data: UserData): Observable<UserData> {
     return this.post(
       'saveUserData',
       JSON.stringify(data),
@@ -22,7 +23,7 @@ export class UserService extends BaseService {
     ).pipe(map((p) => p.result));
   }
 
-  changePassword(data: any): Observable<any> {
+  changePassword(data: UserData): Observable<boolean> {
     return this.post(
       'changePassword',
       JSON.stringify(data),

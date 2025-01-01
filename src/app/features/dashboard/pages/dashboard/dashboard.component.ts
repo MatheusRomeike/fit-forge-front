@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GoogleAuthenticationService } from '../../../authentication/shared/services/google-authentication.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,4 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss',
   standalone: false,
 })
-export class DashboardComponent {}
+export class DashboardComponent implements OnInit {
+  constructor(
+    private googleAuthenticationService: GoogleAuthenticationService
+  ) {}
+
+  ngOnInit(): void {
+    this.googleAuthenticationService.dismissPrompt();
+  }
+}

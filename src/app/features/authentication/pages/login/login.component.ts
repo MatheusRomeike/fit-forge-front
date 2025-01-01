@@ -7,6 +7,7 @@ import {
   faRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import { LocalStorageService } from '../../../../shared/services/local-storage.service';
+import { Login } from '../../shared/models/login.model';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { GoogleAuthenticationService } from '../../shared/services/google-authentication.service';
 
@@ -62,10 +63,14 @@ export class LoginComponent implements AfterViewInit {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.authenticationService.login(this.loginForm.value).subscribe((p) => {
-        this.localStorageService.registerUser(p);
-        this.router.navigate(['dashboard']);
-      });
+      this.authenticationService
+        .login(
+          new Login(this.loginForm.value.email, this.loginForm.value.password)
+        )
+        .subscribe((p) => {
+          this.localStorageService.registerUser(p);
+          this.router.navigate(['dashboard']);
+        });
       // Aqui você pode chamar seu serviço de autenticação
     }
   }

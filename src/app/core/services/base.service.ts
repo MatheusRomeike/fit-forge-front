@@ -81,6 +81,10 @@ export class BaseService {
     if (error.error) {
       let message = error.error.result;
 
+      if (error.error.errors && !message) {
+        message = 'api-exception.unexpected.unexpected-error';
+      }
+
       this.notifyService.error(message);
     }
 

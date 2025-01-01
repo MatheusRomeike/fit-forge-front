@@ -83,4 +83,8 @@ export class GoogleAuthenticationService extends BaseService {
     this.localStorageService.registerUser(result);
     this.router.navigate(['dashboard']);
   }
+
+  dismissPrompt() {
+    google.accounts.id.cancel();
+  }
 }

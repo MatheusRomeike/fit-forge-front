@@ -10,7 +10,9 @@ import {
   faUser,
   faWeightScale,
 } from '@fortawesome/free-solid-svg-icons';
+import { HelperService } from '../../../../../shared/services/helper.service';
 import { LocalStorageService } from '../../../../../shared/services/local-storage.service';
+import { UserData } from '../../models/user-data.model';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -33,7 +35,8 @@ export class AccountSettingsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private helperService: HelperService
   ) {
     this.form = this.formBuilder.group({
       name: [
@@ -50,7 +53,7 @@ export class AccountSettingsComponent implements OnInit {
       startedAtGym: [''],
       exerciseDuration: ['', [Validators.min(0)]],
       goals: ['', Validators.maxLength(255)],
-      avatar: [],
+      avatar: null,
     });
 
     this.form.get('email').disable();
@@ -61,18 +64,38 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   loadData() {
-    this.userService.getUserData().subscribe((x) => {
+    this.userService.getUserData().subscribe((x: UserData) => {
       this.form.patchValue(x);
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.form.valid) {
-      this.userService.saveUserData(this.form.getRawValue()).subscribe((x) => {
-        this.userService.notifyService.success(
-          'settings.user-data-saved-successfully'
+      let avatar = null;
+      let avatarExtension = null;
+
+      if (this.form.get('avatar').value) {
+        avatar = await this.helperService.fileToBase64(
+          this.form.get('avatar').value[0]
         );
-      });
+
+        avatar = avatar.split(',')[1];
+
+        avatarExtension = `.${this.form
+          .get('avatar')
+          .value[0].name.split('.')
+          .pop()}`;
+      }
+
+      this.userService
+        .saveUserData(
+          new UserData(this.form.getRawValue(), avatar, avatarExtension)
+        )
+        .subscribe((x) => {
+          this.userService.notifyService.success(
+            'settings.user-data-saved-successfully'
+          );
+        });
     } else {
       this.userService.notifyService.error('settings.invalid-form');
       this.form.markAllAsTouched();

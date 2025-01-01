@@ -18,6 +18,9 @@
     },
     "repository": {
       "google-account-error": "Erro inesperado no login com a conta do Google"
+    },
+    "unexpected": {
+      "unexpected-error": "Erro inesperado"
     }
   },
   "input": {

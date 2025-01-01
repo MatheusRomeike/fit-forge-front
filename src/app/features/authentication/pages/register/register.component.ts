@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import { LocalStorageService } from '../../../../shared/services/local-storage.service';
+import { Register } from '../../shared/models/register.model';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 import { GoogleAuthenticationService } from '../../shared/services/google-authentication.service';
 
@@ -70,7 +71,13 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   onSubmit(): void {
     if (this.registerForm.valid) {
       this.authenticationService
-        .register(this.registerForm.value)
+        .register(
+          new Register(
+            this.registerForm.value.name,
+            this.registerForm.value.email,
+            this.registerForm.value.password
+          )
+        )
         .subscribe((p) => {
           this.localStorageService.registerUser(p);
           this.router.navigate(['dashboard']);
