@@ -1,4 +1,25 @@
 {
+  "api-exception": {
+    "validator": {
+      "name-required": "Nome é obrigatório",
+      "email-required": "Email é obrigatório",
+      "password-required": "Senha é obrigatória",
+      "credential-required": "Credencial é obrigatória"
+    },
+    "repository": {
+      "invalid-email-password": "Usuário não encontrado, email ou senha incorretos",
+      "google-account-error": "Erro inesperado no login com a conta do Google"
+    }
+  },
+  "input": {
+    "required": "Campo é obrigatório",
+    "email": "Campo deve conter um email válido",
+    "minlength": "Informe pelo menos {requiredLength} caracteres",
+    "maxlength": "Informe no máximo {requiredLength} caracteres",
+    "min": "Informe um valor maior ou igual {min}",
+    "max": "Informe um valor menor ou igual {max}",
+    "pattern": "Campo não está no formato correto"
+  },
   "header": {
     "search-placeholder": "Pesquisar aqui",
     "profile": "Meu Perfil",
@@ -12,7 +33,11 @@
     "others": "Outros",
     "settings": "Configurações",
     "profile": "Meu Perfil",
-    "change-password": "Mudar Senha"
+    "account-settings": "Account Settings",
+    "change-password": "Mudar Senha",
+    "privacy-policy": "Política de Privacidade",
+    "terms-conditions": "Termos e Condições",
+    "logout": "Sair"
   },
   "front-page": {
     "login": "Entrar",
@@ -100,5 +125,29 @@
     "successfully": "com sucesso!",
     "type-your-password-to-back": "Digite sua senha para voltar ao aplicativo.",
     "you-are-logged-out": "Você foi desconectado."
+  },
+  "settings": {
+    "account-settings": "Configurações da Conta",
+    "change-password": "Alterar Senha",
+    "privacy-policy": "Política de Privacidade",
+    "terms-conditions": "Termos e Condições",
+    "profile": "Perfil",
+    "profile-subtitle": "Atualize sua foto e detalhes pessoais aqui.",
+    "full-name": "Nome Completo",
+    "email": "E-mail",
+    "gym-started-at": "Início na academia",
+    "weight": "Peso",
+    "height": "Altura",
+    "gym-duration": "Duração do Exercício",
+    "goal": "Objetivos",
+    "your-photo": "Sua Foto",
+    "this-will-be-displayed-on-your-profile": "Será exibido no seu perfil.",
+    "cancel": "Cancelar",
+    "upload-profile": "Carregar Perfil",
+    "current-password": "Senha Atual",
+    "new-password": "Nova Senha",
+    "confirm-password": "Confirmar Senha",
+    "forgot-password": "Esqueceu a Senha?",
+    "close-delete-account": "Encerrar e Excluir Esta Conta"
   }
 }

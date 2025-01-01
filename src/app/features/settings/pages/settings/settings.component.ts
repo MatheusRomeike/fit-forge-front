@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {
   faArrowsRotate,
   faFileContract,
@@ -13,7 +14,7 @@ import { Breadcrumb } from '../../../../core/models/breadcrumb.model';
   styleUrl: './settings.component.scss',
   standalone: false,
 })
-export class SettingsComponent {
+export class SettingsComponent implements OnInit {
   breadcrumb: Breadcrumb[] = [
     {
       name: 'Settings',
@@ -29,6 +30,17 @@ export class SettingsComponent {
   faFileContract = faFileContract;
 
   currentTab = 1;
+
+  constructor(private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      const accordionId = params['accordion-id'];
+      if (accordionId) {
+        this.currentTab = parseInt(accordionId, 10); // Atualiza a aba ativa
+      }
+    });
+  }
 
   changeTab(index: number) {
     this.currentTab = index;

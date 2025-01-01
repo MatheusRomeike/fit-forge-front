@@ -1,0 +1,8 @@
+<ngx-loading
+  [show]="loadingService.isSLoading$ | async"
+  [config]="{
+    animationType: animationType,
+    primaryColour: primaryColour,
+    backdropBorderRadius: '3px'
+  }"
+></ngx-loading>

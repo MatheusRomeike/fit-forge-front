@@ -12,6 +12,7 @@ import localePt from '@angular/common/locales/pt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxLoadingModule } from 'ngx-loading';
 
 registerLocaleData(localeEn);
 registerLocaleData(localePt);
@@ -30,6 +31,7 @@ registerLocaleData(localePt);
       },
     }),
     OAuthModule.forRoot(),
+    NgxLoadingModule.forRoot({}),
   ],
   providers: [
     provideHttpClient(withFetch()),

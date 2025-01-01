@@ -29,6 +29,7 @@
     "angular-oauth2-oidc": "^19.0.0",
     "egalink-toasty.js": "^1.5.5",
     "flag-icons": "^7.2.3",
+    "ngx-loading": "^17.0.0",
     "ngx-scrollbar": "^16.1.1",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.15.3",
