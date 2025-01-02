@@ -1,0 +1,11 @@
+.tab {
+  border-bottom: none !important;
+
+  &.tab-active {
+    margin-bottom: -1px !important;
+  }
+
+  &::before {
+    width: 0 !important;
+  }
+}

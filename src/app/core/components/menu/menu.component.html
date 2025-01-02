@@ -30,7 +30,7 @@
 
     <!-- Submenu -->
     <li *ngIf="item.children">
-      <details>
+      <details [open]="isActive(item.children)">
         <summary
           [ngClass]="{
             'no-arrow': collapsed,

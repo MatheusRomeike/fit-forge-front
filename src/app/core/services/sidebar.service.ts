@@ -2,10 +2,15 @@ import { Injectable } from '@angular/core';
 import {
   faArrowsRotate,
   faChartLine,
+  faClockRotateLeft,
   faCog,
+  faDumbbell,
+  faEye,
   faFileContract,
   faIdCard,
+  faPenToSquare,
   faRightFromBracket,
+  faRotate,
   faShieldHalved,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
@@ -37,6 +42,33 @@ export class SidebarService {
         name: 'sidebar.dashboard',
         icon: faChartLine,
         routerLink: '/dashboard',
+      },
+      {
+        name: 'sidebar.workout-plan',
+        icon: faDumbbell,
+        children: [
+          {
+            name: 'sidebar.view-workout',
+            icon: faEye,
+            routerLink: '/workout-plan',
+          },
+          {
+            name: 'sidebar.edit-workout',
+            icon: faPenToSquare,
+            routerLink: '/workout-plan/edit',
+          },
+          {
+            name: 'sidebar.change-workout',
+            icon: faRotate,
+            routerLink: '/workout-plan/change',
+          },
+          {
+            name: 'sidebar.workout-history',
+            icon: faClockRotateLeft,
+            routerLink: '/workout-plan/history',
+          },
+        ],
+        showItemCount: true,
       },
       {
         sectionName: 'sidebar.others',

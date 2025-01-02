@@ -49,7 +49,12 @@
     "change-password": "Change Password",
     "privacy-policy": "Privacy Policy",
     "terms-conditions": "Terms & Conditions",
-    "logout": "Logout"
+    "logout": "Logout",
+    "workout-plan": "Workout Plan",
+    "view-workout": "View Workout",
+    "edit-workout": "Edit Workout",
+    "change-workout": "Change Workout",
+    "workout-history": "Workout History"
   },
   "front-page": {
     "login": "Login",
@@ -165,5 +170,12 @@
     "password-changed-successfully": "Password changed successfully",
     "passwords-must-match": "Passwords must match",
     "invalid-form": "The form is invalid. Check the fields and try again"
+  },
+  "workout-plan": {
+    "workout-plan": "Workout Plan",
+    "view-workout": "View Workout",
+    "edit-workout": "Edit Workout",
+    "change-workout": "Change Workout",
+    "workout-history": "Workout History"
   }
 }

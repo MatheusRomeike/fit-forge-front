@@ -45,11 +45,16 @@
     "others": "Outros",
     "settings": "Configurações",
     "profile": "Meu Perfil",
-    "account-settings": "Account Settings",
+    "account-settings": "Configurações da Conta",
     "change-password": "Mudar Senha",
     "privacy-policy": "Política de Privacidade",
     "terms-conditions": "Termos e Condições",
-    "logout": "Sair"
+    "logout": "Sair",
+    "workout-plan": "Plano de Treino",
+    "view-workout": "Ver Treino",
+    "edit-workout": "Editar Treino",
+    "change-workout": "Alterar Treino",
+    "workout-history": "Histórico de Treino"
   },
   "front-page": {
     "login": "Entrar",

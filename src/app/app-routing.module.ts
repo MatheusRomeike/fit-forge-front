@@ -28,6 +28,15 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'workout-plan',
+    component: BaseLayoutComponent,
+    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./features/workout-plan/workout-plan.module').then(
+        (m) => m.WorkoutPlanModule
+      ),
+  },
+  {
     path: 'settings',
     component: BaseLayoutComponent,
     canActivate: [authGuard],

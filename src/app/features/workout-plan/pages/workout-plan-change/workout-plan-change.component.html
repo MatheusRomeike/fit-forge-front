@@ -1,0 +1,31 @@
+<app-page-layout>
+  <app-page-header
+    page-header
+    pageTitle="{{ 'workout-plan.change-workout' | translate }}"
+    [breadcrumb]="breadcrumb"
+  ></app-page-header>
+
+  <div content>
+    <!-- Programas Salvos -->
+    <div class="my-6">
+      <h2 class="text-2xl font-semibold mb-4">Programas Salvos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <app-workout-card
+          *ngFor="let item of savedPrograms"
+          [workoutData]="item"
+        ></app-workout-card>
+      </div>
+    </div>
+
+    <!-- Seus Programas -->
+    <div class="my-6">
+      <h2 class="text-2xl font-semibold mb-4">Seus Programas</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <app-workout-card
+          *ngFor="let item of userPrograms"
+          [workoutData]="item"
+        ></app-workout-card>
+      </div>
+    </div>
+  </div>
+</app-page-layout>
