@@ -58,7 +58,7 @@ export class SidebarService {
             routerLink: '/workout-plan/edit',
           },
           {
-            name: 'sidebar.change-workout',
+            name: 'sidebar.change-workout-plan',
             icon: faRotate,
             routerLink: '/workout-plan/change',
           },

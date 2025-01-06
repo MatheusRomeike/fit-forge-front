@@ -53,7 +53,7 @@
     "workout-plan": "Workout Plan",
     "view-workout": "View Workout",
     "edit-workout": "Edit Workout",
-    "change-workout": "Change Workout",
+    "change-workout-plan": "Change Workout",
     "workout-history": "Workout History"
   },
   "front-page": {
@@ -173,9 +173,31 @@
   },
   "workout-plan": {
     "workout-plan": "Workout Plan",
-    "view-workout": "View Workout",
-    "edit-workout": "Edit Workout",
-    "change-workout": "Change Workout",
+    "view-workout": "View Workout Plan",
+    "edit-workout": "Edit Workout Plan",
+    "change-workout-plan": "Change Workout Plan",
     "workout-history": "Workout History"
+  },
+  "tags": {
+    "goal": {
+      "athletics": "Athletics",
+      "bodybuilding": "Bodybuilding",
+      "powerlifting": "Powerlifting",
+      "powerbuilding": "Powerbuilding",
+      "musclesculpting": "MuscleScuplting",
+      "bodyweightfitness": "BodyweightFitness",
+      "olympicweightlifting": "OlympicWeightlifting"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "novice": "Novice",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "archived": "Archived"
+    }
   }
 }
