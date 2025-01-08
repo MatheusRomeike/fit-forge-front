@@ -1,40 +1,60 @@
-<div class="p-4 flex flex-col shadow-xl border rounded h-full">
-  <div class="title-wrapper flex flex-nowrap">
+<div
+  class="p-4 flex flex-col shadow-lg border rounded-xl h-full hover:shadow-2xl transition-shadow duration-300 bg-base-100 cursor-pointer"
+>
+  <!-- Header Section -->
+  <div class="title-wrapper flex items-center">
     <img
       src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-      class="w-12 h-12 aspect-square mr-3"
+      alt="Workout image"
+      class="w-14 h-14 aspect-square mr-4 mask mask-hexagon shadow-md"
     />
-    <div class="title flex flex-col">
-      <p class="mb-2 font-bold">
+    <div class="title flex flex-col flex-1">
+      <h3 class="text-lg font-bold" title="{{ workoutData.title }}">
         {{ workoutData.title }}
-        <span
-          class="px-1 py-0.5 rounded bg-secondary/[0.2] text-secondary text-xs"
-        >
-          {{ statusLabel }}
-        </span>
-      </p>
-
+      </h3>
       <p class="text-sm text-gray-500">{{ workoutData.author }}</p>
     </div>
   </div>
-  <div class="tags-wrapper flex gap-3 pt-1">
-    <p class="px-1 py-0.5 rounded bg-primary/[0.2] text-primary text-xs">
-      {{ difficultyLabel }}
-    </p>
 
-    <p class="px-1 py-0.5 rounded bg-accent/[0.2] text-accent text-xs">
-      {{ goalLabel }}
-    </p>
-  </div>
-  <div class="description-wrapper py-1">
-    <p
-      class="text-gray-500 text-sm leading-relaxed overflow-hidden text-ellipsis line-clamp-5"
+  <!-- Tags Section -->
+  <div class="tags-wrapper flex gap-2 pt-4">
+    <span
+      class="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold shadow-sm"
     >
+      {{ difficultyLabel }}
+    </span>
+    <span
+      class="px-2 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold shadow-sm"
+    >
+      {{ goalLabel }}
+    </span>
+  </div>
+
+  <!-- Description Section -->
+  <div class="description-wrapper py-3 flex-1">
+    <p class="text-gray-500 text-sm leading-relaxed line-clamp-3">
       {{ workoutData.description }}
     </p>
   </div>
 
+  <!-- Bottom Section -->
   <div class="bottom-wrapper flex justify-end">
-    <fa-icon [icon]="faEllipsis"></fa-icon>
+    <div class="dropdown">
+      <button
+        tabindex="0"
+        role="button"
+        class="btn btn-ghost btn-sm hover:bg-gray-100"
+      >
+        <fa-icon [icon]="faEllipsis" class="text-gray-500"></fa-icon>
+      </button>
+      <ul
+        tabindex="0"
+        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+      >
+        <li><a>Edit</a></li>
+        <li><a>Duplicate</a></li>
+        <li><a>Archive</a></li>
+      </ul>
+    </div>
   </div>
 </div>

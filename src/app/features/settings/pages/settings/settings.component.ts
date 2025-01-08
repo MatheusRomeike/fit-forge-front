@@ -18,10 +18,10 @@ import { LocalStorageService } from '../../../../shared/services/local-storage.s
 export class SettingsComponent implements OnInit {
   breadcrumb: Breadcrumb[] = [
     {
-      name: 'Settings',
+      name: 'breadcrumb.settings',
     },
     {
-      name: 'Account Settings',
+      name: 'breadcrumb.account-settings',
     },
   ];
 

@@ -23,6 +23,28 @@
       "unexpected-error": "Unexpected error"
     }
   },
+  "tags": {
+    "goal": {
+      "athletics": "Athletics",
+      "bodybuilding": "Bodybuilding",
+      "powerlifting": "Powerlifting",
+      "powerbuilding": "Powerbuilding",
+      "musclesculpting": "MuscleScuplting",
+      "bodyweightfitness": "BodyweightFitness",
+      "olympicweightlifting": "OlympicWeightlifting"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "novice": "Novice",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "archived": "Archived"
+    }
+  },
   "input": {
     "required": "This field is required",
     "email": "This field must be a valid email",
@@ -50,11 +72,19 @@
     "privacy-policy": "Privacy Policy",
     "terms-conditions": "Terms & Conditions",
     "logout": "Logout",
-    "workout-plan": "Workout Plan",
-    "view-workout": "View Workout",
-    "edit-workout": "Edit Workout",
-    "change-workout-plan": "Change Workout",
+    "workout": "Workout",
+    "start-workout": "Start Workout",
+    "my-workouts": "My Plans",
     "workout-history": "Workout History"
+  },
+  "breadcrumb": {
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "account-settings": "Account Settings",
+    "workout": "Workout",
+    "my-plans": "My Plans",
+    "create-plan": "Create Plan",
+    "edit-plan": "Edit Plan"
   },
   "front-page": {
     "login": "Login",
@@ -172,32 +202,10 @@
     "invalid-form": "The form is invalid. Check the fields and try again"
   },
   "workout-plan": {
-    "workout-plan": "Workout Plan",
-    "view-workout": "View Workout Plan",
-    "edit-workout": "Edit Workout Plan",
-    "change-workout-plan": "Change Workout Plan",
-    "workout-history": "Workout History"
-  },
-  "tags": {
-    "goal": {
-      "athletics": "Athletics",
-      "bodybuilding": "Bodybuilding",
-      "powerlifting": "Powerlifting",
-      "powerbuilding": "Powerbuilding",
-      "musclesculpting": "MuscleScuplting",
-      "bodyweightfitness": "BodyweightFitness",
-      "olympicweightlifting": "OlympicWeightlifting"
-    },
-    "difficulty": {
-      "beginner": "Beginner",
-      "novice": "Novice",
-      "intermediate": "Intermediate",
-      "advanced": "Advanced"
-    },
-    "status": {
-      "draft": "Draft",
-      "published": "Published",
-      "archived": "Archived"
-    }
+    "workout": "Workout",
+    "my-plans": "My Plans",
+    "workout-history": "Workout History",
+    "create-plan": "Create Plan",
+    "edit-plan": "Edit Plan"
   }
 }

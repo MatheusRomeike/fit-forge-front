@@ -3,8 +3,16 @@
     <ng-content select="[page-header]"></ng-content>
   </div>
 
-  <div class="content bg-secondary-content drop-shadow-2xl rounded p-4">
+  <div
+    class="content bg-base-100 drop-shadow-2xl rounded p-4"
+    *ngIf="hasContent"
+    #content
+  >
     <ng-content select="[content]"></ng-content>
+  </div>
+
+  <div class="raw-content">
+    <ng-content select="[raw-content]"></ng-content>
   </div>
 
   <div class="footer p-8">

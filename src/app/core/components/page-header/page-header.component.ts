@@ -16,7 +16,7 @@ export class PageHeaderComponent implements OnInit {
 
   internBreadcrumb: Breadcrumb[] = [
     {
-      name: 'Dashboard',
+      name: 'breadcrumb.dashboard',
       icon: faChartLine,
       routerLink: '/dashboard',
     },

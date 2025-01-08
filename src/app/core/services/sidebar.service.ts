@@ -5,12 +5,11 @@ import {
   faClockRotateLeft,
   faCog,
   faDumbbell,
-  faEye,
   faFileContract,
+  faFilePen,
   faIdCard,
-  faPenToSquare,
+  faPlay,
   faRightFromBracket,
-  faRotate,
   faShieldHalved,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
@@ -44,23 +43,18 @@ export class SidebarService {
         routerLink: '/dashboard',
       },
       {
-        name: 'sidebar.workout-plan',
+        name: 'sidebar.workout',
         icon: faDumbbell,
         children: [
           {
-            name: 'sidebar.view-workout',
-            icon: faEye,
+            name: 'sidebar.start-workout',
+            icon: faPlay,
             routerLink: '/workout-plan',
           },
           {
-            name: 'sidebar.edit-workout',
-            icon: faPenToSquare,
-            routerLink: '/workout-plan/edit',
-          },
-          {
-            name: 'sidebar.change-workout-plan',
-            icon: faRotate,
-            routerLink: '/workout-plan/change',
+            name: 'sidebar.my-workouts',
+            icon: faFilePen,
+            routerLink: '/workout-plan/my-workouts',
           },
           {
             name: 'sidebar.workout-history',

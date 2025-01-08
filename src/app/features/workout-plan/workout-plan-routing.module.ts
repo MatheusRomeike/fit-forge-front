@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WorkoutPlanChangeComponent } from './pages/workout-plan-change/workout-plan-change.component';
+import { MyWorkoutsComponent } from './pages/my-workouts/my-workouts.component';
 import { WorkoutPlanEditComponent } from './pages/workout-plan-edit/workout-plan-edit.component';
 import { WorkoutPlanHistoryComponent } from './pages/workout-plan-history/workout-plan-history.component';
 import { WorkoutPlanComponent } from './pages/workout-plan/workout-plan.component';
@@ -11,12 +11,12 @@ const routes: Routes = [
     component: WorkoutPlanComponent,
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: WorkoutPlanEditComponent,
   },
   {
-    path: 'change',
-    component: WorkoutPlanChangeComponent,
+    path: 'my-workouts',
+    component: MyWorkoutsComponent,
   },
   {
     path: 'history',
