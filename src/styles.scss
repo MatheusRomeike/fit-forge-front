@@ -49,3 +49,20 @@ input:-webkit-autofill:active {
     justify-content: center;
   }
 }
+
+file-upload {
+  min-height: 120px !important;
+}
+
+.file-buttons > .remove-btn {
+  font-size: 14px !important;
+}
+.file-buttons > .remove-btn > svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.upload-text {
+  width: 100% !important;
+  padding: 0 !important;
+}

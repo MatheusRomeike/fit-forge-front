@@ -5,6 +5,7 @@
         <a
           [routerLink]="item.routerLink"
           class="hover:text-primary font-medium"
+          [ngClass]="{ 'opacity-75': !item.routerLink }"
         >
           <fa-icon
             [icon]="item.icon"

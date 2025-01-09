@@ -1,0 +1,39 @@
+<form [formGroup]="form" class="grid gap-4 py-6 w-full md:w-1/2 mx-auto">
+  <app-input-text
+    formControlName="name"
+    label="{{ 'workout-plan.plan-title' | translate }}"
+    [icon]="faSignature"
+    class="col-span-12"
+  ></app-input-text>
+  <app-input-text
+    formControlName="name"
+    type="number"
+    label="{{ 'workout-plan.plan-weeks' | translate }}"
+    [icon]="faCalendarWeek"
+    class="col-span-12"
+  ></app-input-text>
+  <app-input-text
+    formControlName="name"
+    label="{{ 'workout-plan.plan-description' | translate }}"
+    [icon]="faCircleInfo"
+    class="col-span-12"
+    type="text"
+    [isTextArea]="true"
+  ></app-input-text>
+  <div class="col-span-12 flex items-center">
+    <h4 class="mr-2">{{ "Thumbnail" | translate }}</h4>
+
+    <file-upload
+      class="!bg-base-100 w-full md:w-1/2"
+      formControlName="avatar"
+      [multiple]="false"
+      [animation]="true"
+    >
+    </file-upload>
+  </div>
+</form>
+
+<button class="btn btn-primary text-white" (click)="onSubmit()">
+  {{ "workout-plan.next" | translate }}
+  <fa-icon [icon]="faAngleRight"></fa-icon>
+</button>

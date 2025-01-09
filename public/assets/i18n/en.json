@@ -209,6 +209,13 @@
     "edit-plan": "Edit Plan",
     "workout-info": "Workout Info",
     "workout-details": "Workout details",
-    "review": "Review"
+    "review": "Review",
+    "plan-title": "Plan Title",
+    "plan-weeks": "Plan Weeks",
+    "plan-description": "Plan Description",
+    "thumbnail": "Thumbnail",
+    "plan-focus": "Plan Focus",
+    "difficulty-level": "Difficulty level",
+    "next": "Next"
   }
 }

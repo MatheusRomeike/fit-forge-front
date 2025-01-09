@@ -13,22 +13,32 @@
           type="radio"
           name="options"
           [attr.aria-label]="'workout-plan.workout-info' | translate"
+          (click)="changeTab(1)"
           checked="checked"
         />
         <input
           class="join-item btn"
           type="radio"
           name="options"
+          (click)="changeTab(2)"
           [attr.aria-label]="'workout-plan.workout-details' | translate"
         />
         <input
           class="join-item btn"
           type="radio"
           name="options"
+          (click)="changeTab(3)"
           [attr.aria-label]="'workout-plan.review' | translate"
-          disabled
         />
       </div>
+    </div>
+
+    <div [ngSwitch]="currentTab" class="h-full py-6">
+      <div *ngSwitchCase="1">
+        <app-workout-info></app-workout-info>
+      </div>
+      <div *ngSwitchCase="2"></div>
+      <div *ngSwitchCase="3"></div>
     </div>
   </div>
 </app-page-layout>
