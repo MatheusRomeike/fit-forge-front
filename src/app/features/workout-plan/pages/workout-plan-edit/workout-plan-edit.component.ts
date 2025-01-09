@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {
+  faCheckDouble,
+  faCircleInfo,
+  faDumbbell,
+} from '@fortawesome/free-solid-svg-icons';
 import { Breadcrumb } from '../../../../core/models/breadcrumb.model';
 
 @Component({
@@ -21,6 +26,10 @@ export class WorkoutPlanEditComponent implements OnInit {
       name: 'breadcrumb.create-plan',
     },
   ];
+
+  faCircleInfo = faCircleInfo;
+  faDumbbell = faDumbbell;
+  faCheckDouble = faCheckDouble;
 
   pageTitle = 'workout-plan.create-plan';
   editId = 0;

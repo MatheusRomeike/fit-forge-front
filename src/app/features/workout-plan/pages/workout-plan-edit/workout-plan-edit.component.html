@@ -6,10 +6,29 @@
   ></app-page-header>
 
   <div content>
-    <ul class="steps">
-      <li class="step step-primary">Plan Info</li>
-      <li class="step">Build Workouts</li>
-      <li class="step">Review Plan</li>
-    </ul>
+    <div class="flex justify-end">
+      <div class="join">
+        <input
+          class="join-item btn"
+          type="radio"
+          name="options"
+          [attr.aria-label]="'workout-plan.workout-info' | translate"
+          checked="checked"
+        />
+        <input
+          class="join-item btn"
+          type="radio"
+          name="options"
+          [attr.aria-label]="'workout-plan.workout-details' | translate"
+        />
+        <input
+          class="join-item btn"
+          type="radio"
+          name="options"
+          [attr.aria-label]="'workout-plan.review' | translate"
+          disabled
+        />
+      </div>
+    </div>
   </div>
 </app-page-layout>

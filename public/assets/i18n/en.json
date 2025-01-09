@@ -206,6 +206,9 @@
     "my-plans": "My Plans",
     "workout-history": "Workout History",
     "create-plan": "Create Plan",
-    "edit-plan": "Edit Plan"
+    "edit-plan": "Edit Plan",
+    "workout-info": "Workout Info",
+    "workout-details": "Workout details",
+    "review": "Review"
   }
 }
