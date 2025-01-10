@@ -62,7 +62,6 @@ export class SidebarService {
             routerLink: '/workout-plan/history',
           },
         ],
-        showItemCount: true,
       },
       {
         sectionName: 'sidebar.others',
@@ -89,7 +88,6 @@ export class SidebarService {
             routerLink: '/settings/4',
           },
         ],
-        showItemCount: true,
       },
       {
         name: 'sidebar.logout',

@@ -6,6 +6,5 @@ export class Menu {
   badge?: string;
   children?: Menu[];
   sectionName?: string;
-  showItemCount?: boolean;
   routerLink?: string;
 }

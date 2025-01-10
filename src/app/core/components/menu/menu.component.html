@@ -3,7 +3,7 @@
     <!-- Seção -->
     <li
       *ngIf="item.sectionName"
-      class="menu-title text-gray-400"
+      class="menu-title text-primary"
       [ngClass]="{ 'text-center': collapsed }"
     >
       <span>{{ item.sectionName | translate | uppercase }}</span>
@@ -43,9 +43,6 @@
           <ng-container
             *ngTemplateOutlet="text; context: { $implicit: item }"
           ></ng-container>
-          <ng-container
-            *ngTemplateOutlet="itemCount; context: { $implicit: item }"
-          ></ng-container>
         </summary>
         <app-menu
           [menuItems]="item.children"
@@ -57,22 +54,20 @@
 </ul>
 
 <ng-template #icon let-item>
-  <fa-icon *ngIf="item.icon" [icon]="item.icon" class="text-lg"></fa-icon>
+  <fa-icon
+    *ngIf="item.icon"
+    [icon]="item.icon"
+    class="text-xs text-primary"
+  ></fa-icon>
 </ng-template>
 
 <ng-template #text let-item>
-  <span *ngIf="!collapsed">
+  <span *ngIf="!collapsed" [ngClass]="{ 'font-medium': isActive([item]) }">
     {{ item.name | translate }}
     <span
       *ngIf="item.badge && !collapsed"
       class="badge badge-primary ml-auto"
       >{{ item.badge | translate }}</span
     >
-  </span>
-</ng-template>
-
-<ng-template #itemCount let-item>
-  <span *ngIf="item.showItemCount && !collapsed" class="badge badge-primary">
-    {{ item.children.length }}
   </span>
 </ng-template>
