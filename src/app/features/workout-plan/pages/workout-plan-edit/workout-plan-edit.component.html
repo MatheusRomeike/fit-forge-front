@@ -6,39 +6,46 @@
   ></app-page-header>
 
   <div content>
-    <div class="flex justify-end">
-      <div class="join">
-        <input
-          class="join-item btn"
-          type="radio"
-          name="options"
-          [attr.aria-label]="'workout-plan.workout-info' | translate"
-          (click)="changeTab(1)"
-          checked="checked"
-        />
-        <input
-          class="join-item btn"
-          type="radio"
-          name="options"
-          (click)="changeTab(2)"
-          [attr.aria-label]="'workout-plan.workout-details' | translate"
-        />
-        <input
-          class="join-item btn"
-          type="radio"
-          name="options"
-          (click)="changeTab(3)"
-          [attr.aria-label]="'workout-plan.review' | translate"
-        />
-      </div>
+    <div role="tablist" class="tabs tabs-lifted">
+      <a
+        [ngClass]="{ 'tab-active': currentTab === 1 }"
+        (click)="changeTab(1)"
+        class="tab font-medium"
+      >
+        <fa-icon [icon]="faCircleInfo" class="text-gray-500 mr-2"></fa-icon>
+        {{ "workout-plan.plan-info" | translate }}
+      </a>
+
+      <a
+        [ngClass]="{ 'tab-active': currentTab === 2 }"
+        (click)="changeTab(2)"
+        class="tab font-medium"
+      >
+        <fa-icon [icon]="faDumbbell" class="text-gray-500 mr-2"></fa-icon>
+        {{ "workout-plan.workout-details" | translate }}
+      </a>
+
+      <a
+        [ngClass]="{ 'tab-active': currentTab === 3 }"
+        (click)="changeTab(3)"
+        class="tab font-medium"
+      >
+        <fa-icon [icon]="faCheckDouble" class="text-gray-500 mr-2"></fa-icon>
+        {{ "workout-plan.review" | translate }}
+      </a>
     </div>
 
-    <div [ngSwitch]="currentTab" class="h-full py-6">
-      <div *ngSwitchCase="1">
-        <app-workout-info></app-workout-info>
+    <div class="h-full py-6">
+      <app-workout-info
+        [hidden]="currentTab !== 1"
+        [title]="pageTitle"
+      ></app-workout-info>
+      <div [hidden]="currentTab !== 2">
+        <p>Conteúdo da Tab 2</p>
       </div>
-      <div *ngSwitchCase="2"></div>
-      <div *ngSwitchCase="3"></div>
+      <div [hidden]="currentTab !== 3">
+        <p>Conteúdo da Tab 3</p>
+      </div>
     </div>
   </div>
 </app-page-layout>

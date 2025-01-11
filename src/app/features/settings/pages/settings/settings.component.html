@@ -6,11 +6,11 @@
   ></app-page-header>
 
   <div content>
-    <div role="tablist" class="tabs tabs-lifted flex border-b border-primary">
+    <div role="tablist" class="tabs tabs-lifted">
       <a
         [ngClass]="{ 'tab-active': currentTab === 1 }"
         (click)="changeTab(1)"
-        class="tab font-medium !border-primary"
+        class="tab font-medium"
       >
         <fa-icon [icon]="faIdCard" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.account-settings" | translate }}
@@ -20,7 +20,7 @@
         *ngIf="!localStorageService.isSocialAccountLogin()"
         [ngClass]="{ 'tab-active': currentTab === 2 }"
         (click)="changeTab(2)"
-        class="tab font-medium !border-primary"
+        class="tab font-medium"
       >
         <fa-icon [icon]="faArrowsRotate" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.change-password" | translate }}
@@ -29,7 +29,7 @@
       <a
         [ngClass]="{ 'tab-active': currentTab === 3 }"
         (click)="changeTab(3)"
-        class="tab font-medium !border-primary"
+        class="tab font-medium"
       >
         <fa-icon [icon]="faShieldHalved" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.privacy-policy" | translate }}
@@ -38,7 +38,7 @@
       <a
         [ngClass]="{ 'tab-active': currentTab === 4 }"
         (click)="changeTab(4)"
-        class="tab font-medium !border-primary"
+        class="tab font-medium"
       >
         <fa-icon [icon]="faFileContract" class="text-gray-500 mr-2"></fa-icon>
         {{ "settings.terms-conditions" | translate }}

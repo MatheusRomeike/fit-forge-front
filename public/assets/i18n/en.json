@@ -207,15 +207,17 @@
     "workout-history": "Workout History",
     "create-plan": "Create Plan",
     "edit-plan": "Edit Plan",
-    "workout-info": "Workout Info",
+    "plan-info": "Plan Info",
+    "plan-info-description": "Update your workout plan information and settings here.",
     "workout-details": "Workout details",
     "review": "Review",
     "plan-title": "Plan Title",
     "plan-weeks": "Plan Weeks",
     "plan-description": "Plan Description",
     "thumbnail": "Thumbnail",
-    "plan-focus": "Plan Focus",
-    "difficulty-level": "Difficulty level",
+    "thumbnail-description": "This will be displayed on your plan",
+    "plan-goals": "Plan goals (Multiple)",
+    "difficulty-levels": "Difficulty levels (Multiple)",
     "next": "Next"
   }
 }

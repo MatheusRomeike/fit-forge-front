@@ -30,8 +30,15 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+.tabs {
+  display: flex;
+  border-bottom-width: 1px;
+  @apply border-primary;
+}
+
 .tab {
   border-bottom: none !important;
+  @apply border-primary !important;
 
   &.tab-active {
     margin-bottom: -1px !important;

@@ -1,37 +1,117 @@
-<form [formGroup]="form" class="grid gap-4 py-6 w-full md:w-1/2 mx-auto">
+<p class="text-xl font-bold">
+  {{ title | translate }}
+</p>
+
+<p class="text-gray-400">
+  {{ "workout-plan.plan-info-description" | translate }}
+</p>
+
+<form [formGroup]="form" class="grid gap-6 py-6">
   <app-input-text
-    formControlName="name"
+    formControlName="title"
     label="{{ 'workout-plan.plan-title' | translate }}"
     [icon]="faSignature"
-    class="col-span-12"
+    class="col-span-12 md:col-span-6"
   ></app-input-text>
+
   <app-input-text
-    formControlName="name"
-    type="number"
+    formControlName="planWeeks"
     label="{{ 'workout-plan.plan-weeks' | translate }}"
     [icon]="faCalendarWeek"
-    class="col-span-12"
+    class="col-span-12 md:col-span-6"
+    type="number"
+    step="1"
   ></app-input-text>
+
   <app-input-text
-    formControlName="name"
+    formControlName="description"
     label="{{ 'workout-plan.plan-description' | translate }}"
     [icon]="faCircleInfo"
     class="col-span-12"
     type="text"
     [isTextArea]="true"
   ></app-input-text>
-  <div class="col-span-12 flex items-center">
-    <h4 class="mr-2">{{ "Thumbnail" | translate }}</h4>
 
-    <file-upload
-      class="!bg-base-100 w-full md:w-1/2"
-      formControlName="avatar"
-      [multiple]="false"
-      [animation]="true"
-    >
-    </file-upload>
+  <div class="col-span-12">
+    <h4>{{ "workout-plan.thumbnail" | translate }}</h4>
+    <p class="text-gray-400">
+      {{ "workout-plan.thumbnail-description" | translate }}
+    </p>
+    <div class="form-group">
+      <file-upload
+        class="!bg-base-100"
+        formControlName="thumbnail"
+        [multiple]="false"
+      ></file-upload>
+    </div>
+  </div>
+
+  <div class="col-span-12 pt">
+    <h4>{{ "workout-plan.plan-goals" | translate }}</h4>
+    <div class="flex flex-wrap gap-2 pt-2">
+      <div
+        *ngFor="let goalBadge of goalBadges"
+        class="badge badge-lg cursor-pointer"
+        [ngClass]="{
+          'badge-outline': !isGoalSelected(goalBadge.id),
+          'badge-primary': isGoalSelected(goalBadge.id)
+        }"
+        (click)="toggleGoal(goalBadge.id)"
+      >
+        {{ goalBadge.label | translate }}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-span-12">
+    <h4>{{ "workout-plan.difficulty-levels" | translate }}</h4>
+    <div class="flex flex-wrap gap-2 pt-2">
+      <div
+        *ngFor="let difficultyBadge of difficultyBadges"
+        class="badge badge-lg cursor-pointer"
+        [ngClass]="{
+          'badge-outline': !isDifficultySelected(difficultyBadge.id),
+          'badge-primary': isDifficultySelected(difficultyBadge.id)
+        }"
+        (click)="toggleDifficulty(difficultyBadge.id)"
+      >
+        {{ difficultyBadge.label | translate }}
+      </div>
+    </div>
   </div>
 </form>
+
+<div class="flex items-center justify-center w-full">
+  <label
+    for="dropzone-file"
+    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+  >
+    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+      <svg
+        class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 20 16"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+        />
+      </svg>
+      <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+        <span class="font-semibold">Click to upload</span> or drag and drop
+      </p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">
+        SVG, PNG, JPG or GIF (MAX. 800x400px)
+      </p>
+    </div>
+    <input id="dropzone-file" type="file" class="hidden" />
+  </label>
+</div>
 
 <button class="btn btn-primary text-white" (click)="onSubmit()">
   {{ "workout-plan.next" | translate }}
