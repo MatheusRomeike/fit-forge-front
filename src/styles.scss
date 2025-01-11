@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "../node_modules/egalink-toasty.js/dist/toasty.min.css";
 
 ::placeholder {
