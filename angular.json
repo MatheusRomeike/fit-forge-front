@@ -37,7 +37,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
+              "src/styles.css",
               "./node_modules/egalink-toasty.js/dist/toasty.min.css"
             ],
             "scripts": [
@@ -119,7 +119,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }
