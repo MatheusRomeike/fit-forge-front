@@ -32,18 +32,14 @@
     [isTextArea]="true"
   ></app-input-text>
 
-  <div class="col-span-12">
-    <h4>{{ "workout-plan.thumbnail" | translate }}</h4>
-    <p class="text-gray-400">
-      {{ "workout-plan.thumbnail-description" | translate }}
-    </p>
-    <div class="form-group">
-      <file-upload
-        class="!bg-base-100"
-        formControlName="thumbnail"
-        [multiple]="false"
-      ></file-upload>
+  <div class="col-span-12 flex items-center gap-4">
+    <div>
+      <h4>{{ "workout-plan.thumbnail" | translate }}</h4>
+      <p class="text-gray-400">
+        {{ "workout-plan.thumbnail-description" | translate }}
+      </p>
     </div>
+    <app-input-image formControlName="thumbnail"></app-input-image>
   </div>
 
   <div class="col-span-12">

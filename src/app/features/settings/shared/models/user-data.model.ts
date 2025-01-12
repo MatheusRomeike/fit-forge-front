@@ -9,7 +9,7 @@ export class UserData {
   avatarBase64?: string;
   avatarExtension?: string;
 
-  constructor(data: any, avatarBase64?: string, avatarExtension?: string) {
+  constructor(data: any) {
     this.name = data.name;
     this.email = data.email;
     this.weight = data.weight;
@@ -17,7 +17,6 @@ export class UserData {
     this.startedAtGym = data.startedAtGym;
     this.exerciseDuration = data.exerciseDuration;
     this.goals = data.goals;
-    this.avatarBase64 = avatarBase64;
-    this.avatarExtension = avatarExtension;
+    this.avatarBase64 = data.avatar;
   }
 }

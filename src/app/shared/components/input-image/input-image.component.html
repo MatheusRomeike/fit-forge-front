@@ -2,30 +2,24 @@
   class="w-24 h-24 rounded border-dashed border-2 flex justify-center items-center text-gray-400 relative cursor-pointer p-px"
   (click)="fileInput.click()"
 >
-  <ng-container *ngIf="!imageUrl; else previewContent">
+  <ng-container *ngIf="!link; else previewContent">
     <fa-icon [icon]="faPlus"></fa-icon>
   </ng-container>
 
   <ng-template #previewContent>
-    <div
-      *ngIf="isLink; else filePreview"
-      class="flex flex-col items-center w-full h-full"
-    >
+    <div class="flex flex-col items-center w-full h-full relative">
       <img
-        [src]="imageUrl"
+        [src]="link"
         alt="preview"
         class="w-full h-full object-cover rounded"
       />
+      <button
+        class="absolute right-0 btn btn-circle btn-error h-5 w-5"
+        (click)="removeImage($event)"
+      >
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </button>
     </div>
-    <ng-template #filePreview>
-      <div class="flex flex-col items-center w-full h-full">
-        <img
-          [src]="imageUrl"
-          alt="preview"
-          class="w-full h-full object-cover rounded"
-        />
-      </div>
-    </ng-template>
   </ng-template>
 
   <input
@@ -33,5 +27,7 @@
     type="file"
     (change)="onFileSelected($event)"
     class="hidden"
+    [accept]="accept"
+    [multiple]="multiple"
   />
 </div>

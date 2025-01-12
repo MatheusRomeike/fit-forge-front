@@ -35,7 +35,7 @@ export class AccountSettingsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private localStorageService: LocalStorageService,
+    public localStorageService: LocalStorageService,
     private helperService: HelperService
   ) {
     this.form = this.formBuilder.group({
@@ -53,7 +53,7 @@ export class AccountSettingsComponent implements OnInit {
       startedAtGym: [''],
       exerciseDuration: ['', [Validators.min(0)]],
       goals: ['', Validators.maxLength(255)],
-      avatar: null,
+      avatar: '',
     });
 
     this.form.get('email').disable();
@@ -71,30 +71,13 @@ export class AccountSettingsComponent implements OnInit {
 
   async onSubmit() {
     if (this.form.valid) {
-      let avatar = null;
-      let avatarExtension = null;
-
-      if (this.form.get('avatar').value) {
-        avatar = await this.helperService.fileToBase64(
-          this.form.get('avatar').value[0]
-        );
-
-        avatar = avatar.split(',')[1];
-
-        avatarExtension = `.${this.form
-          .get('avatar')
-          .value[0].name.split('.')
-          .pop()}`;
-      }
-
       this.userService
-        .saveUserData(
-          new UserData(this.form.getRawValue(), avatar, avatarExtension)
-        )
-        .subscribe((x) => {
+        .saveUserData(new UserData(this.form.getRawValue()))
+        .subscribe((avatarUrl: string) => {
           this.userService.notifyService.success(
             'settings.user-data-saved-successfully'
           );
+          this.localStorageService.setAvatar(avatarUrl);
         });
     } else {
       this.userService.notifyService.error('settings.invalid-form');

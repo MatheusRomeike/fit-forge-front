@@ -15,7 +15,7 @@ export class UserService extends BaseService {
     return this.get('', this.authHeader()).pipe(map((p) => p.result));
   }
 
-  saveUserData(data: UserData): Observable<UserData> {
+  saveUserData(data: UserData): Observable<string> {
     return this.post(
       'saveUserData',
       JSON.stringify(data),
