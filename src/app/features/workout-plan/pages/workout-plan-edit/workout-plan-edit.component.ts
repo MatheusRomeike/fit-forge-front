@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {
   faCheckDouble,
@@ -35,7 +36,31 @@ export class WorkoutPlanEditComponent implements OnInit {
   editId = 0;
   currentTab = 1;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  formInfo: FormGroup;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder
+  ) {
+    this.formInfo = this.formBuilder.group({
+      title: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(60),
+        ],
+      ],
+      planWeeks: [
+        '',
+        [Validators.required, Validators.min(1), Validators.max(16)],
+      ],
+      description: ['', [Validators.minLength(0), Validators.maxLength(512)]],
+      thumbnail: [],
+      goals: [],
+      difficulties: [],
+    });
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {

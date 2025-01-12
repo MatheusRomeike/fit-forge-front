@@ -15,8 +15,12 @@
         [attr.aria-label]="'workout-plan.plan-info' | translate"
         [checked]="currentTab == 1"
       />
+
       <div class="tab-content border-base-300 p-4">
-        <app-workout-info [title]="pageTitle"></app-workout-info>
+        <app-workout-info
+          [title]="pageTitle"
+          [form]="formInfo"
+        ></app-workout-info>
       </div>
 
       <input
@@ -26,6 +30,7 @@
         class="tab"
         [attr.aria-label]="'workout-plan.workout-details' | translate"
         [checked]="currentTab == 2"
+        [disabled]="formInfo.invalid"
       />
       <div class="tab-content border-base-300 p-4"></div>
 
@@ -36,6 +41,7 @@
         class="tab"
         [attr.aria-label]="'workout-plan.review' | translate"
         [checked]="currentTab == 3"
+        [disabled]="formInfo.invalid"
       />
       <div class="tab-content border-base-300 p-4"></div>
     </div>

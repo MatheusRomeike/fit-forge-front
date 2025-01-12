@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import {
   faAngleRight,
   faCalendarWeek,
@@ -21,7 +21,7 @@ import { EGoal, GoalLabels } from '../../enums/EGoal';
 export class WorkoutInfoComponent implements OnInit {
   @Input() title: string = '';
 
-  form: FormGroup;
+  @Input() form: FormGroup;
 
   faSignature = faSignature;
   faCalendarWeek = faCalendarWeek;
@@ -32,29 +32,9 @@ export class WorkoutInfoComponent implements OnInit {
   difficultyBadges: { id: EDifficulty; label: string }[] = [];
 
   constructor(
-    private formBuilder: FormBuilder,
     private userService: UserService,
     private helperService: HelperService
-  ) {
-    this.form = this.formBuilder.group({
-      title: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(60),
-        ],
-      ],
-      planWeeks: [
-        '',
-        [Validators.required, Validators.min(1), Validators.max(16)],
-      ],
-      description: ['', [Validators.minLength(0), Validators.maxLength(512)]],
-      thumbnail: [],
-      goals: [],
-      difficulties: [],
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.goalBadges = Object.keys(EGoal)

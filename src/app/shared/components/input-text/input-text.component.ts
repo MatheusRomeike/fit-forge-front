@@ -40,6 +40,7 @@ export class InputTextComponent extends BaseInput implements OnInit {
   @Input() type: string = 'text';
   @Input() isTextArea: boolean = false;
   @Input() unit: string;
+  @Input() pattern: string;
 
   formControl: AbstractControl;
   manualTouch = false;

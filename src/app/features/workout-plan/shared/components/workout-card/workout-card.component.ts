@@ -22,7 +22,6 @@ export class WorkoutCardComponent {
     let label = this.workoutData.difficulty
       .map((element) => this.translate.instant(DifficultyLabels[element]))
       .join(' - ');
-    console.log(label);
     return label;
   }
 

@@ -20,6 +20,7 @@
       [formControl]="$any(formControl)"
       class="input w-full !outline-none"
       (click)="manualTouch = true"
+      [pattern]="pattern"
     />
     <div *ngIf="iconPosition == 'right'">
       <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
