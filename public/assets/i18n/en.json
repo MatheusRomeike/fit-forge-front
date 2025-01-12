@@ -29,9 +29,9 @@
       "bodybuilding": "Bodybuilding",
       "powerlifting": "Powerlifting",
       "powerbuilding": "Powerbuilding",
-      "musclesculpting": "MuscleScuplting",
-      "bodyweightfitness": "BodyweightFitness",
-      "olympicweightlifting": "OlympicWeightlifting"
+      "musclesculpting": "Muscle Scuplting",
+      "bodyweightfitness": "Bodyweight Fitness",
+      "olympicweightlifting": "Olympic Weightlifting"
     },
     "difficulty": {
       "beginner": "Beginner",
@@ -48,8 +48,8 @@
   "input": {
     "required": "This field is required",
     "email": "This field must be a valid email",
-    "minLength": "Enter at least {requiredLength} characters",
-    "maxLength": "Enter no more than {requiredLength} characters",
+    "minlength": "Enter at least {requiredLength} characters",
+    "maxlength": "Enter no more than {requiredLength} characters",
     "min": "Enter a value greater than or equal to {min}",
     "max": "Enter a value less than or equal to {max}",
     "pattern": "This field is not in the correct format"

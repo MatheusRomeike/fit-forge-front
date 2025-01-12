@@ -4,7 +4,7 @@
       <li class="breadcrumb-item" *ngFor="let item of internBreadcrumb">
         <a
           [routerLink]="item.routerLink"
-          class="hover:text-primary font-medium"
+          class="hover:text-primary font-medium text-gray-500"
           [ngClass]="{ 'opacity-75': !item.routerLink }"
         >
           <fa-icon

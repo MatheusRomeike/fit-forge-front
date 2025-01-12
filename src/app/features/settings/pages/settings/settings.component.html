@@ -6,55 +6,53 @@
   ></app-page-header>
 
   <div content>
-    <div role="tablist" class="tabs tabs-lifted">
-      <a
-        [ngClass]="{ 'tab-active': currentTab === 1 }"
-        (click)="changeTab(1)"
-        class="tab font-medium"
-      >
-        <fa-icon [icon]="faIdCard" class="text-gray-500 mr-2"></fa-icon>
-        {{ "settings.account-settings" | translate }}
-      </a>
-
-      <a
-        *ngIf="!localStorageService.isSocialAccountLogin()"
-        [ngClass]="{ 'tab-active': currentTab === 2 }"
-        (click)="changeTab(2)"
-        class="tab font-medium"
-      >
-        <fa-icon [icon]="faArrowsRotate" class="text-gray-500 mr-2"></fa-icon>
-        {{ "settings.change-password" | translate }}
-      </a>
-
-      <a
-        [ngClass]="{ 'tab-active': currentTab === 3 }"
-        (click)="changeTab(3)"
-        class="tab font-medium"
-      >
-        <fa-icon [icon]="faShieldHalved" class="text-gray-500 mr-2"></fa-icon>
-        {{ "settings.privacy-policy" | translate }}
-      </a>
-
-      <a
-        [ngClass]="{ 'tab-active': currentTab === 4 }"
-        (click)="changeTab(4)"
-        class="tab font-medium"
-      >
-        <fa-icon [icon]="faFileContract" class="text-gray-500 mr-2"></fa-icon>
-        {{ "settings.terms-conditions" | translate }}
-      </a>
-    </div>
-    <div [ngSwitch]="currentTab" class="h-full py-6">
-      <div *ngSwitchCase="1">
+    <div role="tablist" class="tabs tabs-lift">
+      <input
+        type="radio"
+        name="my_tabs_1"
+        role="tab"
+        class="tab"
+        [attr.aria-label]="'settings.account-settings' | translate"
+        [checked]="currentTab == 1"
+      />
+      <div class="tab-content border-base-300 p-4">
         <app-account-settings></app-account-settings>
       </div>
-      <div *ngSwitchCase="2">
+
+      <input
+        *ngIf="!localStorageService.isSocialAccountLogin()"
+        type="radio"
+        name="my_tabs_1"
+        role="tab"
+        class="tab"
+        [attr.aria-label]="'settings.change-password' | translate"
+        [checked]="currentTab == 2"
+      />
+      <div class="tab-content border-base-300 p-4">
         <app-change-password></app-change-password>
       </div>
-      <div *ngSwitchCase="3">
+
+      <input
+        type="radio"
+        name="my_tabs_1"
+        role="tab"
+        class="tab"
+        [attr.aria-label]="'settings.privacy-policy' | translate"
+        [checked]="currentTab == 3"
+      />
+      <div class="tab-content border-base-300 p-4">
         <app-privacy-policy></app-privacy-policy>
       </div>
-      <div *ngSwitchCase="4">
+
+      <input
+        type="radio"
+        name="my_tabs_1"
+        role="tab"
+        class="tab"
+        [attr.aria-label]="'settings.terms-conditions' | translate"
+        [checked]="currentTab == 4"
+      />
+      <div class="tab-content border-base-300 p-4">
         <app-terms-conditions></app-terms-conditions>
       </div>
     </div>

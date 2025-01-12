@@ -39,14 +39,14 @@
 
 <ng-template #buttons>
   <a
-    class="btn btn-outline btn-primary px-6 font-bold mr-0 lg:mr-4 text-base"
+    class="btn btn-outline btn-success px-6 font-bold mr-0 lg:mr-4 text-base"
     [routerLink]="['/authentication']"
   >
     <fa-icon [icon]="faRightToBracket"></fa-icon>
     {{ "front-page.login" | translate }}</a
   >
   <a
-    class="btn btn-primary px-6 font-bold text-white text-base"
+    class="btn btn-success px-6 font-bold text-white text-base"
     [routerLink]="['/authentication/sign-up']"
     ><fa-icon [icon]="faUser"></fa-icon>{{ "front-page.register" | translate }}
   </a>

@@ -1,7 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import "../node_modules/egalink-toasty.js/dist/toasty.min.css";
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: emerald, dim;
+}
 
 ::placeholder {
   @apply text-gray-400;
@@ -30,31 +31,21 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-.tabs {
-  display: flex;
-  border-bottom-width: 1px;
-  @apply border-primary;
-}
-
-.tab {
-  border-bottom: none !important;
-  @apply border-primary !important;
-
-  &.tab-active {
-    margin-bottom: -1px !important;
-  }
-
-  &::before {
-    width: 0 !important;
-  }
-}
-
 @media (max-width: 991px) {
   .tabs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
   }
+}
+
+.join {
+  display: inline-flex;
+  align-items: stretch;
+  flex-wrap: wrap; /* Permite quebra de linha */
+  --join-ss: 0;
+  --join-se: 0;
+  --join-es: 0;
+  --join-ee: 0;
 }
 
 file-upload {

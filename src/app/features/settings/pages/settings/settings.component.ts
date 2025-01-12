@@ -45,8 +45,4 @@ export class SettingsComponent implements OnInit {
       }
     });
   }
-
-  changeTab(index: number) {
-    this.currentTab = index;
-  }
 }

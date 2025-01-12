@@ -39,8 +39,10 @@ export class InputTextComponent extends BaseInput implements OnInit {
   @Input() iconPosition: 'left' | 'right' = 'left';
   @Input() type: string = 'text';
   @Input() isTextArea: boolean = false;
+  @Input() unit: string;
 
   formControl: AbstractControl;
+  manualTouch = false;
 
   validationMessages: Record<string, string> = {
     required: 'input.required',

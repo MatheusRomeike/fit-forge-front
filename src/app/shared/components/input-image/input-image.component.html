@@ -1,1 +1,37 @@
-<p>input-image works!</p>,
+<div
+  class="w-24 h-24 rounded border-dashed border-2 flex justify-center items-center text-gray-400 relative cursor-pointer p-px"
+  (click)="fileInput.click()"
+>
+  <ng-container *ngIf="!imageUrl; else previewContent">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </ng-container>
+
+  <ng-template #previewContent>
+    <div
+      *ngIf="isLink; else filePreview"
+      class="flex flex-col items-center w-full h-full"
+    >
+      <img
+        [src]="imageUrl"
+        alt="preview"
+        class="w-full h-full object-cover rounded"
+      />
+    </div>
+    <ng-template #filePreview>
+      <div class="flex flex-col items-center w-full h-full">
+        <img
+          [src]="imageUrl"
+          alt="preview"
+          class="w-full h-full object-cover rounded"
+        />
+      </div>
+    </ng-template>
+  </ng-template>
+
+  <input
+    #fileInput
+    type="file"
+    (change)="onFileSelected($event)"
+    class="hidden"
+  />
+</div>

@@ -1,59 +1,61 @@
 <ng-container *ngIf="!isTextArea; else textArea">
-  <label class="input input-bordered flex items-center gap-2 relative py-1">
+  <label
+    class="floating-label input w-full flex"
+    [ngClass]="{
+      'input-success': !error && manualTouch,
+      'input-error': error
+    }"
+  >
     <div *ngIf="iconPosition == 'left'">
       <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
     </div>
+    <span class="label-text">
+      {{ label }}
+      <span *ngIf="required" class="text-error ml-1">*</span>
+    </span>
 
     <input
       #input
       [type]="type"
       [formControl]="$any(formControl)"
-      [placeholder]="label"
-      class="grow input placeholder-transparent peer border-0 pl-1"
+      class="input w-full !outline-none"
+      (click)="manualTouch = true"
     />
-
-    <label
-      class="label absolute left-2 pointer-events-none transition-all text-gray-400 -top-2.5 peer-placeholder-shown:top-1.5 text-xs peer-placeholder-shown:text-sm"
-      [ngClass]="{
-        ' peer-placeholder-shown:left-9': icon,
-        ' peer-placeholder-shown:left-3': !icon
-      }"
-    >
-      {{ label }}
-      <span *ngIf="required" class="text-red-500 ml-1"> *</span>
-    </label>
-
     <div *ngIf="iconPosition == 'right'">
       <ng-container *ngTemplateOutlet="iconTemplate"></ng-container>
     </div>
+    <kbd class="kbd" *ngIf="unit">{{ unit }}</kbd>
   </label>
-  <small *ngIf="error" class="text-red-500 text-xs mt-1">
+
+  <small *ngIf="error" class="text-error text-xs mt-1">
     {{ error }}
   </small>
 </ng-container>
 
 <ng-template #textArea>
-  <label class="textarea textarea-bordered flex items-start relative p-0">
+  <label class="floating-label">
+    <span class="label-text">
+      {{ label }}
+      <span *ngIf="required" class="text-error ml-1">*</span>
+    </span>
+
     <textarea
       #input
       [formControl]="$any(formControl)"
-      [placeholder]="label"
-      class="textarea textarea-bordered placeholder-transparent peer border-0 grow"
+      class="textarea textarea-bordered w-full"
       rows="4"
+      [ngClass]="{
+        'textarea-success': !error && manualTouch,
+        'textarea-error': error
+      }"
+      (click)="manualTouch = true"
     ></textarea>
-
-    <label
-      class="label absolute left-3.5 pointer-events-none transition-all text-gray-400 -top-0.5 peer-placeholder-shown:top-3 text-xs peer-placeholder-shown:text-sm p-0"
-    >
-      {{ label }}
-      <span *ngIf="required" class="text-red-500 ml-1"> *</span>
-    </label>
   </label>
-  <small *ngIf="error" class="text-red-500 text-xs mt-1">
+
+  <small *ngIf="error" class="text-error text-xs mt-1">
     {{ error }}
   </small>
 </ng-template>
-
 <ng-template #iconTemplate>
   <fa-icon
     (click)="click()"

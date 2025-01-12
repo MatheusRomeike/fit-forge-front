@@ -25,6 +25,7 @@
     [icon]="faWeightScale"
     class="col-span-12 md:col-span-6"
     type="number"
+    unit="kg"
   ></app-input-text>
   <app-input-text
     formControlName="height"
@@ -32,6 +33,7 @@
     [icon]="faRulerVertial"
     class="col-span-12 md:col-span-6"
     type="number"
+    unit="m"
   ></app-input-text>
   <app-input-text
     formControlName="startedAtGym"
@@ -67,13 +69,14 @@
         [multiple]="false"
       ></file-upload>
     </div>
+    <app-input-image></app-input-image>
   </div>
 </form>
 
 <button class="btn btn-error mr-3 text-white" (click)="loadData()">
   {{ "settings.cancel" | translate }}
 </button>
-<button class="btn btn-primary text-white" (click)="onSubmit()">
+<button class="btn btn-success text-white" (click)="onSubmit()">
   <fa-icon [icon]="faCheck"></fa-icon>
   {{ "settings.upload-profile" | translate }}
 </button>
