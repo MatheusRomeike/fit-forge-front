@@ -20,7 +20,6 @@ import { EGoal, GoalLabels } from '../../enums/EGoal';
 })
 export class WorkoutInfoComponent implements OnInit {
   @Input() title: string = '';
-
   @Input() form: FormGroup;
 
   faSignature = faSignature;

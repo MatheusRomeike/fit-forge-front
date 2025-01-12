@@ -218,6 +218,7 @@
     "thumbnail-description": "This will be displayed on your plan",
     "plan-goals": "Plan goals (Multiple)",
     "difficulty-levels": "Difficulty levels (Multiple)",
-    "next": "Next"
+    "next": "Next",
+    "back": "Back"
   }
 }

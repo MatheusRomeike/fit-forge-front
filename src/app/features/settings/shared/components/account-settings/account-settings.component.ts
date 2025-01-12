@@ -52,7 +52,7 @@ export class AccountSettingsComponent implements OnInit {
       height: ['', [Validators.min(0), Validators.max(3)]],
       startedAtGym: [''],
       exerciseDuration: ['', [Validators.min(0)]],
-      goals: ['', Validators.maxLength(255)],
+      goals: ['', Validators.maxLength(1024)],
       avatar: '',
     });
 

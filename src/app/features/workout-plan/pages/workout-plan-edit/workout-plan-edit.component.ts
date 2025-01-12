@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import {
-  faCheckDouble,
-  faCircleInfo,
-  faDumbbell,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { Breadcrumb } from '../../../../core/models/breadcrumb.model';
 
 @Component({
@@ -28,9 +24,8 @@ export class WorkoutPlanEditComponent implements OnInit {
     },
   ];
 
-  faCircleInfo = faCircleInfo;
-  faDumbbell = faDumbbell;
-  faCheckDouble = faCheckDouble;
+  faAngleRight = faAngleRight;
+  faAngleLeft = faAngleLeft;
 
   pageTitle = 'workout-plan.create-plan';
   editId = 0;
@@ -55,7 +50,7 @@ export class WorkoutPlanEditComponent implements OnInit {
         '',
         [Validators.required, Validators.min(1), Validators.max(16)],
       ],
-      description: ['', [Validators.minLength(0), Validators.maxLength(512)]],
+      description: ['', [Validators.minLength(0), Validators.maxLength(2048)]],
       thumbnail: [],
       goals: [],
       difficulties: [],

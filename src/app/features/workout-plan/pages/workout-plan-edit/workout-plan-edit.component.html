@@ -5,45 +5,21 @@
     [breadcrumb]="breadcrumb"
   ></app-page-header>
 
-  <div content>
-    <div role="tablist" class="tabs tabs-lift">
-      <input
-        type="radio"
-        name="my_tabs_1"
-        role="tab"
-        class="tab"
-        [attr.aria-label]="'workout-plan.plan-info' | translate"
-        [checked]="currentTab == 1"
-      />
-
-      <div class="tab-content border-base-300 p-4">
-        <app-workout-info
-          [title]="pageTitle"
-          [form]="formInfo"
-        ></app-workout-info>
-      </div>
-
-      <input
-        type="radio"
-        name="my_tabs_1"
-        role="tab"
-        class="tab"
-        [attr.aria-label]="'workout-plan.workout-details' | translate"
-        [checked]="currentTab == 2"
-        [disabled]="formInfo.invalid"
-      />
-      <div class="tab-content border-base-300 p-4"></div>
-
-      <input
-        type="radio"
-        name="my_tabs_1"
-        role="tab"
-        class="tab"
-        [attr.aria-label]="'workout-plan.review' | translate"
-        [checked]="currentTab == 3"
-        [disabled]="formInfo.invalid"
-      />
-      <div class="tab-content border-base-300 p-4"></div>
+  <div raw-content>
+    <app-workout-info
+      [title]="pageTitle"
+      [form]="formInfo"
+      [hidden]="currentTab != 1"
+    ></app-workout-info>
+    <div class="flex justify-between">
+      <button class="btn btn-soft btn-neutral" [disabled]="currentTab == 1">
+        <fa-icon [icon]="faAngleLeft"></fa-icon>
+        {{ "workout-plan.back" | translate }}
+      </button>
+      <button class="btn btn-soft btn-success" [disabled]="formInfo.invalid">
+        {{ "workout-plan.next" | translate }}
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+      </button>
     </div>
   </div>
 </app-page-layout>
