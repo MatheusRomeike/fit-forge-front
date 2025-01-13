@@ -10,6 +10,7 @@ import { WorkoutPlanComponent } from './pages/workout-plan/workout-plan.componen
 import { AddWorkoutCardComponent } from './shared/components/add-workout-card/add-workout-card.component';
 import { WorkoutCardComponent } from './shared/components/workout-card/workout-card.component';
 import { WorkoutInfoComponent } from './shared/components/workout-info/workout-info.component';
+import { WorkoutWeeksComponent } from './shared/components/workout-weeks/workout-weeks.component';
 import { WorkoutPlanRoutingModule } from './workout-plan-routing.module';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { WorkoutPlanRoutingModule } from './workout-plan-routing.module';
     WorkoutCardComponent,
     AddWorkoutCardComponent,
     WorkoutInfoComponent,
+    WorkoutWeeksComponent,
   ],
   imports: [
     CommonModule,
