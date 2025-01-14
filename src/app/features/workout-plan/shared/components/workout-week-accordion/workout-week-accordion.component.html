@@ -1,0 +1,23 @@
+<div class="p-2 font-semibold">
+  {{ "workout-plan.week" | translate }} {{ weekNumber }}
+  <app-icon-dropdown>
+    <div dropdown>
+      <li><a>Edit</a></li>
+      <li><a>Duplicate</a></li>
+      <li><a>Archive</a></li>
+    </div>
+  </app-icon-dropdown>
+</div>
+<div class="grid grid-cols-1 text-sm gap-4">
+  <div *ngFor="let week of [].constructor(weekDays); let i = index">
+    <app-workout-day-accordion [weekDay]="i + 1"></app-workout-day-accordion>
+  </div>
+  <button
+    class="btn btn-primary btn-outline rounded-2xl"
+    (click)="addDay()"
+    [disabled]="weekDays == 7"
+  >
+    <fa-icon [icon]="faPlus"></fa-icon>
+    {{ "workout-plan.add-day" | translate }}
+  </button>
+</div>

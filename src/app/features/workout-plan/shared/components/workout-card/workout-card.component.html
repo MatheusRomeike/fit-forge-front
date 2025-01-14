@@ -38,23 +38,11 @@
   </div>
 
   <!-- Bottom Section -->
-  <div class="bottom-wrapper flex justify-end">
-    <div class="dropdown">
-      <button
-        tabindex="0"
-        role="button"
-        class="btn btn-ghost btn-sm hover:bg-gray-100"
-      >
-        <fa-icon [icon]="faEllipsis" class="text-gray-400"></fa-icon>
-      </button>
-      <ul
-        tabindex="0"
-        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-      >
-        <li><a>Edit</a></li>
-        <li><a>Duplicate</a></li>
-        <li><a>Archive</a></li>
-      </ul>
+  <app-icon-dropdown>
+    <div dropdown>
+      <li><a>Edit</a></li>
+      <li><a>Duplicate</a></li>
+      <li><a>Archive</a></li>
     </div>
-  </div>
+  </app-icon-dropdown>
 </div>

@@ -29,7 +29,7 @@ export class WorkoutPlanEditComponent implements OnInit {
 
   pageTitle = 'workout-plan.create-plan';
   editId = 0;
-  currentTab = 1;
+  currentTab = 2;
 
   formInfo: FormGroup;
 

@@ -24,25 +24,29 @@ export class NotifyService {
     });
   }
 
-  public info(message: string) {
+  public info(message: string = 'api-exception.unexpected.unexpected-error') {
     this.translateService.get(message).subscribe((translatedMessage) => {
       this.toasty.info(translatedMessage);
     });
   }
 
-  public success(message: string) {
+  public success(
+    message: string = 'api-exception.unexpected.unexpected-error'
+  ) {
     this.translateService.get(message).subscribe((translatedMessage) => {
       this.toasty.success(translatedMessage);
     });
   }
 
-  public warning(message: string) {
+  public warning(
+    message: string = 'api-exception.unexpected.unexpected-error'
+  ) {
     this.translateService.get(message).subscribe((translatedMessage) => {
       this.toasty.warning(translatedMessage);
     });
   }
 
-  public error(message: string) {
+  public error(message: string = 'api-exception.unexpected.unexpected-error') {
     this.translateService.get(message).subscribe((translatedMessage) => {
       this.toasty.error(translatedMessage);
     });

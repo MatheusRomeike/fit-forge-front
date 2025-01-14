@@ -219,6 +219,10 @@
     "plan-goals": "Plan goals (Multiple)",
     "difficulty-levels": "Difficulty levels (Multiple)",
     "next": "Next",
-    "back": "Back"
+    "back": "Back",
+    "week": "Week",
+    "day": "Day",
+    "add-day": "Add Day",
+    "add-exercise": "Add Exercise"
   }
 }

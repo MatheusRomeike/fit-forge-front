@@ -1,0 +1,17 @@
+<div class="bottom-wrapper flex justify-end">
+  <div class="dropdown">
+    <button
+      tabindex="0"
+      role="button"
+      class="btn btn-ghost btn-sm hover:bg-gray-100"
+    >
+      <fa-icon [icon]="icon" class="text-gray-400"></fa-icon>
+    </button>
+    <ul
+      tabindex="0"
+      class="dropdown-content menu bg-base-100 rounded-box z-[1] shadow"
+    >
+      <ng-content select="[dropdown]"></ng-content>
+    </ul>
+  </div>
+</div>

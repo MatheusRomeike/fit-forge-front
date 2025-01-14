@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { AvatarComponent } from './components/avatar/avatar.component';
+import { IconDropdownComponent } from './components/icon-dropdown/icon-dropdown.component';
 import { InputImageComponent } from './components/input-image/input-image.component';
 import { InputTextComponent } from './components/input-text/input-text.component';
 import { LoadingComponent } from './components/loading/loading.component';
@@ -18,6 +19,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     InputTextComponent,
     LoadingComponent,
     InputImageComponent,
+    IconDropdownComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     FileUploadModule,
     LoadingComponent,
     InputImageComponent,
+    IconDropdownComponent,
   ],
 })
 export class SharedModule {}

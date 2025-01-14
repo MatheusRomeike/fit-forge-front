@@ -47,7 +47,7 @@
         class="btn join-item text-gray-400 border-gray-400"
         [ngClass]="{
           'btn-dash btn-neutral': !isGoalSelected(goalBadge.id),
-          'btn-primary': isGoalSelected(goalBadge.id)
+          'btn-primary text-white': isGoalSelected(goalBadge.id)
         }"
         (click)="toggleGoal(goalBadge.id)"
       >
@@ -64,7 +64,7 @@
         class="btn join-item text-gray-400 border-gray-400"
         [ngClass]="{
           'btn-dash btn-neutral': !isDifficultySelected(difficultyBadge.id),
-          'btn-primary': isDifficultySelected(difficultyBadge.id)
+          'btn-primary text-white': isDifficultySelected(difficultyBadge.id)
         }"
         (click)="toggleDifficulty(difficultyBadge.id)"
       >

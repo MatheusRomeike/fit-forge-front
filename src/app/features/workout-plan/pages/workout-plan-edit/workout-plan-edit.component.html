@@ -11,21 +11,24 @@
       [form]="formInfo"
       [hidden]="currentTab != 1"
     ></app-workout-info>
-    <app-workout-weeks [hidden]="currentTab != 2"></app-workout-weeks>
+    <app-workout-weeks
+      [hidden]="currentTab != 2"
+      [weeks]="6"
+    ></app-workout-weeks>
 
-    <div class="flex justify-between">
+    <div class="flex justify-between mt-4">
       <button
-        class="btn btn-soft btn-neutral"
-        [disabled]="currentTab == 1"
+        class="btn btn-neutral"
+        [disabled]="currentTab == 1 && false"
         (click)="changeTab(currentTab - 1)"
       >
         <fa-icon [icon]="faAngleLeft"></fa-icon>
         {{ "workout-plan.back" | translate }}
       </button>
       <button
-        class="btn btn-soft btn-success"
+        class="btn btn-success text-white"
         (click)="changeTab(currentTab + 1)"
-        [disabled]="formInfo.invalid || currentTab == 3"
+        [disabled]="(formInfo.invalid || currentTab == 3) && false"
       >
         {{ "workout-plan.next" | translate }}
         <fa-icon [icon]="faAngleRight"></fa-icon>

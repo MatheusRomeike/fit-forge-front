@@ -1,0 +1,9 @@
+<div class="collapse collapse-plus bg-base-100 border border-gray-300">
+  <input type="checkbox" class="!min-h-0 h-12" checked />
+  <div class="collapse-title font-semibold p-4 !min-h-0 h-12">
+    {{ "workout-plan.day" | translate }} {{ weekDay }}
+  </div>
+  <div class="collapse-content grid grid-cols-1 text-sm !visible text-wrap">
+    <app-workout-day-table></app-workout-day-table>
+  </div>
+</div>
