@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FileUploadModule } from '@iplab/ngx-file-upload';
 import { TranslateModule } from '@ngx-translate/core';
+import { AgGridModule } from 'ag-grid-angular';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { AvatarComponent } from './components/avatar/avatar.component';
@@ -31,6 +32,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     NgScrollbarModule,
     FileUploadModule,
     NgxLoadingModule,
+    AgGridModule,
   ],
   exports: [
     FontAwesomeModule,
@@ -42,6 +44,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     LoadingComponent,
     InputImageComponent,
     IconDropdownComponent,
+    AgGridModule,
   ],
 })
 export class SharedModule {}

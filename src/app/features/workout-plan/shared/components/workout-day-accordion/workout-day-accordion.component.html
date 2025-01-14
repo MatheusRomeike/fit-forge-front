@@ -4,6 +4,9 @@
     {{ "workout-plan.day" | translate }} {{ weekDay }}
   </div>
   <div class="collapse-content grid grid-cols-1 text-sm !visible text-wrap">
-    <app-workout-day-table></app-workout-day-table>
+    <app-workout-day-table
+      (gridReady)="onGridReady($event)"
+      [weekDay]="weekDay"
+    ></app-workout-day-table>
   </div>
 </div>

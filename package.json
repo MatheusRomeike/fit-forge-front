@@ -27,6 +27,7 @@
     "@ngx-translate/http-loader": "^16.0.0",
     "@tailwindcss/postcss": "^4.0.0-beta.9",
     "@types/google-one-tap": "^1.2.6",
+    "ag-grid-angular": "^33.0.3",
     "angular-oauth2-oidc": "^19.0.0",
     "egalink-toasty.js": "^1.5.5",
     "flag-icons": "^7.2.3",

@@ -12,10 +12,12 @@ import localePt from '@angular/common/locales/pt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { NgxLoadingModule } from 'ngx-loading';
 
 registerLocaleData(localeEn);
 registerLocaleData(localePt);
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 @NgModule({
   declarations: [AppComponent],

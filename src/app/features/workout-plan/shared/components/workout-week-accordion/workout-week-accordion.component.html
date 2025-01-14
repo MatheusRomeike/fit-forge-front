@@ -10,7 +10,10 @@
 </div>
 <div class="grid grid-cols-1 text-sm gap-4">
   <div *ngFor="let week of [].constructor(weekDays); let i = index">
-    <app-workout-day-accordion [weekDay]="i + 1"></app-workout-day-accordion>
+    <app-workout-day-accordion
+      [weekDay]="i + 1"
+      (gridReady)="onGridReady($event)"
+    ></app-workout-day-accordion>
   </div>
   <button
     class="btn btn-primary btn-outline rounded-2xl"

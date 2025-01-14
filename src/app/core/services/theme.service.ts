@@ -8,6 +8,10 @@ export class ThemeService {
   private themeKey = 'theme';
   private lightTheme = 'emerald';
   private darkTheme = 'dim';
+
+  private lightThemeAgGrid = 'light';
+  private darkThemeAgGrid = 'dark-blue';
+
   private isDarkModeSubject = new BehaviorSubject<boolean>(false);
   isDarkMode$ = this.isDarkModeSubject.asObservable();
 
@@ -32,11 +36,14 @@ export class ThemeService {
   }
 
   private setTheme(theme: string): void {
-    // Aplica o tema no documento e atualiza o estado do BehaviorSubject
     document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute(
+      'data-ag-theme-mode',
+      theme === this.darkTheme ? this.darkThemeAgGrid : this.lightThemeAgGrid
+    );
     document.documentElement.classList.add('theme-transition');
     this.isDarkModeSubject.next(theme === this.darkTheme);
-    // Salva o tema no localStorage
+
     localStorage.setItem(this.themeKey, theme);
   }
 
@@ -44,6 +51,7 @@ export class ThemeService {
     const currentTheme = this.getCurrentTheme();
     const newTheme =
       currentTheme === this.lightTheme ? this.darkTheme : this.lightTheme;
+
     this.setTheme(newTheme);
   }
 
