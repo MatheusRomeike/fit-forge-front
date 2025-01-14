@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-workout-weeks',
@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
   standalone: false,
 })
 export class WorkoutWeeksComponent {
+  @ViewChild('scroller') scroller: any;
   @Input() weeks: number;
 
   gridApis: { [key: string]: any[] } = {};

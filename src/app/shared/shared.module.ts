@@ -13,6 +13,7 @@ import { IconDropdownComponent } from './components/icon-dropdown/icon-dropdown.
 import { InputImageComponent } from './components/input-image/input-image.component';
 import { InputTextComponent } from './components/input-text/input-text.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { ScrollDirective } from './directives/scroll.directive';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     FileUploadModule,
     NgxLoadingModule,
     AgGridModule,
+    ScrollDirective,
   ],
   exports: [
     FontAwesomeModule,
@@ -45,6 +47,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     InputImageComponent,
     IconDropdownComponent,
     AgGridModule,
+    ScrollDirective,
   ],
 })
 export class SharedModule {}
