@@ -14,7 +14,10 @@
   </div>
   <div class="divider m-0 h-0"></div>
 
-  <ng-scrollbar visibility="hover" (click)="isSidebarToggled ? toggle() : null">
+  <ng-scrollbar
+    visibility="hover"
+    (click)="isSidebarToggled && !isSidebarAutoHide ? toggle() : null"
+  >
     <div class="sidebar-inner h-full">
       <div class="sidebar-menu">
         <app-menu

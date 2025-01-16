@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'workout-plan',
     component: BaseLayoutComponent,
-    canActivate: [authGuard],
+    canActivate: [],
     loadChildren: () =>
       import('./features/workout-plan/workout-plan.module').then(
         (m) => m.WorkoutPlanModule

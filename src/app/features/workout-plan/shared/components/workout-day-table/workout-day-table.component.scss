@@ -8,3 +8,7 @@
 ::ng-deep .ag-center-cols-viewport {
   margin-bottom: 30px !important;
 }
+
+.ag-root {
+  touch-action: pan-x; /* Permite deslizar verticalmente */
+}

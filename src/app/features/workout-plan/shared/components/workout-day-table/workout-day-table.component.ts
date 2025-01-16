@@ -101,6 +101,13 @@ export class WorkoutDayTableComponent {
       sets: 1,
       reps: 0,
       intesity: 0,
+      detailData: [
+        {
+          set: 1,
+          reps: 12,
+          percentual: 10,
+        },
+      ],
     };
 
     this.grid.api.applyTransaction({ add: [newExercise] });

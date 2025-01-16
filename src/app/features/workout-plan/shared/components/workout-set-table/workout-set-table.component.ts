@@ -11,12 +11,13 @@ import { GridOptions, ICellRendererParams } from 'ag-grid-community';
 })
 export class WorkoutSetTableComponent implements ICellRendererAngularComp {
   rowData: any[] = [];
+  exerciseName = '';
   data: any;
   gridOptions: GridOptions<any> = {
     columnDefs: [
-      { field: 'set', headerName: 'Set', width: 100 },
-      { field: 'reps', headerName: 'Reps', width: 100 },
-      { field: 'percentual', headerName: '%', flex: 1 },
+      { field: 'set', headerName: 'Set' },
+      { field: 'reps', headerName: 'Reps' },
+      { field: 'percentual', headerName: '%' },
     ],
     defaultColDef: {
       editable: true,
@@ -27,6 +28,7 @@ export class WorkoutSetTableComponent implements ICellRendererAngularComp {
   faPlus = faPlus;
 
   agInit(params: ICellRendererParams<any, any, any>): void {
+    this.exerciseName = params.data.exercise;
     this.rowData = params.data.detailData || [];
     this.data = params.data;
     this.gridApi = params.api;
