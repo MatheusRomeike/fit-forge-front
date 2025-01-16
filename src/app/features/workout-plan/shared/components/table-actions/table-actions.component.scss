@@ -1,0 +1,11 @@
+:host {
+  display: none; /* Esconde o componente por padrão */
+}
+
+:host-context(.ag-row-hover) {
+  display: inline; /* Mostra o componente quando a linha está em hover */
+}
+
+.join {
+  display: inline;
+}

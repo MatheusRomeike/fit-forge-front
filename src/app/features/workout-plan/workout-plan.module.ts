@@ -8,10 +8,12 @@ import { WorkoutPlanEditComponent } from './pages/workout-plan-edit/workout-plan
 import { WorkoutPlanHistoryComponent } from './pages/workout-plan-history/workout-plan-history.component';
 import { WorkoutPlanComponent } from './pages/workout-plan/workout-plan.component';
 import { AddWorkoutCardComponent } from './shared/components/add-workout-card/add-workout-card.component';
+import { TableActionsComponent } from './shared/components/table-actions/table-actions.component';
 import { WorkoutCardComponent } from './shared/components/workout-card/workout-card.component';
 import { WorkoutDayAccordionComponent } from './shared/components/workout-day-accordion/workout-day-accordion.component';
 import { WorkoutDayTableComponent } from './shared/components/workout-day-table/workout-day-table.component';
 import { WorkoutInfoComponent } from './shared/components/workout-info/workout-info.component';
+import { WorkoutSetTableComponent } from './shared/components/workout-set-table/workout-set-table.component';
 import { WorkoutWeekAccordionComponent } from './shared/components/workout-week-accordion/workout-week-accordion.component';
 import { WorkoutWeeksComponent } from './shared/components/workout-weeks/workout-weeks.component';
 import { WorkoutPlanRoutingModule } from './workout-plan-routing.module';
@@ -29,6 +31,8 @@ import { WorkoutPlanRoutingModule } from './workout-plan-routing.module';
     WorkoutWeekAccordionComponent,
     WorkoutDayAccordionComponent,
     WorkoutDayTableComponent,
+    WorkoutSetTableComponent,
+    TableActionsComponent,
   ],
   imports: [
     CommonModule,

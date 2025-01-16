@@ -1,4 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
+import { AgGridAngular } from 'ag-grid-angular';
 
 @Component({
   selector: 'app-workout-weeks',
@@ -36,7 +37,7 @@ export class WorkoutWeeksComponent {
           if (key !== otherKey) {
             const otherWeekGrids = this.gridApis[otherKey];
 
-            otherWeekGrids.forEach((otherGridApi) => {
+            otherWeekGrids.forEach((otherGridApi: AgGridAngular) => {
               const dropZone = otherGridApi.api.getRowDropZoneParams({
                 onDragStop: (params: any) => {
                   const nodes = params.nodes;
@@ -45,7 +46,7 @@ export class WorkoutWeeksComponent {
                   });
                 },
               });
-
+              console.log(gridApi.api.dropZones);
               gridApi.api.addRowDropZone(dropZone);
             });
           }

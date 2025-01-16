@@ -1,0 +1,10 @@
+::ng-deep .ag-pinned-right-header,
+::ng-deep .ag-horizontal-right-spacer,
+::ng-deep .ag-pinned-right-cols-container {
+  width: 0 !important;
+  min-width: 0 !important;
+}
+
+::ng-deep .ag-center-cols-viewport {
+  margin-bottom: 30px !important;
+}

@@ -223,6 +223,9 @@
     "week": "Week",
     "day": "Day",
     "add-day": "Add Day",
-    "add-exercise": "Add Exercise"
+    "add-exercise": "Add Exercise",
+    "add-set": "Add Set",
+    "ok": "OK",
+    "exercises": "Exercises"
   }
 }

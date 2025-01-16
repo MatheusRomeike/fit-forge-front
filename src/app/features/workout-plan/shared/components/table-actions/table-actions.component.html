@@ -1,0 +1,30 @@
+<div class="join join-sm fixed top-8 right-0 z-50">
+  <button
+    class="join-item btn btn-sm btn-soft tooltip"
+    (click)="onActionClick('edit')"
+  >
+    <div class="tooltip-content">Edit</div>
+    <fa-icon [icon]="faPenToSquare"></fa-icon>
+  </button>
+  <button
+    class="join-item btn btn-sm btn-soft tooltip"
+    (click)="onActionClick('delete')"
+  >
+    <div class="tooltip-content">Delete</div>
+    <fa-icon [icon]="faTrash"></fa-icon>
+  </button>
+  <button
+    class="join-item btn btn-sm btn-soft tooltip"
+    (click)="onActionClick('duplicate')"
+  >
+    <div class="tooltip-content">Duplicate</div>
+    <fa-icon [icon]="faCopy"></fa-icon>
+  </button>
+  <button
+    class="join-item btn btn-sm btn-soft tooltip"
+    (click)="onActionClick('note')"
+  >
+    <div class="tooltip-content">Note</div>
+    <fa-icon [icon]="faNoteSticky"></fa-icon>
+  </button>
+</div>

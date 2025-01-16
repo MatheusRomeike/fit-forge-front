@@ -6,11 +6,16 @@ import {
   ViewChild,
 } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { TranslateService } from '@ngx-translate/core';
+import { AgGridAngular } from 'ag-grid-angular';
 import type {
   GridOptions,
   GridReadyEvent,
-  RowDropZoneParams,
+  IsFullWidthRowParams,
+  RowHeightParams,
 } from 'ag-grid-community';
+import { TableActionsComponent } from '../table-actions/table-actions.component';
+import { WorkoutSetTableComponent } from '../workout-set-table/workout-set-table.component';
 
 @Component({
   selector: 'app-workout-day-table',
@@ -19,44 +24,27 @@ import type {
   standalone: false,
 })
 export class WorkoutDayTableComponent {
-  @ViewChild('grid') grid: any;
+  @ViewChild('grid') grid: AgGridAngular;
   @Input() weekDay: number;
   @Output() gridReady = new EventEmitter<{ event: any; weekDay: number }>();
+
+  constructor(private translateService: TranslateService) {}
 
   exercises: [];
 
   faPlus = faPlus;
 
-  rowData = [
-    {
-      id: 1,
-      exercise: 'Squat (Barbell)',
-      sets: 3,
-      reps: 0,
-      intesity: 0,
-    },
-    { id: 2, exercise: 'Squat (Barbell)', sets: 1, reps: 0, intesity: 0 },
-    {
-      id: 3,
-      exercise: 'Behind-The-Neck Press (Smith Machine with Dummbels)',
-      sets: 1,
-      reps: 0,
-      intesity: 0,
-    },
-  ];
-
   gridOptions: GridOptions<any> = {
     columnDefs: [
       {
-        headerName: '#',
-
+        headerName: '',
         editable: false,
-        width: 40,
+        width: 0,
         rowDrag: true,
       },
       {
         field: 'exercise',
-
+        minWidth: 80,
         cellDataType: 'string',
         flex: 1,
         wrapText: false,
@@ -64,6 +52,17 @@ export class WorkoutDayTableComponent {
       { field: 'sets', width: 65 },
       { field: 'reps', width: 65 },
       { field: 'intesity', width: 80 },
+      {
+        headerName: '',
+        pinned: 'right',
+        width: 0,
+        cellRenderer: TableActionsComponent,
+        cellRendererParams: {
+          onAction: (event: { action: string; data: any }) =>
+            this.handleAction(event),
+        },
+        editable: false,
+      },
     ],
     defaultColDef: {
       editable: true,
@@ -71,19 +70,81 @@ export class WorkoutDayTableComponent {
     },
     rowDragManaged: true,
     suppressMoveWhenRowDragging: true,
+    getRowHeight: (params) => (params.node.data.fullWidth ? 220 : 40),
+    rowSelection: {
+      mode: 'multiRow',
+    },
+    rowDragMultiRow: true,
+    rowDragText: (params: any, dragItemCount: number) => {
+      console.log(dragItemCount);
+      if (dragItemCount > 1) {
+        let translation = '';
+        this.translateService.get('exercises').subscribe((x) => {
+          translation = x;
+        });
+        return dragItemCount + ` ${translation}`;
+      }
+      return params.rowNode!.data.exercise;
+    },
   };
 
+  WorkoutSetTableComponent = WorkoutSetTableComponent;
+
   addExercise() {
-    console.log(this.grid.api.getRowDropZoneParams());
+    // Encontra o maior ID para incrementar
+    const newId = this.grid.api.getDisplayedRowCount() + 1;
+
+    // Define os dados padrão para o novo exercício
+    const newExercise = {
+      id: newId,
+      exercise: `New Exercise - ${newId}`,
+      sets: 1,
+      reps: 0,
+      intesity: 0,
+    };
+
+    this.grid.api.applyTransaction({ add: [newExercise] });
   }
 
   onGridReady(event: GridReadyEvent) {
     this.gridReady.emit({ event, weekDay: this.weekDay });
   }
 
-  getDropZoneParams(): RowDropZoneParams {
-    return {
-      getContainer: () => document.querySelector('.ag-grid')!,
+  public getRowHeight: (params: RowHeightParams) => number | undefined | null =
+    (params: RowHeightParams) => {
+      const isFullWidth = params.node.data.fullWidth;
+      if (isFullWidth) {
+        return 220;
+      }
+      return 40;
     };
+
+  public isFullWidthRow: (params: IsFullWidthRowParams) => boolean = (
+    params: IsFullWidthRowParams
+  ) => {
+    return params.rowNode.data.fullWidth;
+  };
+
+  handleAction(event: { action: string; data: any }) {
+    const { action, data } = event;
+    switch (action) {
+      case 'edit':
+        data.fullWidth = true;
+        break;
+      case 'delete':
+        this.grid.api.applyTransaction({ remove: [data] });
+        break;
+      case 'duplicate':
+        const duplicateItem = { ...data };
+        this.grid.api.applyTransaction({ add: [duplicateItem] });
+        break;
+      case 'note':
+        console.log('Note clicked', data);
+        break;
+      default:
+        console.warn('Unknown action', action);
+    }
+    this.grid.api.redrawRows();
+    this.grid.api.resetRowHeights();
   }
 }
