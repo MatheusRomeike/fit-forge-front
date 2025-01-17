@@ -9,14 +9,14 @@
   </ag-grid-angular>
 
   <div class="flex justify-center space-x-4 mx-4">
-    <button
-      class="btn btn-primary btn-outline grow rounded-2xl"
-      (click)="addSet()"
-    >
+    <button class="btn btn-primary btn-outline rounded-2xl" (click)="addSet()">
       <fa-icon [icon]="faPlus"></fa-icon>
       {{ "workout-plan.add-set" | translate }}
     </button>
-    <button class="btn btn-warning grow rounded-2xl" (click)="save()">
+    <button class="btn btn-primary btn-outline rounded-2xl" (click)="cancel()">
+      {{ "workout-plan.cancel" | translate }}
+    </button>
+    <button class="btn btn-warning rounded-2xl" (click)="save()">
       {{ "workout-plan.ok" | translate }}
     </button>
   </div>

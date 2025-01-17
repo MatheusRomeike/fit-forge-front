@@ -9,6 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService } from '@ngx-translate/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import type {
+  CellValueChangedEvent,
   GridOptions,
   GridReadyEvent,
   IsFullWidthRowParams,
@@ -44,14 +45,76 @@ export class WorkoutDayTableComponent {
       },
       {
         field: 'exercise',
-        minWidth: 80,
+        minWidth: 100,
         cellDataType: 'string',
         flex: 1,
-        wrapText: false,
+        wrapText: true,
+        autoHeight: true,
       },
-      { field: 'sets', width: 65 },
-      { field: 'reps', width: 65 },
-      { field: 'intesity', width: 80 },
+      {
+        field: 'sets',
+        width: 65,
+        headerTooltip: this.getSetTooltip(),
+        valueSetter: (params: any) => {
+          const regex = /^\d+$/; // Matches numbers only (e.g., 1, 2, 3)
+          const value = params.newValue;
+          if (regex.test(value)) {
+            params.data.sets = value;
+            return true;
+          } else {
+            return false;
+          }
+        },
+      },
+      {
+        field: 'reps',
+        cellDataType: 'string',
+        width: 65,
+        headerTooltip: this.getSetTooltip(),
+        valueSetter: (params: any) => {
+          const regex = /^\d+(-\d+)?$/;
+          const value = params.newValue;
+          if (regex.test(value)) {
+            params.data.reps = value;
+            return true;
+          } else {
+            return false;
+          }
+        },
+      },
+      {
+        field: 'intesity',
+        width: 80,
+        cellDataType: 'string',
+        headerTooltip: this.getSetTooltip(),
+        valueSetter: (params: any) => {
+          const regex = /^(100|[1-9]?[0-9])$/;
+          const value = params.newValue;
+          if (regex.test(value)) {
+            params.data.intesity = value;
+            return true;
+          } else {
+            return false;
+          }
+        },
+      },
+      {
+        field: 'restTime',
+        width: 100,
+        cellDataType: 'string',
+        headerTooltip: this.getSetTooltip(),
+        valueSetter: (params: any) => {
+          const regex = /^\d{1,2}:\d{2}$/;
+          const value = params.newValue;
+          if (regex.test(value)) {
+            params.data.restTime = value;
+            return true;
+          } else {
+            return false;
+          }
+        },
+      },
+
       {
         headerName: '',
         pinned: 'right',
@@ -70,7 +133,8 @@ export class WorkoutDayTableComponent {
     },
     rowDragManaged: true,
     suppressMoveWhenRowDragging: true,
-    getRowHeight: (params) => (params.node.data.fullWidth ? 220 : 40),
+    singleClickEdit: true,
+    getRowHeight: (params) => this.getRowHeight(params),
     rowSelection: {
       mode: 'multiRow',
     },
@@ -86,6 +150,7 @@ export class WorkoutDayTableComponent {
       }
       return params.rowNode!.data.exercise;
     },
+    onCellValueChanged: (event) => this.onCellValueChanged(event),
   };
 
   WorkoutSetTableComponent = WorkoutSetTableComponent;
@@ -99,13 +164,15 @@ export class WorkoutDayTableComponent {
       id: newId,
       exercise: `New Exercise - ${newId}`,
       sets: 1,
-      reps: 0,
-      intesity: 0,
+      reps: '-',
+      intesity: '-',
+      restTime: '-',
       detailData: [
         {
           set: 1,
-          reps: 12,
-          percentual: 10,
+          reps: '-',
+          intesity: '-',
+          restTime: '-',
         },
       ],
     };
@@ -121,7 +188,7 @@ export class WorkoutDayTableComponent {
     (params: RowHeightParams) => {
       const isFullWidth = params.node.data.fullWidth;
       if (isFullWidth) {
-        return 220;
+        return 210;
       }
       return 40;
     };
@@ -134,9 +201,12 @@ export class WorkoutDayTableComponent {
 
   handleAction(event: { action: string; data: any }) {
     const { action, data } = event;
+    this.grid.api.stopEditing();
+
     switch (action) {
       case 'edit':
         data.fullWidth = true;
+        this.disableAutoHeight();
         break;
       case 'delete':
         this.grid.api.applyTransaction({ remove: [data] });
@@ -153,5 +223,48 @@ export class WorkoutDayTableComponent {
     }
     this.grid.api.redrawRows();
     this.grid.api.resetRowHeights();
+  }
+
+  private disableAutoHeight() {
+    this.gridOptions.columnDefs = this.gridOptions.columnDefs?.map((col) => {
+      if ('field' in col && col.field === 'exercise') {
+        return { ...col, autoHeight: false };
+      }
+      return col;
+    });
+    this.grid.api.setGridOption('columnDefs', this.gridOptions.columnDefs);
+  }
+
+  private onCellValueChanged(event: CellValueChangedEvent) {
+    const { colDef, data, newValue } = event;
+
+    switch (colDef.field) {
+      case 'sets':
+        data.detailData = Array.from({ length: newValue }, (_, i) => ({
+          set: i + 1,
+          reps: data.reps || 0,
+          percentual: data.intesity || 0,
+        }));
+        break;
+      case 'reps':
+        data.detailData.forEach((set: any) => {
+          set.reps = newValue;
+        });
+        break;
+      case 'intesity':
+        data.detailData.forEach((set: any) => {
+          set.intesity = newValue;
+        });
+        break;
+      case 'restTime':
+        data.detailData.forEach((set: any) => {
+          set.restTime = newValue;
+        });
+        break;
+    }
+  }
+
+  private getSetTooltip(): string {
+    return 'Caso altere um set específico, esse valor será vazio.';
   }
 }

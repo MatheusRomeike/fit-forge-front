@@ -226,6 +226,7 @@
     "add-exercise": "Add Exercise",
     "add-set": "Add Set",
     "ok": "OK",
-    "exercises": "Exercises"
+    "exercises": "Exercises",
+    "cancel": "Cancel"
   }
 }
