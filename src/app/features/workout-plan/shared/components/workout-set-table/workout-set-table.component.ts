@@ -17,11 +17,12 @@ export class WorkoutSetTableComponent implements ICellRendererAngularComp {
   data: any;
   gridOptions: GridOptions<any> = {
     columnDefs: [
-      { field: 'set', headerName: 'Set', editable: false },
+      { field: 'set', headerName: 'Set', editable: false, minWidth: 60 },
       {
         field: 'reps',
         headerName: 'Reps',
         editable: true,
+        minWidth: 70,
         cellEditor: 'agTextCellEditor',
         valueSetter: (params: any) => {
           const regex = /^\d+(-\d+)?$/;
@@ -39,6 +40,7 @@ export class WorkoutSetTableComponent implements ICellRendererAngularComp {
       {
         field: 'intesity',
         headerName: 'Intensity (%)',
+        minWidth: 110,
         valueSetter: (params: any) => {
           const regex = /^(100|[1-9]?[0-9])$/;
           const value = params.newValue;
@@ -53,6 +55,7 @@ export class WorkoutSetTableComponent implements ICellRendererAngularComp {
       {
         field: 'restTime',
         headerName: 'Rest Time',
+        minWidth: 100,
         editable: true,
         cellEditor: 'agTextCellEditor',
         valueSetter: (params: any) => {

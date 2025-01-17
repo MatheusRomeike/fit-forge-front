@@ -4,7 +4,7 @@ import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
   selector: '[appAutoScroll]',
 })
 export class ScrollDirective implements OnInit, OnDestroy {
-  @Input() scrollThreshold = 50;
+  @Input() scrollThreshold = 25;
   @Input() maxScrollSpeed = 1;
   @Input() minScrollSpeed = 0.5;
 

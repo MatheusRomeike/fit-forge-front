@@ -188,7 +188,7 @@ export class WorkoutDayTableComponent {
     (params: RowHeightParams) => {
       const isFullWidth = params.node.data.fullWidth;
       if (isFullWidth) {
-        return 210;
+        return 250;
       }
       return 40;
     };

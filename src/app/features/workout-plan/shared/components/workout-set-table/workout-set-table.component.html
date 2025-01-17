@@ -1,22 +1,28 @@
 <div class="grid-container">
   <ag-grid-angular
     class="w-full p-4"
-    style="height: 167px !important"
+    style="height: 207px !important"
     [rowData]="rowData"
     [gridOptions]="gridOptions"
     #grid
   >
   </ag-grid-angular>
 
-  <div class="flex justify-center space-x-4 mx-4">
-    <button class="btn btn-primary btn-outline rounded-2xl" (click)="addSet()">
+  <div class="flex justify-center space-x-2 mx-2 md:space-x-4 md:mx-4">
+    <button
+      class="btn btn-primary btn-outline rounded-2xl grow"
+      (click)="addSet()"
+    >
       <fa-icon [icon]="faPlus"></fa-icon>
       {{ "workout-plan.add-set" | translate }}
     </button>
-    <button class="btn btn-primary btn-outline rounded-2xl" (click)="cancel()">
+    <button
+      class="btn btn-primary btn-outline rounded-2xl grow"
+      (click)="cancel()"
+    >
       {{ "workout-plan.cancel" | translate }}
     </button>
-    <button class="btn btn-warning rounded-2xl" (click)="save()">
+    <button class="btn btn-warning rounded-2xl grow" (click)="save()">
       {{ "workout-plan.ok" | translate }}
     </button>
   </div>
