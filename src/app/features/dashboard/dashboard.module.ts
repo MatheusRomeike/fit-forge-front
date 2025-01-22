@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DxButtonModule } from 'devextreme-angular';
 import { CoreModule } from '../../core/core.module';
 import { SharedModule } from '../../shared/shared.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -15,6 +16,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     DashboardRoutingModule,
     SharedModule,
     CoreModule,
+    DxButtonModule,
   ],
 })
 export class DashboardModule {}
