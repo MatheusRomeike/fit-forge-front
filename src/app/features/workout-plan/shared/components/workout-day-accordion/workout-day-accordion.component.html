@@ -5,8 +5,9 @@
   </div>
   <div class="collapse-content grid grid-cols-1 text-sm !visible text-wrap">
     <app-workout-day-table
-      (gridReady)="onGridReady($event)"
+      [exercises]="exercises"
       [weekDay]="weekDay"
+      (gridReady)="onGridReady($event)"
     ></app-workout-day-table>
   </div>
 </div>

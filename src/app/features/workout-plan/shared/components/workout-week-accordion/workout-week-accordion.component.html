@@ -11,6 +11,7 @@
 <div class="grid grid-cols-1 text-sm gap-4">
   <div *ngFor="let week of [].constructor(weekDays); let i = index">
     <app-workout-day-accordion
+      [exercises]="exercises"
       [weekDay]="i + 1"
       (gridReady)="onGridReady($event)"
     ></app-workout-day-accordion>

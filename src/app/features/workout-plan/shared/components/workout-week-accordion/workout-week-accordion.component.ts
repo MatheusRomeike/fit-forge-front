@@ -8,6 +8,7 @@ import { faEllipsis, faPlus } from '@fortawesome/free-solid-svg-icons';
   standalone: false,
 })
 export class WorkoutWeekAccordionComponent {
+  @Input() exercises: any[];
   @Input() weekNumber: number;
   weekDays = 1;
   @Output() gridReady = new EventEmitter<{ event: any; weekDay: number }>();

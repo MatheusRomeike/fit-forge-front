@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AgGridModule } from 'ag-grid-angular';
 import { NgxLoadingModule } from 'ngx-loading';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { AgGridAutoComplete } from './components/ag-grid-auto-complete/ag-grid-auto-complete.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { IconDropdownComponent } from './components/icon-dropdown/icon-dropdown.component';
 import { InputImageComponent } from './components/input-image/input-image.component';
@@ -22,6 +23,7 @@ import { ScrollDirective } from './directives/scroll.directive';
     LoadingComponent,
     InputImageComponent,
     IconDropdownComponent,
+    AgGridAutoComplete,
   ],
   imports: [
     CommonModule,
@@ -48,6 +50,7 @@ import { ScrollDirective } from './directives/scroll.directive';
     IconDropdownComponent,
     AgGridModule,
     ScrollDirective,
+    AgGridAutoComplete,
   ],
 })
 export class SharedModule {}

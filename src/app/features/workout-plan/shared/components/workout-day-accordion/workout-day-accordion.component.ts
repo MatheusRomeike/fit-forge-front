@@ -7,9 +7,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   standalone: false,
 })
 export class WorkoutDayAccordionComponent {
-  @Output() gridReady = new EventEmitter<{ event: any; weekDay: number }>();
-
+  @Input() exercises: any[];
   @Input() weekDay: number;
+  @Output() gridReady = new EventEmitter<{ event: any; weekDay: number }>();
 
   onGridReady(event: any) {
     this.gridReady.emit(event);

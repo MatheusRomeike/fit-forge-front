@@ -15,6 +15,8 @@ import type {
   IsFullWidthRowParams,
   RowHeightParams,
 } from 'ag-grid-community';
+import { AgGridAutoComplete } from '../../../../../shared/components/ag-grid-auto-complete/ag-grid-auto-complete.component';
+import { ExerciseService } from '../../../../../shared/services/exercise.service';
 import { TableActionsComponent } from '../table-actions/table-actions.component';
 import { WorkoutSetTableComponent } from '../workout-set-table/workout-set-table.component';
 
@@ -26,12 +28,14 @@ import { WorkoutSetTableComponent } from '../workout-set-table/workout-set-table
 })
 export class WorkoutDayTableComponent {
   @ViewChild('grid') grid: AgGridAngular;
+  @Input() exercises: any[] = [];
   @Input() weekDay: number;
   @Output() gridReady = new EventEmitter<{ event: any; weekDay: number }>();
 
-  constructor(private translateService: TranslateService) {}
-
-  exercises: [];
+  constructor(
+    private translateService: TranslateService,
+    private exerciseService: ExerciseService
+  ) {}
 
   faPlus = faPlus;
 
@@ -50,6 +54,21 @@ export class WorkoutDayTableComponent {
         flex: 1,
         wrapText: true,
         autoHeight: true,
+
+        cellEditor: AgGridAutoComplete,
+        cellEditorParams: {
+          propertyRendered: 'value',
+          returnObject: true,
+          headerHeight: 0,
+          rowData: this.getExercises.bind(this),
+          columnDefs: [
+            { headerName: 'Exercise', field: 'value', filter: true },
+          ],
+        },
+        valueFormatter: (params) => {
+          if (params.value) return params.value.value;
+          return '';
+        },
       },
       {
         field: 'sets',
@@ -155,6 +174,10 @@ export class WorkoutDayTableComponent {
 
   WorkoutSetTableComponent = WorkoutSetTableComponent;
 
+  getExercises() {
+    return this.exercises;
+  }
+
   addExercise() {
     // Encontra o maior ID para incrementar
     const newId = this.grid.api.getDisplayedRowCount() + 1;
@@ -162,7 +185,7 @@ export class WorkoutDayTableComponent {
     // Define os dados padrão para o novo exercício
     const newExercise = {
       id: newId,
-      exercise: `New Exercise - ${newId}`,
+      exercise: ``,
       sets: 1,
       reps: '-',
       intesity: '-',

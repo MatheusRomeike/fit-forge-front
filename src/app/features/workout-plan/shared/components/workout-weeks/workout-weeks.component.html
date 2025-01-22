@@ -8,8 +8,9 @@
     *ngFor="let week of [].constructor(weeks); let i = index"
   >
     <app-workout-week-accordion
-      (gridReady)="onGridReady($event, i)"
+      [exercises]="exercises"
       [weekNumber]="i + 1"
+      (gridReady)="onGridReady($event, i)"
     ></app-workout-week-accordion>
   </div>
 </div>
